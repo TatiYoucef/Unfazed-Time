@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { GearsComponent } from "../../components/gears/gears.component";
 
 @Component({
   selector: 'app-clock-tower',
   standalone: true,
-  imports: [],
+  imports: [GearsComponent],
   templateUrl: './clock-tower.component.html',
   styleUrl: './clock-tower.component.css'
 })
@@ -34,6 +35,8 @@ export class ClockTowerComponent implements OnInit{
 
  emptyList = Array<number>(59);
 
+ tickSound = new Audio('../../../assets/Sounds/TickSound.mp4')
+
   ngOnInit(): void {
     for (let i = 1; i < 60; i++) {
       
@@ -44,7 +47,6 @@ export class ClockTowerComponent implements OnInit{
   }
 
   clock() {
-    
 
     setTimeout(() => { 
       this.clock()
@@ -65,7 +67,7 @@ export class ClockTowerComponent implements OnInit{
 
     this.day = this.weekday[this.d.getDay()];
 
-
+    this.tickSound.play();
   }
 
 }

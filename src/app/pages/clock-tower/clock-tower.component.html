@@ -1,23 +1,30 @@
-<div class="clock">
-  <div>
-    <div class="info date"> {{date+"/"+month+"/"+year}} </div>
-    <div class="info day">{{day}}</div>
-  </div>
-  <div class="dot"></div>
-  <div>
-    <div class="hour-hand" [style.transform]="'rotate(' + hDeg + 'deg)'"></div>
-    <div class="minute-hand" [style.transform]="'rotate(' + mDeg + 'deg)'"></div>
-    <div class="second-hand" [style.transform]="'rotate(' + sDeg + 'deg)'"></div>
-  </div>
-  <div>
-    <span class="h3">3</span>
-    <span class="h6">6</span>
-    <span class="h9">9</span>
-    <span class="h12">12</span>
+<div class="center-div">
+
+  <div class="clock">
+    <div>
+      <div class="info date"> {{date+"/"+month+"/"+year}} </div>
+      <div class="info day">{{day}}</div>
+    </div>
+    <div class="dot"></div>
+    <div>
+      <div class="hour-hand" [style.transform]="'rotate(' + hDeg + 'deg)'"></div>
+      <div class="minute-hand" [style.transform]="'rotate(' + mDeg + 'deg)'"></div>
+      <div class="second-hand" [style.transform]="'rotate(' + sDeg + 'deg)'"></div>
+    </div>
+    <div>
+      <span class="h3">3</span>
+      <span class="h6">6</span>
+      <span class="h9">9</span>
+      <span class="h12">12</span>
+    </div>
+  
+    @for (item of emptyList; track item){
+      <div class='diallines' [style.transform]="'rotate(' + 6 * item + 'deg)'"></div>
+    }
+    
   </div>
 
-  @for (item of emptyList; track item){
-    <div class='diallines' [style.transform]="'rotate(' + 6 * item + 'deg)'"></div>
-  }
-  
+  <app-gears />
+
 </div>
+

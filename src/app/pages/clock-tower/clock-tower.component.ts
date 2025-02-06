@@ -35,9 +35,13 @@ export class ClockTowerComponent implements OnInit{
 
  emptyList = Array<number>(59);
 
- tickSound = new Audio('../../../assets/Sounds/TickSound.mp4')
+ tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
+ entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
 
   ngOnInit(): void {
+
+    this.entrySound.play();
+
     for (let i = 1; i < 60; i++) {
       
       this.emptyList[i] = i;

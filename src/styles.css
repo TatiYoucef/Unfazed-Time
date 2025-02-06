@@ -4,8 +4,8 @@ html, body {
   font-family: "Quicksand";
   margin: 0;
   padding: 0;
-  height: 100%;
   scrollbar-width: none;
+  overflow-x: hidden;
 }
 
 * {

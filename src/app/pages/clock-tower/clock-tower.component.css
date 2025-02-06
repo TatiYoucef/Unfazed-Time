@@ -2,14 +2,38 @@
 
 .center-div{
   margin: 0;
-  padding-top: 50px;
+  padding-top: 20px;
   background-color: black;
   width: 100vw;
-  height: 100vh;
+  height: 500vh;
   display: flex;
   flex-direction:column ;
   justify-content: start;
   align-items: center ;
+  position: relative;
+  
+}
+
+h1{
+  background-color: transparent;
+  font-size: 100px;
+  padding: 0 50px ;
+  border-radius: 10%;
+  animation: expand 5s forwards;
+}
+
+@keyframes expand {
+  from {
+    font-size: 80px;
+    color: transparent;
+    background-color: transparent;
+  }
+  to {
+    font-size: 100px;
+    color: black;
+    background-color: white;
+
+  }
 }
 
 .clock {
@@ -19,7 +43,8 @@
   border-radius: 50%;
   border: 14px solid white;
   position: relative;
-  box-shadow: 0 2vw 4vw -1vw rgba(0,0,0,0.8);
+  box-shadow: 0 2vw 4vw 1vw rgba(0,0,0,0.8);
+
 }
 
 .dot {

@@ -35,19 +35,44 @@ export class ClockTowerComponent implements OnInit{
 
  emptyList = Array<number>(59);
 
+ isEntered = false;
+ isUnlocked = false; 
+
  tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
  entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
+ rainStorm = new Audio('../../../assets/Sounds/RainStorm.mp4');
+ woodC1 = new Audio('../../../assets/Sounds/WoodCreak1.mp4');
+ woodC2 = new Audio('../../../assets/Sounds/WoodCreak2.mp4');
+ suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
+ openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
+
+  onHover(){
+    this.suspense.play()
+  }
+
+  onLeave(){
+    this.suspense.pause();
+    this.suspense.currentTime = 0;
+  }
+
+  openDoor(){
+    this.suspense.pause();
+    this.suspense.currentTime = 0;
+    
+    this.isEntered = true;
+    this.entrySound.play();
+    this.rainStorm.loop = true;
+    this.rainStorm.play();
+    this.clock();
+  }
 
   ngOnInit(): void {
-
-    this.entrySound.play();
 
     for (let i = 1; i < 60; i++) {
       
       this.emptyList[i] = i;
       
     }
-    this.clock();
   }
 
   clock() {
@@ -72,6 +97,9 @@ export class ClockTowerComponent implements OnInit{
     this.day = this.weekday[this.d.getDay()];
 
     this.tickSound.play();
+
+    if(this.s == 0) this.woodC1.play();
+    if(this.s == 30) this.woodC2.play();
   }
 
 }

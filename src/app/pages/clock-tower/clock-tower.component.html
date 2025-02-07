@@ -1,40 +1,82 @@
-<div class="center-div">
-  <app-gears [fontSize] = "200" right="20" top="120" [margin]="1"/>
 
-  <h1>잊혀진 시계</h1>
+@if (isEntered) {
 
-  <div class="center-div" style="width: 500px; height: 350px; padding: 0;">
+  @defer () {
 
-    <app-gears [fontSize] = "60" right="100" top="20" [margin]="0"/>
-    <app-gears [fontSize] = "24" right="250" top="220" [margin]="-1"/>
-
-    <div class="clock">
-
-      <div>
-        <div class="info date"> {{date+"/"+month+"/"+year}} </div>
-        <div class="info day">{{day}}</div>
-      </div>
-  
-      <div class="dot"></div>
-      <div>
-        <div class="hour-hand" [style.transform]="'rotate(' + hDeg + 'deg)'"></div>
-        <div class="minute-hand" [style.transform]="'rotate(' + mDeg + 'deg)'"></div>
-        <div class="second-hand" [style.transform]="'rotate(' + sDeg + 'deg)'"></div>
-      </div>
-      <div>
-        <span class="h3">3</span>
-        <span class="h6">6</span>
-        <span class="h9">9</span>
-        <span class="h12">12</span>
+    <div class="center-div">
+      <app-gears [fontSize] = "200" right="20" top="120" [margin]="1"/>
+    
+      <h1>잊혀진 시계</h1>
+    
+      <div class="center-div" style="width: 500px; height: 350px; padding: 0;">
+    
+        <app-gears [fontSize] = "60" right="100" top="20" [margin]="0"/>
+        <app-gears [fontSize] = "24" right="250" top="220" [margin]="-1"/>
+    
+        <div class="clock">
+    
+          <div>
+            <div class="info date"> {{date+"/"+month+"/"+year}} </div>
+            <div class="info day">{{day}}</div>
+          </div>
+      
+          <div class="dot"></div>
+          <div>
+            <div class="hour-hand" [style.transform]="'rotate(' + hDeg + 'deg)'"></div>
+            <div class="minute-hand" [style.transform]="'rotate(' + mDeg + 'deg)'"></div>
+            <div class="second-hand" [style.transform]="'rotate(' + sDeg + 'deg)'"></div>
+          </div>
+          <div>
+            <span class="h3">3</span>
+            <span class="h6">6</span>
+            <span class="h9">9</span>
+            <span class="h12">12</span>
+          </div>
+        
+          @for (item of emptyList; track item){
+            <div class='diallines' [style.transform]="'rotate(' + 6 * item + 'deg)'"></div>
+          }
+          
+        </div>
+    
       </div>
     
-      @for (item of emptyList; track item){
-        <div class='diallines' [style.transform]="'rotate(' + 6 * item + 'deg)'"></div>
-      }
-      
+      <h2>고대 스크립트</h2>
+    
+      <h3>
+        아주 먼 옛날부터...<br/>
+        옛날 옛적에 세 형제가 시간을 초월한 세상을 여행하고 있었습니다.<br/>
+        형제들은 자신들이 가장 좋아하는 장소에 가고 싶어했습니다.<br/>
+        남동생은 북동쪽으로 가서 거기서 여행을 마쳤습니다.<br/>
+        나머지 두 명은 남동생을 따라가고 싶어했습니다.<br/>
+        그러나 현장은 다른 두 형제에게 같은 판단을 내리지 않았다.<br/>
+        그래서 그들은 동생과 똑같은 치료를 받으려고 다른 곳으로 갔습니다.<br/>
+        그들은 그 장소를 발견했고, 거기서 여행을 끝냈습니다.<br/>
+        남매의 여행이 끝난 뒤, 잠깐의 시간 속에서 그들은 저 멀리 고요한 '공간'의 소리를 들었다.<br/>
+        형제들은 그들의 부름을 우아하게 들었고, 그 소리를 준 시간 여행자에게 축복을 전했습니다.<br/>
+      </h3>
+    
     </div>
-  
+
+  } @loading ( minimum 3s){
+    <div class="center-div" style="height: 100vh;">
+
+    </div>
+  }
+
+} @else {
+
+  <div class="center-div" style="height: 100vh;">
+
+    @if (isUnlocked) {
+      <p>You take a breath, to enter...</p>
+      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">Open the door</button>
+    } @else {
+      <p>You reached a mysterious tower...</p>
+      <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;">Remove the old Lock</button>
+    }
+
   </div>
 
-</div>
+}
 

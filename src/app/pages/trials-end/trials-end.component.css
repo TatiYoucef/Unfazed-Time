@@ -14,7 +14,7 @@
 }
 
 p{ 
-  margin: 200px 50px; 
+  margin: 20px 50px; 
   margin-bottom: 50px;
   text-align: center;
   font-size: 50px;
@@ -24,6 +24,7 @@ p{
 }
 
 button{
+  margin-top: 50px;
   font-size: 30px;
   padding: 10px 50px ;
   border-radius: 12px;
@@ -47,25 +48,29 @@ button:hover{
   75% { transform: translateX(-5px); }
 }
 
-h1{
-  background-color: transparent;
-  font-size: 100px;
-  padding: 0 50px ;
-  border-radius: 10%;
+img{
+  width: 500px;
   animation: expand 5s forwards;
 }
 
 @keyframes expand {
   from {
-    font-size: 80px;
-    color: transparent;
-    background-color: transparent;
+    opacity: 0;
+    transform: scale(1);
   }
   to {
-    font-size: 100px;
-    color: black;
-    background-color: white;
+    opacity: 1;
+    transform: scale(1.5);
+  }
 
+}
+
+@keyframes expand2 {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: white;
   }
 }
 
@@ -81,4 +86,157 @@ h3{
   padding: 0 30px;
   font-size: 40px;
   text-align: center;
+}
+
+.clock {
+  background: radial-gradient(circle, rgb(152, 152, 152), black);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 14px solid white;
+  position: relative;
+  box-shadow: 0 2vw 4vw 1vw rgba(0,0,0,0.8);
+
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgb(218, 0, 218);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 0 2px 4px -1px black;
+}
+
+.hour-hand {
+  position: absolute;
+  z-index: 5;
+  width: 4px;
+  height: 65px;
+  background: white;
+  top: 79px;
+  transform-origin: 50% 72px;
+  left: 50%;
+  margin-left: -2px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  box-shadow: 0 2px 4px -1px black;
+
+}
+
+.minute-hand {
+  position: absolute;
+  z-index: 6;
+  width: 4px;
+  height: 100px;
+  background: white;
+  top: 46px;
+  left: 50%;
+  margin-left: -2px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: 50% 105px;
+  box-shadow: 0 2px 4px -1px black;
+
+}
+
+.second-hand {
+  position: absolute;
+  z-index: 7;
+  width: 2px;
+  height: 120px;
+  background: rgb(218, 0, 218);
+  top: 26px;
+  lefT: 50%;
+  margin-left: -1px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: 50% 125px;
+  box-shadow: 0 2px 4px 0px black;
+
+}
+
+span {
+  display: inline-block;
+  position: absolute;
+  color: white;
+  font-size: 22px;
+  font-family: 'Poiret One';
+  font-weight: 700;
+  z-index: 4;
+}
+
+.h12 {
+  top: 30px;
+  left: 50%;
+  margin-left: -9px;
+}
+.h3 {
+  top: 140px;
+  right: 30px;
+}
+.h6 {
+  bottom: 30px;
+  left: 50%;
+  margin-left: -5px;
+}
+.h9 {
+  left: 32px;
+  top: 140px;
+}
+
+.diallines {
+  position: absolute;
+  z-index: 2;
+  width: 2px;
+  height: 15px;
+  background: white;
+  left: 50%;
+  margin-left: -1px;
+  transform-origin: 50% 150px;
+}
+.diallines:nth-of-type(5n) {
+  position: absolute;
+  z-index: 2;
+  width: 4px;
+  height: 25px;
+  background: white;
+  left: 50%;
+  margin-left: -1px;
+  transform-origin: 50% 150px;
+}
+
+.info {
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  border-radius: 7px;
+  background: rgb(218, 0, 218);
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  font-size: 13px;
+  top: 200px;
+  left: 50%;
+  margin-left: -60px;
+  font-family: "Poiret One";
+  font-weight: 700;
+  z-index: 3;
+  letter-spacing: 3px;
+  margin-left: -60px;
+  left: 50%;
+  box-shadow: 0 2px 4px -1px black;
+
+}
+.date {
+  top: 80px;
+}
+.day {
+  top: 200px;
 }

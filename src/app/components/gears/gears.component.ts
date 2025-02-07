@@ -13,5 +13,6 @@ export class GearsComponent {
   @Input() right = '0';
   @Input() fontSize = 30;
   @Input() margin = 0;
+  @Input() left = '0' ;
 
 }

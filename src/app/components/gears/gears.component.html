@@ -1,8 +1,22 @@
-<div class="gears-container" 
-  [style.fontSize] = " fontSize + 'px'"
-  [style.top] = "top + 'px'"
-  [style.right] = "right + 'px'">
 
-  <div class="gear-rotate" [style.marginTop]="margin + 'em'" [style.marginLeft]="margin + 'em'"></div>
-  <div class="gear-rotate-left"></div>
-</div>
+@if (left === '0') {
+
+  <div class="gears-container" 
+    [style.fontSize] = " fontSize + 'px'"
+    [style.top] = "top + 'px'"
+    [style.right] = "right + 'px'">
+
+    <div class="gear-rotate" [style.marginTop]="margin + 'em'" [style.marginLeft]="margin + 'em'"></div>
+    <div class="gear-rotate-left"></div>
+  </div>
+
+} @else {
+  <div class="gears-container" 
+    [style.fontSize] = " fontSize + 'px'"
+    [style.top] = "top + 'px'"
+    [style.left] = "left + 'px'">
+
+    <div class="gear-rotate" [style.marginTop]="margin + 'em'" [style.marginLeft]="margin + 'em'"></div>
+    <div class="gear-rotate-left"></div>
+  </div>
+}

@@ -20,4 +20,13 @@ export const routes: Routes = [
     }
   },
 
+  {
+    path :'trial' , //Hash(141414 Blessing)
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/trials-end/trials-end.component");
+      return m.TrialsEndComponent;
+    }
+  },
+
 ];

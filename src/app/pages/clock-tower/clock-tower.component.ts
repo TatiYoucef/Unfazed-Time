@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { GearsComponent } from "../../components/gears/gears.component";
 
 @Component({
@@ -6,7 +6,8 @@ import { GearsComponent } from "../../components/gears/gears.component";
   standalone: true,
   imports: [GearsComponent],
   templateUrl: './clock-tower.component.html',
-  styleUrl: './clock-tower.component.css'
+  styleUrl: './clock-tower.component.css',
+
 })
 export class ClockTowerComponent implements OnInit{
 
@@ -45,6 +46,7 @@ export class ClockTowerComponent implements OnInit{
  woodC2 = new Audio('../../../assets/Sounds/WoodCreak2.mp4');
  suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
  openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
+ openDoorSound= new Audio('../../../assets/Sounds/OpenDoor.mp4');
 
   onHover(){
     this.suspense.play()
@@ -58,12 +60,17 @@ export class ClockTowerComponent implements OnInit{
   openDoor(){
     this.suspense.pause();
     this.suspense.currentTime = 0;
-    
+    this.openDoorSound.play();
     this.isEntered = true;
-    this.entrySound.play();
-    this.rainStorm.loop = true;
-    this.rainStorm.play();
-    this.clock();
+
+    setTimeout(() => { 
+      this.entrySound.play();
+      this.rainStorm.loop = true;
+      this.rainStorm.play();
+      this.clock();
+    },
+    3000);
+
   }
 
   ngOnInit(): void {
@@ -93,13 +100,22 @@ export class ClockTowerComponent implements OnInit{
     this.hDeg = this.h * 30 + this.m * (360/720);
     this.mDeg = this.m * 6 + this.s * (360/3600);
     this.sDeg = this.s * 6;
-
     this.day = this.weekday[this.d.getDay()];
 
     this.tickSound.play();
 
     if(this.s == 0) this.woodC1.play();
     if(this.s == 30) this.woodC2.play();
+  }
+
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+
+    if (event.key === ' ' && this.isEntered && this.h === 14 && this.m === 14 && this.s === 14) {
+      console.log('Puzzle solved');
+    }
+    event.preventDefault(); // Prevent scrolling when pressing space
   }
 
 }

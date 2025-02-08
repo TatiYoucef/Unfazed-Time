@@ -4,9 +4,9 @@
 
     <div class="center-div" style="height: 100vh;">
 
-      <p>You obtained:</p>
-      <img src="../../../assets/Images/Load.png">
-      <button style="animation: none;">Obtain Key</button>
+      <p style="margin-bottom: 10px;" class="surprise">당신은 다음을 얻었습니다:</p>
+      <img *ngIf="imageLoaded" [src]="imageUrl">
+      <button class="surprise">키 획득</button>
 
     </div>
 
@@ -21,7 +21,7 @@
 
   <div class="center-div" style="height: 200vh;">
 
-    <p>You heard a click inside the clock</p>
+    <p>당신은 시계 안에서 딸깍거리는 소리를 들었습니다...</p>
 
     <div class="clock">
     
@@ -49,7 +49,7 @@
       
     </div>
 
-    <button (click)="OpenClock()">Open the Clock</button>
+    <button (click)="OpenClock()">클루크를 열어라</button>
 
 
   </div>

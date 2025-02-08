@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-trials-end',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './trials-end.component.html',
   styleUrl: './trials-end.component.css'
 })
@@ -20,7 +22,17 @@ export class TrialsEndComponent implements OnInit {
   openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
   keyObtainedSound = new Audio('../../../assets/Sounds/KeyGotten.mp4');
 
+  imageLoaded = false;
+  imageUrl = "../../../assets/Images/KeyOfTrial.png";
+
   ngOnInit(): void {
+
+    const img = new Image();
+    img.src = this.imageUrl;
+    img.onload = () => {
+      this.imageLoaded = true;
+    };
+  
 
     for (let i = 1; i < 60; i++) {
       this.emptyList[i] = i;
@@ -35,7 +47,7 @@ export class TrialsEndComponent implements OnInit {
     setTimeout(() => { 
       this.keyObtainedSound.play();
     },
-    3000);
+    4000);
 
   }
 

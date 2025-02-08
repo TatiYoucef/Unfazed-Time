@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { GearsComponent } from "../../components/gears/gears.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clock-tower',
@@ -36,6 +37,7 @@ export class ClockTowerComponent implements OnInit{
 
  emptyList = Array<number>(59);
 
+ isSolved = false;
  isEntered = false;
  isUnlocked = false; 
 
@@ -47,6 +49,10 @@ export class ClockTowerComponent implements OnInit{
  suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
  openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
  openDoorSound= new Audio('../../../assets/Sounds/OpenDoor.mp4');
+ solvedSound= new Audio('../../../assets/Sounds/PuzzleSolved.mp4');
+ clickSound= new Audio('../../../assets/Sounds/Click.wav');
+
+ router = inject(Router);
 
   onHover(){
     this.suspense.play()
@@ -85,7 +91,7 @@ export class ClockTowerComponent implements OnInit{
   clock() {
 
     setTimeout(() => { 
-      this.clock()
+      if(!this.isSolved) this.clock();
     },
     1000);
 
@@ -113,7 +119,16 @@ export class ClockTowerComponent implements OnInit{
   handleKeyDown(event: KeyboardEvent) {
 
     if (event.key === ' ' && this.isEntered && this.h === 14 && this.m === 14 && this.s === 14) {
-      console.log('Puzzle solved');
+      this.isSolved = true;
+      this.solvedSound.play();
+      this.rainStorm.pause();
+
+      setTimeout(() => { 
+        this.clickSound.play();
+        this.router.navigate(['trial']);
+      },
+      4000);
+
     }
     event.preventDefault(); // Prevent scrolling when pressing space
   }

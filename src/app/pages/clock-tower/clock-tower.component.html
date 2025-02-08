@@ -71,11 +71,11 @@
   <div class="center-div" style="height: 100vh;">
 
     @if (isUnlocked) {
-      <p>You take a breath, to enter...</p>
-      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">Open the door</button>
+      <p>너 숨 좀 쉬고 들어가라...</p>
+      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">문을 열어</button>
     } @else {
-      <p>You reached a mysterious tower...</p>
-      <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;">Remove the old Lock</button>
+      <p>당신은 신비한 탑에 도달했습니다...</p>
+      <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;">오래된 자물쇠를 제거하십시오</button>
     }
 
   </div>

@@ -1,11 +1,13 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { GearsComponent } from "../../components/gears/gears.component";
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-clock-tower',
   standalone: true,
-  imports: [GearsComponent],
+  imports: [GearsComponent, FormsModule],
   templateUrl: './clock-tower.component.html',
   styleUrl: './clock-tower.component.css',
 
@@ -13,13 +15,13 @@ import { Router } from '@angular/router';
 export class ClockTowerComponent implements OnInit{
 
   weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
+    "일요일",
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일"
   ];
 
   d = new Date() ;
@@ -35,24 +37,51 @@ export class ClockTowerComponent implements OnInit{
   mDeg = this.m * 6 + this.s * (360/3600);
   sDeg = this.s * 6;
 
- emptyList = Array<number>(59);
+  emptyList = Array<number>(59);
 
- isSolved = false;
- isEntered = false;
- isUnlocked = false; 
+  isSolved = false;
+  isEntered = false;
+  isUnlocked = false; 
 
- tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
- entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
- rainStorm = new Audio('../../../assets/Sounds/RainStorm.mp4');
- woodC1 = new Audio('../../../assets/Sounds/WoodCreak1.mp4');
- woodC2 = new Audio('../../../assets/Sounds/WoodCreak2.mp4');
- suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
- openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
- openDoorSound= new Audio('../../../assets/Sounds/OpenDoor.mp4');
- solvedSound= new Audio('../../../assets/Sounds/PuzzleSolved.mp4');
- clickSound= new Audio('../../../assets/Sounds/Click.wav');
+  tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
+  entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
+  rainStorm = new Audio('../../../assets/Sounds/RainStorm.mp4');
+  woodC1 = new Audio('../../../assets/Sounds/WoodCreak1.mp4');
+  woodC2 = new Audio('../../../assets/Sounds/WoodCreak2.mp4');
+  suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
+  openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
+  openDoorSound= new Audio('../../../assets/Sounds/OpenDoor.mp4');
+  solvedSound= new Audio('../../../assets/Sounds/PuzzleSolved.mp4');
+  clickSound= new Audio('../../../assets/Sounds/Click.wav');
 
- router = inject(Router);
+  allowTicks = true;
+  allowRain = true;
+
+  RainToggled(){
+    this.allowRain = !this.allowRain;
+
+    if(this.allowRain) this.rainStorm.play();
+    else this.rainStorm.pause();
+  }
+
+  listMusics = Array<HTMLAudioElement>(0);
+  selectedOst = 0;
+
+  toggleOst(i:number){
+
+    if(this.selectedOst != 0){
+      this.listMusics[this.selectedOst-1].currentTime = 0;
+      this.listMusics[this.selectedOst-1].pause();
+    }
+
+    if(this.selectedOst != i+1){
+      this.selectedOst = i+1;
+      this.listMusics[i].play();
+    }else this.selectedOst = 0;
+
+  }
+
+  router = inject(Router);
 
   onHover(){
     this.suspense.play()
@@ -81,6 +110,18 @@ export class ClockTowerComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.listMusics.push(
+      new Audio('../../../assets/Sounds/LM3.mp4'),
+      new Audio('../../../assets/Sounds/OOT.mp4'),
+      new Audio('../../../assets/Sounds/GIOC.mp4'),
+    )
+
+    for (let i = 0; i < this.listMusics.length; i++) {
+      
+      this.listMusics[i].loop = true;
+      
+    }
+
     for (let i = 1; i < 60; i++) {
       
       this.emptyList[i] = i;
@@ -108,7 +149,7 @@ export class ClockTowerComponent implements OnInit{
     this.sDeg = this.s * 6;
     this.day = this.weekday[this.d.getDay()];
 
-    this.tickSound.play();
+    if(this.allowTicks) this.tickSound.play();
 
     if(this.s == 0) this.woodC1.play();
     if(this.s == 30) this.woodC2.play();
@@ -122,6 +163,7 @@ export class ClockTowerComponent implements OnInit{
       this.isSolved = true;
       this.solvedSound.play();
       this.rainStorm.pause();
+      if(this.selectedOst != 0) this.listMusics[this.selectedOst-1].pause();
 
       setTimeout(() => { 
         this.clickSound.play();
@@ -130,7 +172,9 @@ export class ClockTowerComponent implements OnInit{
       4000);
 
     }
-    event.preventDefault(); // Prevent scrolling when pressing space
+
+    if(event.key === ' ') event.preventDefault(); // Prevent scrolling when pressing space
+
   }
 
 }

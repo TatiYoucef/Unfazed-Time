@@ -57,7 +57,51 @@
         남매의 여행이 끝난 뒤, 잠깐의 시간 속에서 그들은 저 멀리 고요한 '공간'의 소리를 들었다.<br/>
         형제들은 그들의 부름을 우아하게 들었고, 그 소리를 준 시간 여행자에게 축복을 전했습니다.<br/>
       </h3>
-    
+
+      <h4>Sound effects:</h4>
+      
+      <div class="container">
+        <h5>Clock Ticks: </h5>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle1" class="toggle-input" [(ngModel)]="allowTicks">
+          <label for="toggle1" class="toggle-label"></label>
+        </div>
+      </div>
+
+      <div class="container">
+        <h5>Rain Sound: </h5>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle2" class="toggle-input" [checked]="true" (click)="RainToggled()">
+          <label for="toggle2" class="toggle-label"></label>
+        </div>
+      </div>
+
+      <h4>Musics :3 :</h4>
+
+      <div class="container">
+        <h5>Adventure: </h5>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle3" class="toggle-input" [checked]="!listMusics[0].paused" (click)="toggleOst(0)">
+          <label for="toggle3" class="toggle-label"></label>
+        </div>
+      </div>
+
+      <div class="container">
+        <h5>Mystery: </h5>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle4" class="toggle-input" [checked]="!listMusics[1].paused" (click)="toggleOst(1)">
+          <label for="toggle4" class="toggle-label"></label>
+        </div>
+      </div>
+
+      <div class="container">
+        <h5>Focusing and scrumbling thoughts: </h5>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle5" class="toggle-input" [checked]="!listMusics[2].paused" (click)="toggleOst(2)">
+          <label for="toggle5" class="toggle-label"></label>
+        </div>
+      </div>
+
     </div>
 
   } @loading ( minimum 3s){
@@ -71,11 +115,11 @@
   <div class="center-div" style="height: 100vh;">
 
     @if (isUnlocked) {
-      <p>너 숨 좀 쉬고 들어가라...</p>
-      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">문을 열어</button>
+      <p>You take a deep breath, to enter...</p>
+      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">Open the door</button>
     } @else {
-      <p>당신은 신비한 탑에 도달했습니다...</p>
-      <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;">오래된 자물쇠를 제거하십시오</button>
+      <p>You reached a mysterious old tower...</p>
+      <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;margin-bottom: 50px;">Remove old lock</button>
     }
 
   </div>

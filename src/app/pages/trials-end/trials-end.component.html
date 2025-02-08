@@ -2,11 +2,12 @@
 
   @defer () {
 
-    <div class="center-div" style="height: 100vh;">
+    <div class="center-div" style="height: 150vh;">
 
-      <p style="margin-bottom: 10px;" class="surprise">당신은 다음을 얻었습니다:</p>
+      <p style="margin-bottom: 10px;" class="surprise">You obtained:</p>
       <img *ngIf="imageLoaded" [src]="imageUrl">
-      <button class="surprise">키 획득</button>
+      <p style="margin-bottom: 10px;" class="surprise">Cinammon secret key !!</p>
+      <button class="surprise">Obtain item !</button>
 
     </div>
 
@@ -21,7 +22,7 @@
 
   <div class="center-div" style="height: 200vh;">
 
-    <p>당신은 시계 안에서 딸깍거리는 소리를 들었습니다...</p>
+    <p>You heard a click inside the clock...</p>
 
     <div class="clock">
     
@@ -49,7 +50,7 @@
       
     </div>
 
-    <button (click)="OpenClock()">클루크를 열어라</button>
+    <button (click)="OpenClock()">Open the clock</button>
 
 
   </div>

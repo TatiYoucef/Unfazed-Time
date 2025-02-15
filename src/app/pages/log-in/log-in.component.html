@@ -1,9 +1,60 @@
 
 @defer { <!--Defer is when component needs to load so we show something while loading-->
 
-  <h1>HELLO</h1>
+  <div class="center-div" style="background: #77cdf2; height: auto; justify-content: start; gap: 50px;padding-bottom: 50px;">
+
+    @if (isLoggedIn) {
+
+      <h1>Clock</h1>
+
+      <h1> {{h}}H {{m}}M {{s}}S </h1>
+
+      <div style="height: 70vh;"></div>
+
+    }@else {
+      <h1>Welcome to Cinammon's House !</h1>
+
+      <div class="card">
+        <h2>Note from Master of this place</h2>
+        <h3>
+          You are back home, YAAAAAAAY! I can't feel any prouder from you, YOUUU DID ITT!!! KJBKCJSJDUOYEVOLICBKSJDBC <br/><br/>
+
+          You took your time to read all the story, 
+          to scrap your head to understand different puzzles, 
+          to take your precious time to unveil many secrets, I cannot thank you enough for just doing this.<br/><br/>
+
+          I tried to make this Enigma a bit special to you, I designed everything to just for you, 
+          because I can't feel any happier to treasure you more than anyone if you don't mind.<br/><br/>
+          
+          So... THANK YOU SO MUCH, FROM BOTTOM OF MY HEART!!!<br/><br/>
+
+          And don't worry, a real reward for this struggle will come nchllh, it will be given when a certain event happens when you go to next page, hmmm... I wonder what it would be, hehe.<br/><br/>
+          
+          "You are the choosen one, the precious one, the one that made Master feels humbled when getting to know her"<br/><br/>
+
+          So be proud, I can't thank you enough, rebbi yjazik for everything nchllh.<br/><br/>
+          
+          I really don't know how will you react to this whole project, I sometimes feel anxious 
+          that you could sense it as exagerative, if you ever fear that it's so much what I did, know that I never felt
+          exciting each time I design something there. I also learnt many things cause of it, because as I said, nobody made me this 
+          motivated in life other than you, so I should thank you again here. I wrote this paragraph as a measure to let you know that I never regretted what 
+          I tried to do, and I really hope you did like it....I hope nchllh...<br/><br/> 
+
+          So yeah, I think that should be enough from my side to not cross anything risky, hhh. I hope you can enjoy now the aestethics of these pages (have you thought trying to hover on Cinammon, hmmm)<br/><br/>
+
+          Thank you so much for playing this autistic story !!!
+        </h3>
+
+      </div>
+
+      <button (click)="isLoggedIn = true">Touch me ._.</button>
+
+    }
+    
+    
+  </div>
   
-} @loading (minimum 100s) { <!--Nesstennaw minimum 4s besh naffichiw @defer-->
+} @loading (minimum 1s) {
   <div class="center-div">
     <app-loading-screen />
   </div>

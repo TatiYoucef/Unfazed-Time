@@ -1,15 +1,74 @@
 
 @defer { <!--Defer is when component needs to load so we show something while loading-->
 
-  <div class="center-div" style="background: #77cdf2; height: auto; justify-content: start; gap: 50px;padding-bottom: 50px;">
+  <div class="center-div" style="background: #77cdf2; height: auto; justify-content: start; gap: 50px;padding: 20px 50px;">
 
     @if (isLoggedIn) {
 
-      <h1>Clock</h1>
+      <h1 style="font-size: 80px; -webkit-text-stroke: 6px white; margin-bottom: -50px;">
+        <span>W</span>
+        <span>a</span>
+        <span>i</span>
+        <span>t</span>
+        <span>i</span>
+        <span>n</span>
+        <span>g</span>
+        <span>&nbsp;</span>
+        <span>R</span>
+        <span>o</span>
+        <span>o</span>
+        <span>m</span>
+      </h1>
 
-      <h1> {{h}}H {{m}}M {{s}}S </h1>
+      @if (!isClose) {
 
-      <div style="height: 70vh;"></div>
+        <h1 style="font-size: 70px; -webkit-text-stroke: 5px white;"> {{j}}J {{h}}H {{m}}M {{s}}S </h1>
+      
+      }@else {
+
+        <h1 class="animated-text"> {{j}}J {{h}}H {{m}}M {{s}}S </h1>
+
+      }
+
+      <h1 style="margin-right: auto;">Some osts to pass time:</h1>
+
+      <div class="horiz">
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle1" class="toggle-input" [checked]="!listMusics[0].paused" (click)="toggleOst(0)">
+          <label for="toggle1" class="toggle-label"></label>
+        </div>
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle2" class="toggle-input" [checked]="!listMusics[1].paused" (click)="toggleOst(1)">
+          <label for="toggle2" class="toggle-label"></label>
+        </div>
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle3" class="toggle-input" [checked]="!listMusics[2].paused" (click)="toggleOst(2)">
+          <label for="toggle3" class="toggle-label"></label>
+        </div>
+
+      </div>
+
+      <div class="horiz">
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle4" class="toggle-input" [checked]="!listMusics[3].paused" (click)="toggleOst(3)">
+          <label for="toggle4" class="toggle-label"></label>
+        </div>
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle5" class="toggle-input" [checked]="!listMusics[4].paused" (click)="toggleOst(4)">
+          <label for="toggle5" class="toggle-label"></label>
+        </div>
+
+        <div class="toggle-container">
+          <input type="checkbox" id="toggle6" class="toggle-input" [checked]="!listMusics[5].paused" (click)="toggleOst(5)">
+          <label for="toggle6" class="toggle-label"></label>
+        </div>
+
+      </div>
 
     }@else {
       <h1>Welcome to Cinammon's House !</h1>
@@ -47,7 +106,7 @@
 
       </div>
 
-      <button (click)="isLoggedIn = true">Touch me ._.</button>
+      <button (click)="goToWaitRoom()">main Room</button>
 
     }
     

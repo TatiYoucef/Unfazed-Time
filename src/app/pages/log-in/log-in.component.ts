@@ -15,9 +15,9 @@ export class LogInComponent implements OnInit{
   isDay = false;
   isClose = false
 
-  d = new Date().getTime() ; //current date
-  dCh = new Date(2025,3,10,0,0,0,0).getTime(); //Buyel Date
-  //dCh = new Date(2025,1,15,19,29,0,0).getTime(); //Buyel Date
+  d = Math.floor(new Date().getTime() / 1000); //current date
+  //dCh = Math.floor(new Date(2025,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
+  dCh = new Date(2025,1,17,7,46,0,0).getTime() / 1000; //Buyel Date
 
   j!:number
   h!:number;
@@ -40,34 +40,32 @@ export class LogInComponent implements OnInit{
     for (let i = 0; i < this.listMusics.length; i++) this.listMusics[i].loop = true;
     this.listMusics[this.listMusics.length - 1].loop = false;
 
-    this.checkTime();
     this.clock();
 
   }
 
-  checkTime(){
+  clock(){
 
     setTimeout(() => { 
-      this.checkTime();
+
+      if(!this.isDay) this.clock();
+
     },
-    1000*10);
+    1000);
 
-    console.log("CHEKC");
-
-    this.d = new Date().getTime() ; //current date
+    this.d = Math.floor(new Date().getTime() / 1000); //current date
+    console.log(this.d);
 
     if(this.d - 24*3600*1000 > this.dCh){ //Day has finished
 
       this.isGone = true
 
-    }else if(this.d - this.dCh < 24*3600*1000 && this.d - this.dCh > 0){ //In the day
+    }else if(this.d - this.dCh <= 24*3600*1000 && this.d - this.dCh >= 0){ //In the day
 
+      this.listMusics[this.listMusics.length - 1].pause();
       this.isDay = true;
 
     } else { //waiting
-
-      this.d = this.d / 1000;
-      this.dCh = this.dCh / 1000;
 
       let diff = this.dCh - this.d;
 
@@ -82,38 +80,11 @@ export class LogInComponent implements OnInit{
 
       this.s = Math.floor(diff);
 
-    }
-
-  }
-
-  clock(){
-
-    setTimeout(() => { 
-      this.clock();
-    },
-    1000);
-
-    this.s--;
-
-    if(this.s < 0){
-
-      this.m--;
-      this.s = 59;
-
-      if(this.m < 0){
-        this.h--;
-        this.m = 59;
-
-        if(this.h < 0){
-          this.j--;
-          this.h = 23;
-        }
+      if(this.j === 0 && this.h === 0 && this.m <=1 && this.s <= 27 && !this.isClose && this.isLoggedIn){
+        this.toggleOst(this.listMusics.length - 1);
+        this.isClose = true
       }
-    }
 
-    if(this.j === 0 && this.h === 0 && this.m <=1 && this.s <= 27 && !this.isClose && this.isLoggedIn){
-      this.toggleOst(this.listMusics.length - 1);
-      this.isClose = true
     }
 
   }

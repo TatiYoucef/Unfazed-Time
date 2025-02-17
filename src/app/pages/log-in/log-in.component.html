@@ -3,7 +3,7 @@
 
   <div class="center-div" style="background: #77cdf2; height: auto; justify-content: start; gap: 50px;padding: 20px 50px;">
 
-    @if (isLoggedIn) {
+    @if (isLoggedIn){
 
       <h1 style="font-size: 80px; -webkit-text-stroke: 6px white; margin-bottom: -50px;">
         <span>W</span>
@@ -22,11 +22,21 @@
 
       @if (!isClose) {
 
-        <h1 style="font-size: 70px; -webkit-text-stroke: 5px white;"> {{j}}J {{h}}H {{m}}M {{s}}S </h1>
+        <h1 style="font-size: 70px; -webkit-text-stroke: 5px white;"> 
+          <span style="animation: none;" [style.color]="j === 14 ? '#ea50d3':'#4cb4f0'">{{j}}J</span>&nbsp;
+          <span style="animation: none;" [style.color]="h === 14 ? '#ea50d3':'#4cb4f0'">{{h}}H</span>&nbsp;
+          <span style="animation: none;" [style.color]="m === 14 ? '#ea50d3':'#4cb4f0'">{{m}}M</span>&nbsp;
+          <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
+        </h1>
       
       }@else {
 
-        <h1 class="animated-text"> {{j}}J {{h}}H {{m}}M {{s}}S </h1>
+        <h1 class="animated-text">
+          <span style="animation: none;" [style.color]="j === 14 ? '#ea50d3':'#4cb4f0'">{{j}}J</span>&nbsp;
+          <span style="animation: none;" [style.color]="h === 14 ? '#ea50d3':'#4cb4f0'">{{h}}H</span>&nbsp;
+          <span style="animation: none;" [style.color]="m === 14 ? '#ea50d3':'#4cb4f0'">{{m}}M</span>&nbsp;
+          <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
+        </h1>
 
       }
 

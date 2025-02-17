@@ -29,4 +29,22 @@ export const routes: Routes = [
     }
   },
 
+  {
+    path :'inDay' , //Hash(21)
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/on-day/on-day.component");
+      return m.OnDayComponent;
+    }
+  },
+
+  {
+    path :'afterDay' , //Hash(future)
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/on-after/on-after.component");
+      return m.OnAfterComponent;
+    }
+  },
+
 ];

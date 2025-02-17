@@ -1,0 +1,86 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #0082cd, #b0daec, #d1ebf6, #f6d4e3);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Base circle style */
+.shape {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2vw 4vw 0.5vw rgba(0,0,0,0.8);
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+/* Heart shape and heartbeat animation on hover */
+.shape:hover {
+  /* Morph circle into heart by removing border-radius and rotating */
+  border-radius: 0;
+  transform: rotate(-45deg);
+  background-color: blueviolet;
+  animation: heartbeat 1s infinite;
+}
+
+/* Create the two top circles for the heart */
+.shape:hover::before,
+.shape:hover::after {
+  content: '';
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  border-radius: 50%;
+  position: absolute;
+  animation: appear 0.5s ease-in-out forwards;
+
+}
+
+/* Animate from scale(0) to scale(1) without shifting position */
+@keyframes appear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Position the pseudo-elements to form a heart */
+.shape:hover::before {
+  top: -50px;
+  background-color: blueviolet;
+  left: 0;
+}
+
+.shape:hover::after {
+  top: 0;
+  left: 50px;
+  background-color: blueviolet;
+
+}
+
+/* Heartbeat keyframes - combine scaling with the constant rotation */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+}

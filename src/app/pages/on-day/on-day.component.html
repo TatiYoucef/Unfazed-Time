@@ -1,14 +1,52 @@
 @defer () {
 
-  <div class="center-div" style="animation: none;">
+  @if (isrevealed) {
 
-    <div class="heart-container">
-      <div class="shape">
-      </div>
+    <div class="center-div" style="animation: none; justify-content: start; height: 150vh;">
+      
+      <h2>
+
+        <span>You</span>&nbsp;
+        <span>have</span>&nbsp;
+        <span>been</span>&nbsp;
+        <span>leveled</span>&nbsp;
+        <span>up</span>&nbsp;
+        <span>to</span>&nbsp;
+             
+      </h2>
+
+      <h1>{{text}}</h1>
+
+      <h3>
+
+        <span>CONGRATULATIONS !!!</span>
+             
+      </h3>
+
+      <div style="height: 200px;"></div>
+
+      <img src="../../../assets/Images/cat.png" width="100px" style="left: 10% ;">
+      <img src="../../../assets/Images/buyel.png" width="200px" style="left: 25%;">
+      <img src="../../../assets/Images/pico.png" width="150px" style="right: 25%;">
+      <img src="../../../assets/Images/happyCina.png" height="300px" style="right: 0;">
+
     </div>
 
-    
-  </div>
+  } @else {
+
+    <div class="center-div" style="animation: none;" >
+
+      <div class="heart-container" (click)="heartClicked()">
+        <div class="shape">
+         </div>
+      </div>
+  
+      
+    </div>
+
+  }
+
+
 
 } @loading (minimum 1s) {
   <div class="center-div">

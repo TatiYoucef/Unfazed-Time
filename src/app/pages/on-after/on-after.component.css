@@ -1,0 +1,53 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #0082cd, #b0daec, #d1ebf6, #f6d4e3);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1{
+  font-size: 50px;
+  color: #4cb4f0;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px white; /* Border width and color */
+}
+
+img{
+  margin-top: 50px;
+  width: 200px;
+  transition: all 0.5s;
+}
+
+img:hover{
+  width: 250px;
+  animation: effect 1.5s ease-out infinite;
+}
+
+@keyframes effect{
+
+  0%,50%,100%{
+    transform: rotate(0deg);
+  }
+
+  25%{
+    transform: rotate(30deg);
+  }
+
+  75%{
+    transform: rotate(-30deg);
+  }
+
+}

@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -11,18 +12,19 @@ import { LoadingScreenComponent } from "../../components/loading-screen/loading-
 export class LogInComponent implements OnInit{
 
   isLoggedIn = false;
-  isGone = false;
   isDay = false;
   isClose = false
 
   d = Math.floor(new Date().getTime() / 1000); //current date
   //dCh = Math.floor(new Date(2025,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
-  dCh = new Date(2025,1,17,7,46,0,0).getTime() / 1000; //Buyel Date
+  dCh = new Date(2025,1,18,14,3,0,0).getTime() / 1000; //Buyel Date
 
   j!:number
   h!:number;
   m!:number;
   s!:number;
+
+  router = inject(Router);
 
   ngOnInit(): void {
 
@@ -58,12 +60,14 @@ export class LogInComponent implements OnInit{
 
     if(this.d - 24*3600*1000 > this.dCh){ //Day has finished
 
-      this.isGone = true
+      this.router.navigate(['afterDay'])
 
     }else if(this.d - this.dCh <= 24*3600*1000 && this.d - this.dCh >= 0){ //In the day
 
       this.listMusics[this.listMusics.length - 1].pause();
       this.isDay = true;
+      this.router.navigate(['inDay']);
+
 
     } else { //waiting
 

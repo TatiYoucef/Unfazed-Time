@@ -10,4 +10,25 @@ import { LoadingScreenComponent } from "../../components/loading-screen/loading-
 })
 export class OnDayComponent {
 
+  isrevealed = false;
+
+
+  revealSound = new Audio('../../../assets/Sounds/SSBU.mp3');
+  text="20";
+
+  heartClicked(){
+
+    this.isrevealed = true;
+    this.revealSound.play();
+
+    setTimeout(() => { 
+
+      this.text = "21"; //timeout
+
+    },
+    2000);
+
+
+  }
+
 }

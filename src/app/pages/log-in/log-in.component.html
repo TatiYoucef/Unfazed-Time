@@ -28,7 +28,49 @@
           <span style="animation: none;" [style.color]="m === 14 ? '#ea50d3':'#4cb4f0'">{{m}}M</span>&nbsp;
           <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
         </h1>
+
+        <h1 style="margin-right: auto;">Some osts to pass time:</h1>
+
+        <div class="horiz">
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle1" class="toggle-input" [checked]="!listMusics[0].paused" (click)="toggleOst(0)">
+            <label for="toggle1" class="toggle-label"></label>
+          </div>
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle2" class="toggle-input" [checked]="!listMusics[1].paused" (click)="toggleOst(1)">
+            <label for="toggle2" class="toggle-label"></label>
+          </div>
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle3" class="toggle-input" [checked]="!listMusics[2].paused" (click)="toggleOst(2)">
+            <label for="toggle3" class="toggle-label"></label>
+          </div>
+  
+        </div>
+  
+        <div class="horiz">
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle4" class="toggle-input" [checked]="!listMusics[3].paused" (click)="toggleOst(3)">
+            <label for="toggle4" class="toggle-label"></label>
+          </div>
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle5" class="toggle-input" [checked]="!listMusics[4].paused" (click)="toggleOst(4)">
+            <label for="toggle5" class="toggle-label"></label>
+          </div>
+  
+          <div class="toggle-container">
+            <input type="checkbox" id="toggle6" class="toggle-input" [checked]="!listMusics[5].paused" (click)="toggleOst(5)">
+            <label for="toggle6" class="toggle-label"></label>
+          </div>
+  
+        </div>
       
+        <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
+
       }@else {
 
         <h1 class="animated-text">
@@ -38,47 +80,11 @@
           <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
         </h1>
 
+        <h1 class="small-message">{{text}}</h1>
+
+        <div style="height: 200px"></div>
+
       }
-
-      <h1 style="margin-right: auto;">Some osts to pass time:</h1>
-
-      <div class="horiz">
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle1" class="toggle-input" [checked]="!listMusics[0].paused" (click)="toggleOst(0)">
-          <label for="toggle1" class="toggle-label"></label>
-        </div>
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle2" class="toggle-input" [checked]="!listMusics[1].paused" (click)="toggleOst(1)">
-          <label for="toggle2" class="toggle-label"></label>
-        </div>
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle3" class="toggle-input" [checked]="!listMusics[2].paused" (click)="toggleOst(2)">
-          <label for="toggle3" class="toggle-label"></label>
-        </div>
-
-      </div>
-
-      <div class="horiz">
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle4" class="toggle-input" [checked]="!listMusics[3].paused" (click)="toggleOst(3)">
-          <label for="toggle4" class="toggle-label"></label>
-        </div>
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle5" class="toggle-input" [checked]="!listMusics[4].paused" (click)="toggleOst(4)">
-          <label for="toggle5" class="toggle-label"></label>
-        </div>
-
-        <div class="toggle-container">
-          <input type="checkbox" id="toggle6" class="toggle-input" [checked]="!listMusics[5].paused" (click)="toggleOst(5)">
-          <label for="toggle6" class="toggle-label"></label>
-        </div>
-
-      </div>
 
     }@else {
       <h1>Welcome to Cinammon's House !</h1>
@@ -109,7 +115,9 @@
           motivated in life other than you, so I should thank you again here. I wrote this paragraph as a measure to let you know that I never regretted what 
           I tried to do, and I really hope you did like it....I hope nchllh...<br/><br/> 
 
-          So yeah, I think that should be enough from my side to not cross anything risky, hhh. I hope you can enjoy now the aestethics of these pages (have you thought trying to hover on Cinammon, hmmm)<br/><br/>
+          So yeah, I think that should be enough from my side to not cross anything risky, hhh. I hope you can enjoy now the aestethics of these pages.<br/><br/>
+
+          **Small Note: Make sure to configure your time in real-time now for a no misunderstanding, next page is not an Enigma, you'll realise it soon.<br/><br/>
 
           Thank you so much for playing this autistic story !!!
         </h3>
@@ -117,6 +125,8 @@
       </div>
 
       <button (click)="goToWaitRoom()">main Room</button>
+
+      <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
 
     }
     

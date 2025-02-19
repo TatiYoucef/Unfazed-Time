@@ -13,11 +13,29 @@ export class LogInComponent implements OnInit{
 
   isLoggedIn = false;
   isDay = false;
-  isClose = false
+  isClose = false;
+
+  url="../../../assets/Images/Cina.png";
 
   d = Math.floor(new Date().getTime() / 1000); //current date
-  //dCh = Math.floor(new Date(2025,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
-  dCh = new Date(2025,1,18,14,3,0,0).getTime() / 1000; //Buyel Date
+  dCh = Math.floor(new Date(2025,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
+  //dCh = new Date(2025,1,19,20,59,0,0).getTime() / 1000; //Buyel Date
+
+  cpt=0;
+  text="So this is it...";
+  listText = [
+    "So this is it...",
+    "You have waited this long...",
+    "You believed since the beginning...",
+    "I just have no words...",
+    "As time getting closer...",
+    "I will keep praying nchllh our link will surely happen...",
+    "cause even now you do things nobody could do for me...",
+    "Such a faithful and beautiful heart shouldn't close eye on...",
+    "Happy Birthday Chaima !!!",
+    "And from bottom of my heart...",
+    "Thank you so much for existing and being you !"
+  ]
 
   j!:number
   h!:number;
@@ -58,11 +76,11 @@ export class LogInComponent implements OnInit{
     this.d = Math.floor(new Date().getTime() / 1000); //current date
     console.log(this.d);
 
-    if(this.d - 24*3600*1000 > this.dCh){ //Day has finished
+    if(this.d - 24*3600 > this.dCh){ //Day has finished
 
       this.router.navigate(['afterDay'])
 
-    }else if(this.d - this.dCh <= 24*3600*1000 && this.d - this.dCh >= 0){ //In the day
+    }else if(this.d - this.dCh <= 24*3600 && this.d - this.dCh >= 0){ //In the day
 
       this.listMusics[this.listMusics.length - 1].pause();
       this.isDay = true;
@@ -86,10 +104,23 @@ export class LogInComponent implements OnInit{
 
       if(this.j === 0 && this.h === 0 && this.m <=1 && this.s <= 27 && !this.isClose && this.isLoggedIn){
         this.toggleOst(this.listMusics.length - 1);
-        this.isClose = true
+        this.isClose = true;
+        this.launchSetup();
       }
 
     }
+
+  }
+
+  launchSetup(){
+
+    this.text = this.listText[this.cpt];
+    this.cpt++;
+
+    setTimeout(() => { 
+      if(this.cpt <= this.listText.length - 1)this.launchSetup();
+    },
+    8000);
 
   }
 

@@ -167,7 +167,7 @@ export class ClockTowerComponent implements OnInit{
 
       setTimeout(() => { 
         this.clickSound.play();
-        this.router.navigate(['trial']);
+        this.router.navigate(['2b2aaec9a51191c5c9ea32608edfbfce51a93ec5f332f4e28a630e5e92d2aa18']);
       },
       4000);
 

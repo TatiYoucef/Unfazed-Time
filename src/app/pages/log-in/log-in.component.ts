@@ -78,13 +78,13 @@ export class LogInComponent implements OnInit{
 
     if(this.d - 24*3600 > this.dCh){ //Day has finished
 
-      this.router.navigate(['afterDay'])
+      this.router.navigate(['e2a2adf7dc58572efeb255e169e172b00ea8dbaa0e626d80a3b9f2b3d475c3b6'])
 
     }else if(this.d - this.dCh <= 24*3600 && this.d - this.dCh >= 0){ //In the day
 
       this.listMusics[this.listMusics.length - 1].pause();
       this.isDay = true;
-      this.router.navigate(['inDay']);
+      this.router.navigate(['3c59dc048e8850243be8079a5c74d0792b7f380c4a07a500b6a3e5f7b87ffa34']);
 
 
     } else { //waiting

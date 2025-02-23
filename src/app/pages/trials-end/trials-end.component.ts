@@ -25,6 +25,8 @@ export class TrialsEndComponent implements OnInit {
   imageLoaded = false;
   imageUrl = "../../../assets/Images/KeyOfTrial.png";
 
+  url = window;
+
   ngOnInit(): void {
 
     const img = new Image();
@@ -32,7 +34,6 @@ export class TrialsEndComponent implements OnInit {
     img.onload = () => {
       this.imageLoaded = true;
     };
-  
 
     for (let i = 1; i < 60; i++) {
       this.emptyList[i] = i;

@@ -74,7 +74,6 @@ export class LogInComponent implements OnInit{
     1000);
 
     this.d = Math.floor(new Date().getTime() / 1000); //current date
-    console.log(this.d);
 
     if(this.d - 24*3600 > this.dCh){ //Day has finished
 

@@ -7,7 +7,7 @@
       <p style="margin-bottom: 10px;" class="surprise">You obtained:</p>
       <img *ngIf="imageLoaded" [src]="imageUrl">
       <p style="margin-bottom: 10px;" class="surprise">Cinammon secret key !!</p>
-      <button class="surprise">Obtain item !</button>
+      <button class="surprise" (click)="url.open('https://www.canva.com/design/DAGfxNRKD1U/hxyzWI3u0Yrpkg1-n2kQeQ/edit?utm_content=DAGfxNRKD1U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank');">Obtain item !</button>
 
     </div>
 

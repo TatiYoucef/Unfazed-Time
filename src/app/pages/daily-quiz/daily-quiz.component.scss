@@ -1,0 +1,380 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #0082cd, #b0daec, #d1ebf6, #e97ff7);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1{
+  font-size: 60px;
+  margin: 0;
+  color: #4cb4f0;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px white; /* Border width and color */
+}
+
+.small-message{
+
+  font-size: 60px;
+  color: #4cb4f0;
+  font-weight:bolder;
+  margin-top: auto;
+  text-align: center;
+  padding: 0 50px;
+  -webkit-text-stroke: 3px white;
+  animation: fadeIn2 8s infinite;
+  opacity: 0;
+
+}
+
+@keyframes fadeIn2 {
+  0%,100% { opacity: 0;}
+  50% { opacity: 1;}
+}
+
+
+h2{
+  font-size: 40px;
+  color: white;
+  font-weight:bolder;
+  -webkit-text-stroke: 2px #e97ff7; /* Border width and color */
+}
+
+h3{
+  font-size: 20px;
+  color: white;
+  font-weight:bolder;
+  -webkit-text-stroke: 1px black; /* Border width and color */
+  text-align: center;
+}
+
+.card{
+
+  display: flex;
+  flex-direction: column; /* Flex items will be arranged vertically */
+  justify-content: flex-start; /* Align items at the top by default */
+  align-items: center;
+
+  padding: 20px 40px;
+  margin: 20px 0px;
+  border-radius: 20px;
+  background-color: white;
+  width: 50%;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+}
+
+.personal-button{
+  padding: 10px 50px ;
+  margin: 30px 0px;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+  font-size: 1em;
+  color: rgb(218, 0, 218);
+  font-weight:bolder;
+
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;
+}
+
+.personal-button:hover{
+  background-color: rgb(218, 0, 218);
+
+  font-size: 1.5em;
+  color: white;
+  font-weight:bolder;
+
+  animation: float 5s infinite linear ;
+}
+
+.main-button{
+  padding: 10px 50px ;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+  font-size: 30px;
+  color: white;
+  font-weight:bolder;
+  -webkit-text-stroke: 2px rgb(218, 0, 218); /* Border width and color */
+
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;
+}
+
+.main-button:hover{
+  background-color: rgb(218, 0, 218);
+
+  font-size: 40px;
+  color: rgb(218, 0, 218);
+  font-weight:bolder;
+  -webkit-text-stroke: 4px white; /* Border width and color */
+
+  animation: float 5s infinite linear ;
+}
+
+img{
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+img:hover{
+  animation: float 1.5s ease-out infinite;
+  width: 350px;
+
+}
+
+@keyframes effect{
+
+  0%,50%,100%{
+    transform: rotate(0deg);
+  }
+
+  25%{
+    transform: rotate(30deg);
+  }
+
+  75%{
+    transform: rotate(-30deg);
+  }
+
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+  75% { transform: translateY(-10px); }
+}
+
+/*-------------------INPUT--------------------------------*/
+$black: #000000;
+$cornflower-lilac: #e0aaff;
+$purple: rgb(218, 0, 218);
+$white: #ffffff;
+$your-pink: #d69bf5;
+
+.c-checkbox {
+  display: none;
+
+  &:checked + .c-formContainer {
+    .c-form {
+      width: 35em;
+    }
+
+    .c-form__toggle {
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    .c-form__input,
+    .c-form__buttonLabel {
+      transition: 0.2s 0.1s;
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &:not(:checked),
+  &:checked {
+    + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before {
+      content: 'Thank You! \1F60A';
+    }
+  }
+
+  &:not(:checked) + .c-formContainer {
+    .c-form__input:required:valid ~ .c-form__toggle {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}
+
+.c-formContainer,
+.c-form,
+.c-form__toggle {
+  width: 15em;
+  height: 50px;  // Reduced height
+}
+
+.c-formContainer {
+  position: relative;
+  font-weight: 700;
+  
+}
+
+.c-form,
+.c-form__toggle {
+  position: absolute;
+  border-radius: 40px;
+  background-color: $white;
+  transition: 0.3s;
+}
+
+.c-form {
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba($black, 0.3);
+  border: 2px solid $your-pink;
+
+  display: flex;
+  justify-content: center;
+}
+
+.c-form__toggle {
+  color: $purple;
+  top: 0;
+  cursor: pointer;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $purple;
+    color: white;
+  }
+
+  &:active {
+    background-color: white;
+    color: $purple;
+  }
+
+  &::before {
+    font-size: 1.2em;
+    content: attr(data-title);
+  }
+}
+
+.c-form__input,
+.c-form__button {
+  font: inherit;
+  border: 0;
+  outline: 0;
+  border-radius: 40px;
+  box-sizing: border-box;
+}
+
+.c-form__input,
+.c-form__buttonLabel {
+  font-size: 1em;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.7);
+  transition: 0s;
+}
+
+.c-form__input {
+  color: $purple;
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+
+  &::placeholder {
+    color: $your-pink;
+  }
+
+  &:required:valid {
+    color: $purple;
+
+    + .c-form__buttonLabel {
+      color: $white;
+
+      &::before {
+        pointer-events: initial;
+      }
+    }
+  }
+}
+
+.c-form__buttonLabel {
+  color: $cornflower-lilac;
+  height: 100%;
+  width: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+  }
+}
+
+.c-form__button {
+  color: $white;
+  padding: 0;
+  height: 100%;
+  width: 5em;
+  background-color: $purple;
+  cursor: pointer; // Cursor set to pointer for interaction
+  transition: 0.3s;
+
+  &:hover {
+    background-color: white;
+    color: $purple;
+    border: 2px solid $your-pink;
+  }
+}
+
+/*---------------------------NOTI---------------------------*/
+$success-color: #4caf50;
+$error-color: #f47c36;
+$notification-height: 100px;
+
+.notification-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  width: 100%;
+  height: $notification-height;
+  line-height: $notification-height;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+  
+  &.success {
+    background-color: $success-color;
+  }
+  &.error {
+    background-color: $error-color;
+  }
+  &.empty {
+    background-color: $purple;
+  }
+  &.show {
+    transform: translateY(0);
+  }
+}
+

@@ -19,11 +19,9 @@ export class LogInComponent implements OnInit{
   cptW = 0;
   didHover = false;
   listWeird = [
-    "B??l???g",
-    "?am?",
-    "ju??",
-    "f?r",
-    "h??",
+    "DO",
+    "NOT",
+    "STALK",
   ]
   url="../../../assets/Images/Cina.png";
 
@@ -163,7 +161,7 @@ export class LogInComponent implements OnInit{
   behaveWeird(){
     this.didHover = true;
     this.weirdText = this.listWeird[this.cptW];
-    this.cptW = (this.cptW + 1) % 5;
+    this.cptW = (this.cptW + 1) % this.listWeird.length;
 
     setTimeout(() => { 
       if(this.didHover) this.behaveWeird();

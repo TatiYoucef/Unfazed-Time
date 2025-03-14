@@ -1,0 +1,72 @@
+@defer () {
+
+  <div #notificationBar class="notification-bar" [ngClass]="{'success': isSuccess, 'error': !isSuccess && input.trim() != '' , 'empty': !isSuccess && input.trim() === '', 'show': showNotification}">
+    {{ notificationMessage }}
+  </div>
+
+  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 50px;">
+
+    <h1>Welcome to Daily Enigma !!</h1>
+    <h1 style="font-size: 40px;">Month Theme: Sun and Moon</h1>
+    <h1 style="font-size: 30px; color: rgb(218, 0, 218);
+    -webkit-text-stroke: 2px white;">Quiz of today: 14th March</h1>
+  
+    <div class="card">
+      <h2>Special Message</h2>
+      <h3>Today is really special, do you remember that moment where I...</h3>
+    </div>
+
+    <div class="card">
+      <h2>I can see through You</h2>
+      <h2 style="margin-right: auto; margin-top: -10px; font-size: 30px; color: #e0aaff;">Difficulty: Easy</h2>
+      <h2 style="margin-right: auto; font-size: 30px; margin-top: -10px; color: #e0aaff;">Status: Solved !</h2>
+      <h2 style="margin-right: auto; font-size: 30px; margin-top: -10px; color: #e0aaff;">Solved at year: 2027</h2>
+
+      <h3>
+        How It Works
+        Initial State:
+        The .notification-bar is rendered off-screen with transform: translateY(-100%).
+
+        When showNotification is true:
+        The [ngClass] binding adds the “show” class, which changes the transform to translateY(0). Thanks to the CSS transition, the bar slides down smoothly into view.
+
+        After 3 seconds (or your desired time), your component sets showNotification back to false, and the “show” class is removed. The bar then smoothly slides back up off-screen.
+
+        Try this updated approach, and your notification bar should slide in from the top when showNotification is set to true. Let me know if you need further help
+      </h3>
+
+      <button class="personal-button" style="margin-bottom: -10px;">Tap link</button>
+      <button class="personal-button">See Hints</button>
+
+      <input class="c-checkbox" type="checkbox" id="checkbox">
+      <div #formContainer class="c-formContainer">
+        <form class="c-form" action="">
+
+          <input class="c-form__input" placeholder="You can do it !!!" type="text" [(ngModel)]="input" name="userInput" (keydown.enter)="testSubmit()">
+          <label class="c-form__buttonLabel" for="checkbox">
+            <button class="c-form__button" type="button" (click)="testSubmit()">Solve</button>
+          </label>
+          <label class="c-form__toggle" for="checkbox" data-title="Answer"></label>
+        </form>
+      </div> 
+
+      <h3 style="margin-left: auto; font-size: 15px; opacity: 0.5; color: rgb(189, 189, 189);">created at: 25/01/2026</h3>
+
+  
+    </div>
+  
+    <button class="main-button">See my progress</button>
+  
+  
+    <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
+  
+  
+  </div>
+
+}@loading (minimum 5s){
+
+  <div class="center-div">
+    <app-loading-screen/>
+  </div>
+
+}

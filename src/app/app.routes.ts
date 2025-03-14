@@ -11,6 +11,15 @@ export const routes: Routes = [
     }
   },
 
+  // {
+  //   path :'home/dailyQuiz' , 
+  //   pathMatch: 'full', 
+  //   loadComponent: async () => {
+  //     const m = await import("./pages/daily-quiz/daily-quiz.component");
+  //     return m.DailyQuizComponent;
+  //   }
+  // },
+
   {
     path :'clock' , //Hash(Time)
     pathMatch: 'full', 

@@ -90,41 +90,37 @@
       <h1>Welcome to Cinammon's House !</h1>
 
       <div class="card">
-        <h2>Note from Master of this place</h2>
+        <h2>Note from Master</h2>
         <h3>
-          You are back home, YAAAAAAAY! I can't feel any prouder from you, YOUUU DID ITT!!! KJBKCJSJDUOYEVOLICBKSJDBC <br/><br/>
+          Hello again, I am happy to see you here again !! <br/><br/>
 
-          You took your time to read all the story, 
-          to scrap your head to understand different puzzles, 
-          to take your precious time to unveil many secrets, I cannot thank you enough for just doing this.<br/><br/>
+          I am trying to build something that should leave an eternal signature that proves your worth<br/><br/>
 
-          I tried to make this Enigma a bit special to you, I designed everything to just for you, 
-          because I can't feel any happier to treasure you more than anyone if you don't mind.<br/><br/>
+          It's not done yet, but I can leave my progress here, I'll try to update it for each change I do nchllh<br/><br/>
+
+          Thank you for your patience from my arrogance, but I promise the wait should be worth it nchllh<br/><br/>
+
+          * Name of the project: ????<br/>
+          * the Project was launched at: 12/03/2025.<br/>
+          * Main objective: Make her the happiest person ever / Make an "Enigma" that should let her enjoy and have fun.<br/><br/>
+
+          PROGRESS:<br/>
+          * étude de préalable: DONE ! (Scariest thing I was afraid of worked, El7emdoulillah)<br/>
+          * Conception: 1/760 = 1% (just started... but don't worry, it will increase nchllh)<br/><br/>
+          *main progress : 5%
           
-          So... THANK YOU SO MUCH, FROM BOTTOM OF MY HEART!!!<br/><br/>
-
-          And don't worry, a real reward for this struggle will come nchllh, it will be given when a certain event happens when you go to next page, hmmm... I wonder what it would be, hehe.<br/><br/>
-          
-          "You are the choosen one, the precious one, the one that made Master feels humbled when getting to know her"<br/><br/>
-
-          So be proud, I can't thank you enough, rebbi yjazik for everything nchllh.<br/><br/>
-          
-          I really don't know how will you react to this whole project, I sometimes feel anxious 
-          that you could sense it as exagerative, if you ever fear that it's so much what I did, know that I never felt
-          exciting each time I design something there. I also learnt many things cause of it, because as I said, nobody made me this 
-          motivated in life other than you, so I should thank you again here. I wrote this paragraph as a measure to let you know that I never regretted what 
-          I tried to do, and I really hope you did like it....I hope nchllh...<br/><br/> 
-
-          So yeah, I think that should be enough from my side to not cross anything risky, hhh. I hope you can enjoy now the aestethics of these pages.<br/><br/>
-
-          **Small Note: Make sure to configure your time in real-time now for a no misunderstanding, next page is not an Enigma, you'll realise it soon.<br/><br/>
-
-          Thank you so much for playing this autistic story !!!
         </h3>
 
       </div>
 
       <button (click)="goToWaitRoom()">main Room</button>
+
+      <button 
+      (mouseover)="behaveWeird()" 
+      (mouseleave)="didHover = false; weirdText='??????'"
+      (click)="weirdClicked()">
+        {{weirdText}} 
+      </button>
 
       <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
 
@@ -133,7 +129,7 @@
     
   </div>
   
-} @loading (minimum 15s) {
+} @loading (minimum 5s) {
   <div class="center-div">
     <app-loading-screen />
   </div>

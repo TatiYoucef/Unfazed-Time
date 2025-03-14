@@ -15,6 +15,16 @@ export class LogInComponent implements OnInit{
   isDay = false;
   isClose = false;
 
+  weirdText = "??????";
+  cptW = 0;
+  didHover = false;
+  listWeird = [
+    "B??l???g",
+    "?am?",
+    "ju??",
+    "f?r",
+    "h??",
+  ]
   url="../../../assets/Images/Cina.png";
 
   d = Math.floor(new Date().getTime() / 1000); //current date
@@ -150,5 +160,20 @@ export class LogInComponent implements OnInit{
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   
+  behaveWeird(){
+    this.didHover = true;
+    this.weirdText = this.listWeird[this.cptW];
+    this.cptW = (this.cptW + 1) % 5;
+
+    setTimeout(() => { 
+      if(this.didHover) this.behaveWeird();
+    },
+    500);
+    
+  }
+
+  weirdClicked(){
+    alert("Shhhhh, patience is the key, hhh")
+  }
 
 }

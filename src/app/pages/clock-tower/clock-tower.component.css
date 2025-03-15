@@ -39,7 +39,6 @@ button:hover{
   background-color: rgb(218, 0, 218);
   color: white;
   font-size: 40px;
-  animation: shake 0.2s infinite linear;
 }
 
 @keyframes shake {

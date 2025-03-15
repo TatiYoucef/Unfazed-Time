@@ -23,7 +23,7 @@ export class TrialsEndComponent implements OnInit {
   keyObtainedSound = new Audio('../../../assets/Sounds/KeyGotten.mp4');
 
   imageLoaded = false;
-  imageUrl = "../../../assets/Images/KeyOfTrial.png";
+  imageUrl = "../../../assets/Images/cake.png";
 
   url = window;
 

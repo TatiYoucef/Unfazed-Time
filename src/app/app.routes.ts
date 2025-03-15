@@ -3,24 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 
   {
-    path :'home' , // Hash(Chiamoi)
-    pathMatch: 'full', 
-    loadComponent: async () => {
-      const m = await import("./pages/log-in/log-in.component");
-      return m.LogInComponent;
-    }
-  },
-
-  // {
-  //   path :'home/dailyQuiz' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/daily-quiz/daily-quiz.component");
-  //     return m.DailyQuizComponent;
-  //   }
-  // },
-
-  {
     path :'clock' , //Hash(Time)
     pathMatch: 'full', 
     loadComponent: async () => {
@@ -30,7 +12,7 @@ export const routes: Routes = [
   },
 
   {
-    path :'trial' , //Hash(141414 Blessing)
+    path :'promisedPresent' , //Hash(141414 Blessing)
     pathMatch: 'full', 
     loadComponent: async () => {
       const m = await import("./pages/trials-end/trials-end.component");
@@ -53,6 +35,46 @@ export const routes: Routes = [
     loadComponent: async () => {
       const m = await import("./pages/on-after/on-after.component");
       return m.OnAfterComponent;
+    }
+  },
+
+  //----------------------------HOME------------------------------------
+
+  {
+    path :'home' , // Hash(Chiamoi)
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/log-in/log-in.component");
+      return m.LogInComponent;
+    }
+  },
+
+  // {
+  //   path :'home/dailyQuiz' , 
+  //   pathMatch: 'full', 
+  //   loadComponent: async () => {
+  //     const m = await import("./pages/daily-quiz/daily-quiz.component");
+  //     return m.DailyQuizComponent;
+  //   }
+  // },
+
+  // {
+  //   path :'home/dailyQuiz/hints' , 
+  //   pathMatch: 'full', 
+  //   loadComponent: async () => {
+  //     const m = await import("./pages/hints/hints.component");
+  //     return m.HintsComponent;
+  //   }
+  // },
+
+  //-----------------------------ENIGMAS-------------------------
+
+  { //06 Avril: 06/04
+    path :'plainedGrass' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/shaymin/shaymin.component");
+      return m.ShayminComponent;
     }
   },
 

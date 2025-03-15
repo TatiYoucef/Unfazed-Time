@@ -41,7 +41,7 @@ export class ClockTowerComponent implements OnInit{
 
   isSolved = false;
   isEntered = false;
-  isUnlocked = false; 
+  isUnlocked = true; 
 
   tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
   entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
@@ -159,7 +159,7 @@ export class ClockTowerComponent implements OnInit{
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
 
-    if (event.key === ' ' && this.isEntered && this.h === 14 && this.m === 14 && this.s === 14) {
+    if (event.key === ' ' && this.isEntered && this.year === 2004 && this.month === 4 && this.date === 10) {
       this.isSolved = true;
       this.solvedSound.play();
       this.rainStorm.pause();
@@ -167,7 +167,7 @@ export class ClockTowerComponent implements OnInit{
 
       setTimeout(() => { 
         this.clickSound.play();
-        this.router.navigate(['2b2aaec9a51191c5c9ea32608edfbfce51a93ec5f332f4e28a630e5e92d2aa18']);
+        this.router.navigate(['promisedPresent']);
       },
       4000);
 

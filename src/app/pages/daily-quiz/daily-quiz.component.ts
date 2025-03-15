@@ -1,7 +1,9 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FetchModulesService } from '../../services/fetch-modules.service';
+import { MonthPacket, QuizDay } from '../../models/types';
 
 @Component({
   selector: 'app-daily-quiz',
@@ -10,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './daily-quiz.component.html',
   styleUrl: './daily-quiz.component.scss'
 })
-export class DailyQuizComponent {
+export class DailyQuizComponent implements OnInit {
 
   url="../../../assets/Images/Cina.png";
 
@@ -36,15 +38,15 @@ export class DailyQuizComponent {
 
   @ViewChild('notificationBar') notificationBar!: ElementRef;
   showNotification: boolean = false;
-  notificationMessage: string = '';
+  notificationMessage: String = '';
   isSuccess: boolean = false;
 
   testSubmit(){
 
-    switch (this.input.trim()) {
+    switch (this.input.trim().toLowerCase()) {
 
-      case 'youyou':
-        this.displayNotification('Correct! Well done.', true);
+      case this.enigma.answer.trim().toLowerCase() :
+        this.displayNotification(this.enigma.reaction , true);
       break;
 
       case '':
@@ -58,7 +60,7 @@ export class DailyQuizComponent {
 
   }
 
-  displayNotification(message: string, success: boolean) { //display div
+  displayNotification(message: String, success: boolean) { //display div
     this.notificationMessage = message;
     this.isSuccess = success;
     this.showNotification = true;
@@ -67,5 +69,21 @@ export class DailyQuizComponent {
     }, 3000); // Hide after 3 seconds
   }
 
+
+
+  fetchServices = inject(FetchModulesService);
+  enigma !: QuizDay;
+  monthPack !: MonthPacket;
+
+  ngOnInit(): void {
+    
+    this.fetchServices.fetchlistMonth(4).subscribe((liste) => {
+      this.monthPack = liste;
+    });
+
+    this.fetchServices.fetchdailyEnigma(4,6).subscribe((quiz) => this.enigma = quiz);
+
+
+  }
 
 }

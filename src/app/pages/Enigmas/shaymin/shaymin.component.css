@@ -1,0 +1,74 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 120vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: start;
+  align-items: center ;
+  padding-top: 20px;
+  gap: 10px;
+
+  background: linear-gradient(45deg, #00cd18, #b0ecb0, #def6d1);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1{
+  font-size: 80px;
+  color: #00cd18;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px white; /* Border width and color */
+  margin: 0;
+}
+
+h2{
+  font-size: 60px;
+  color: #00cd18;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px white; /* Border width and color */
+  margin: 0;
+}
+
+img{
+  width: 300px;
+  transition: all 0.5s;
+  animation: float 1.5s ease-out infinite;
+  cursor: pointer;
+}
+
+img:hover{
+  animation: effect 1.5s ease-out infinite;
+  width: 350px;
+
+}
+
+@keyframes effect{
+
+  0%,50%,100%{
+    transform: rotate(0deg);
+  }
+
+  25%{
+    transform: rotate(30deg);
+  }
+
+  75%{
+    transform: rotate(-30deg);
+  }
+
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+  75% { transform: translateY(-10px); }
+}
+

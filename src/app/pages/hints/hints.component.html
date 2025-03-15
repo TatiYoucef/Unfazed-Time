@@ -1,0 +1,24 @@
+<div class="hints-container">
+
+  <ng-container *ngFor="let hint of hints; let i = index">
+    <button *ngIf="!revealedHints[i]" (click)="toggleHint(i)" class="hint-button">
+      Hint {{ i + 1 }}
+    </button>
+
+    @if (revealedHints[i]) {
+      <div *ngIf="revealedHints[i]" class="hint-text">
+
+        <h4 style="margin: 0;">{{ hint }}</h4>
+
+        <button (click)="toggleHint(i)" class="hint-button">
+          Hide hint {{ i + 1 }}
+        </button>
+      </div>
+      
+    }
+
+  </ng-container>
+
+  <button class="hint-button" style="margin-top: 100px;" (click)="goBack()">Go back to Quiz</button>
+
+</div>

@@ -115,8 +115,8 @@
   <div class="center-div" style="height: 100vh;">
 
     @if (isUnlocked) {
-      <p>You take a deep breath, to enter...</p>
-      <button (mouseover)="onHover()" (mouseleave)="onLeave()" (click)="openDoor()">Open the door</button>
+      <p>You are already know this place, the door is already open</p>
+      <button (click)="openDoor()">Open the door</button>
     } @else {
       <p>You reached a mysterious old tower...</p>
       <button (click)="isUnlocked = true; openLock.play()" style="animation: none; margin-top: auto;margin-bottom: 50px;">Remove old lock</button>

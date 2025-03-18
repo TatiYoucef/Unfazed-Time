@@ -1,7 +1,6 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
-import { GearsComponent } from "../../components/gears/gears.component";
+import { GearsComponent } from "../../../components/gears/gears.component";
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -43,16 +42,16 @@ export class ClockTowerComponent implements OnInit{
   isEntered = false;
   isUnlocked = true; 
 
-  tickSound = new Audio('../../../assets/Sounds/TickSound.mp4');
-  entrySound = new Audio('../../../assets/Sounds/WelcomeToClockTower.mp4');
-  rainStorm = new Audio('../../../assets/Sounds/RainStorm.mp4');
-  woodC1 = new Audio('../../../assets/Sounds/WoodCreak1.mp4');
-  woodC2 = new Audio('../../../assets/Sounds/WoodCreak2.mp4');
-  suspense = new Audio('../../../assets/Sounds/Suspense.mp4');
-  openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
-  openDoorSound= new Audio('../../../assets/Sounds/OpenDoor.mp4');
-  solvedSound= new Audio('../../../assets/Sounds/PuzzleSolved.mp4');
-  clickSound= new Audio('../../../assets/Sounds/Click.wav');
+  tickSound = new Audio('../../../../assets/Sounds/TickSound.mp4');
+  entrySound = new Audio('../../../../assets/Sounds/WelcomeToClockTower.mp4');
+  rainStorm = new Audio('../../../../assets/Sounds/RainStorm.mp4');
+  woodC1 = new Audio('../../../../assets/Sounds/WoodCreak1.mp4');
+  woodC2 = new Audio('../../../../assets/Sounds/WoodCreak2.mp4');
+  suspense = new Audio('../../../../assets/Sounds/Suspense.mp4');
+  openLock = new Audio('../../../../assets/Sounds/OpenLock.mp4');
+  openDoorSound= new Audio('../../../../assets/Sounds/OpenDoor.mp4');
+  solvedSound= new Audio('../../../../assets/Sounds/PuzzleSolved.mp4');
+  clickSound= new Audio('../../../../assets/Sounds/Click.wav');
 
   allowTicks = true;
   allowRain = true;
@@ -111,9 +110,9 @@ export class ClockTowerComponent implements OnInit{
   ngOnInit(): void {
 
     this.listMusics.push(
-      new Audio('../../../assets/Sounds/LM3.mp4'),
-      new Audio('../../../assets/Sounds/OOT.mp4'),
-      new Audio('../../../assets/Sounds/GIOC.mp4'),
+      new Audio('../../../../assets/Sounds/LM3.mp4'),
+      new Audio('../../../../assets/Sounds/OOT.mp4'),
+      new Audio('../../../../assets/Sounds/GIOC.mp4'),
     )
 
     for (let i = 0; i < this.listMusics.length; i++) {

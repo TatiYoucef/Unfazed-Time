@@ -6,7 +6,7 @@ export const routes: Routes = [
     path :'clock' , //Hash(Time)
     pathMatch: 'full', 
     loadComponent: async () => {
-      const m = await import("./pages/clock-tower/clock-tower.component");
+      const m = await import("./pages/OldEnigma/clock-tower/clock-tower.component");
       return m.ClockTowerComponent;
     }
   },
@@ -15,7 +15,7 @@ export const routes: Routes = [
     path :'promisedPresent' , //Hash(141414 Blessing)
     pathMatch: 'full', 
     loadComponent: async () => {
-      const m = await import("./pages/trials-end/trials-end.component");
+      const m = await import("./pages/OldEnigma/trials-end/trials-end.component");
       return m.TrialsEndComponent;
     }
   },
@@ -49,23 +49,23 @@ export const routes: Routes = [
     }
   },
 
-  // {
-  //   path :'home/dailyQuiz' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/daily-quiz/daily-quiz.component");
-  //     return m.DailyQuizComponent;
-  //   }
-  // },
+  {
+    path :'home/dailyQuiz' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/daily-quiz/daily-quiz.component");
+      return m.DailyQuizComponent;
+    }
+  },
 
-  // {
-  //   path :'home/dailyQuiz/hints' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/hints/hints.component");
-  //     return m.HintsComponent;
-  //   }
-  // },
+  {
+    path :'home/dailyQuiz/hints' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/hints/hints.component");
+      return m.HintsComponent;
+    }
+  },
 
   //-----------------------------ENIGMAS-------------------------
 

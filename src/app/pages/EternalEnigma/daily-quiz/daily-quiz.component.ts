@@ -1,9 +1,10 @@
 import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
-import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
+import { LoadingScreenComponent } from "../../../components/loading-screen/loading-screen.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FetchModulesService } from '../../services/fetch-modules.service';
-import { MonthPacket, QuizDay } from '../../models/types';
+import { FetchModulesService } from '../../../services/fetch-modules.service';
+import { MonthPacket, QuizDay } from '../../../models/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-daily-quiz',
@@ -14,7 +15,8 @@ import { MonthPacket, QuizDay } from '../../models/types';
 })
 export class DailyQuizComponent implements OnInit {
 
-  url="../../../assets/Images/Cina.png";
+  url="../../../../assets/Images/Cina.png";
+  solvedSound = new Audio('../../../../assets/Sounds/quizSolved.mp4');
 
   input = "";
 
@@ -46,7 +48,21 @@ export class DailyQuizComponent implements OnInit {
     switch (this.input.trim().toLowerCase()) {
 
       case this.enigma.answer.trim().toLowerCase() :
-        this.displayNotification(this.enigma.reaction , true);
+
+        if(!this.enigma.solved){
+          
+          this.fetchServices.solveEnigma(this.month,this.date,this.year).subscribe((response) => {
+            this.solvedSound.play();
+            this.enigma.solved = true;
+            this.enigma.sYear = this.year;
+            this.displayNotification(this.enigma.reaction , true);
+          });
+
+        } else {
+          this.solvedSound.play();
+          this.displayNotification(this.enigma.reaction , true);
+        }
+
       break;
 
       case '':
@@ -75,15 +91,42 @@ export class DailyQuizComponent implements OnInit {
   enigma !: QuizDay;
   monthPack !: MonthPacket;
 
+  d = new Date() ;
+  h = this.d.getHours();
+  m = this.d.getMinutes();
+  s = this.d.getSeconds();
+  //date = this.d.getDate();
+  //month = this.d.getMonth() + 1;
+  year = this.d.getFullYear();
+  date = 4;
+  month = 4;
+
   ngOnInit(): void {
     
-    this.fetchServices.fetchlistMonth(4).subscribe((liste) => {
+    this.fetchServices.fetchlistMonth(this.month).subscribe((liste) => {
       this.monthPack = liste;
     });
 
-    this.fetchServices.fetchdailyEnigma(4,6).subscribe((quiz) => this.enigma = quiz);
-
+    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => this.enigma = quiz);
+    this.clock();
 
   }
+
+  clock(){
+
+    setTimeout(() => { 
+      this.clock();
+    },
+    1000);
+
+    this.d = new Date() ;
+    this.h = this.d.getHours();
+    this.m = this.d.getMinutes();
+    this.s = this.d.getSeconds();
+
+  }
+
+  router = inject(Router) ;
+  urlLink = window;
 
 }

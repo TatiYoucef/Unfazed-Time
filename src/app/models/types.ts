@@ -9,7 +9,7 @@ export type QuizDay = {
   
   specialMess: String,
   enigma: String,
-  link: String,
+  link: string,
   hints: Array<String>,
 
   answer: String,

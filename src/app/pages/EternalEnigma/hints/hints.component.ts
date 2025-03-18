@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { FetchModulesService } from '../../../services/fetch-modules.service';
 
 @Component({
   selector: 'app-hints',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HintsComponent {
 
-  hints = ['Look deeply through the problem', 'need a hand ?' , 'try to go to this path /8/8/8/'];
+  hints : String[] = [];
   revealedHints = new Array<Boolean>(this.hints.length).fill(false)
 
   toggleHint(index:number){
@@ -22,6 +23,20 @@ export class HintsComponent {
 
   goBack(){
     this.router.navigate(['/home/dailyQuiz'])
+  }
+
+  fetchServices = inject(FetchModulesService);
+
+  d = new Date() ;
+  //date = this.d.getDate();
+  //month = this.d.getMonth() + 1;
+  date = 1;
+  month = 4;
+
+  ngOnInit(): void {
+
+    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => this.hints = quiz.hints);
+
   }
 
 }

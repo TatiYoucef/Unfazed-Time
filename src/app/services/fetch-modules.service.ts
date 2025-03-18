@@ -51,4 +51,18 @@ export class FetchModulesService {
     );
 
   }
+
+  solveEnigma(month:number, day:number, sYear:number){
+      
+    const url = `http://localhost:3000/api/quiz/${month}/${day}/solve/${sYear}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+
+  }
 }

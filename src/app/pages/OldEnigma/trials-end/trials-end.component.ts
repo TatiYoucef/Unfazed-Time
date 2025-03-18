@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-trials-end',
@@ -19,11 +18,11 @@ export class TrialsEndComponent implements OnInit {
 
   emptyList = Array<number>(59);
 
-  openLock = new Audio('../../../assets/Sounds/OpenLock.mp4');
-  keyObtainedSound = new Audio('../../../assets/Sounds/KeyGotten.mp4');
+  openLock = new Audio('../../../../assets/Sounds/OpenLock.mp4');
+  keyObtainedSound = new Audio('../../../../assets/Sounds/KeyGotten.mp4');
 
   imageLoaded = false;
-  imageUrl = "../../../assets/Images/cake.png";
+  imageUrl = "../../../../assets/Images/cake.png";
 
   url = window;
 
@@ -48,7 +47,7 @@ export class TrialsEndComponent implements OnInit {
     setTimeout(() => { 
       this.keyObtainedSound.play();
     },
-    4000);
+    3000);
 
   }
 

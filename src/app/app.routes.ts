@@ -77,5 +77,13 @@ export const routes: Routes = [
       return m.ShayminComponent;
     }
   },
+  { //23 Avril: 23/04
+    path :'' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/root/root.component");
+      return m.RootComponent;
+    }
+  },
 
 ];

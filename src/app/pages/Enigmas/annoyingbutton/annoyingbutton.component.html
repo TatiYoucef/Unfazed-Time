@@ -1,0 +1,22 @@
+<div class="container">
+
+  @if (touched) {
+
+    <button
+      [ngStyle]="{ top: buttonTop + 'px', left: buttonLeft + 'px' }"
+    >
+      {{text}}
+    </button>
+
+    <p>gameMasterCTF&#123;button_secret_unveiled&#125;</p>
+
+  } @else {
+    <button
+      [ngStyle]="{ top: buttonTop + 'px', left: buttonLeft + 'px' }"
+      (mouseenter)="moveButton()"
+      (click)="touched = true; text = 'Ahh, you clicked me !!!'"
+    >
+      {{text}}
+    </button>
+  }
+</div>

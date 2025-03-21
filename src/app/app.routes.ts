@@ -85,5 +85,21 @@ export const routes: Routes = [
       return m.RootComponent;
     }
   },
+  { //01 May: 01/05
+    path :'games/RPS' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/rock-paper-scis/rock-paper-scis.component");
+      return m.RockPaperScisComponent;
+    }
+  },
+  { //02 May: 02/05
+    path :'games/annoyingButton' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/annoyingbutton/annoyingbutton.component");
+      return m.AnnoyingbuttonComponent;
+    }
+  },
 
 ];

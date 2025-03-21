@@ -1,0 +1,40 @@
+<div class="game-container">
+
+  @if (playerScore === limit) {
+    <h1>You did it !!!</h1>
+
+    <h2> Here's the flag : gameMasterCTF&#123;Rock_Paper_Scisors_mastered_147&#125;</h2>
+
+  } @else {
+
+    <h1>Welcome to Rock Paper Scissors mini-game !!!!</h1>
+    <h2>The first who get {{limit}} points wins !</h2>
+
+    <div class="score-board">
+      <span>Player: {{ playerScore }}</span>
+      <span>Opponent: {{ opponentScore }}</span>
+    </div>
+
+    <div class="choices">
+      <button *ngFor="let choice of choices" (click)="play(choice)">
+        <img [src]="'../../../../assets/Images/RPS/' + choice + '-emoji.png'" [alt]="choice">
+      </button>
+    </div>
+
+    <div class="result" *ngIf="result">
+
+      <p>You choosed : {{yourChoice}}.</p>
+      <p>My bot Choosed: {{opponentChoice}} </p>
+      <p>{{ result }}</p>
+
+    </div>
+
+
+    <button *ngIf="limit === 10" class="easy-button" (click)="limit = 5; playerScore = 0; opponentScore = 0">Easy Mode</button>
+    <button *ngIf="limit === 5" class="easy-button" (click)="limit = 10; playerScore = 0; opponentScore = 0">Hard Mode</button>
+
+  }
+
+  
+
+</div>

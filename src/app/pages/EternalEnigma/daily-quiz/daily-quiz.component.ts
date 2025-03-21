@@ -98,8 +98,8 @@ export class DailyQuizComponent implements OnInit {
   //date = this.d.getDate();
   //month = this.d.getMonth() + 1;
   year = this.d.getFullYear();
-  date = 4;
-  month = 4;
+  date = 2;
+  month = 5;
 
   ngOnInit(): void {
     

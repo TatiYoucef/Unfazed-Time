@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  position: absolute;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: top 0.2s ease, left 0.2s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(218, 0, 218, 0.7);
+    border-color: blueviolet;
+  }
+}

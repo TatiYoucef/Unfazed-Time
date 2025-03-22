@@ -14,7 +14,7 @@
 .choices button {
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   transition: transform 0.2s;
 }
 .choices button:hover {
@@ -34,7 +34,7 @@
 .easy-button{
   color: #5a189a;
   background-color: white;
-  cursor: pointer;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   font-family: "Quicksand";
   font-size: 20px;
   font-weight: bolder;

@@ -6,7 +6,10 @@ html, body {
   padding: 0;
   scrollbar-width: none;
   overflow-x: hidden;
+  cursor: url('./assets/Images/mouse/cursor.png'), auto;
+  
 }
+
 
 * {
   outline: none;

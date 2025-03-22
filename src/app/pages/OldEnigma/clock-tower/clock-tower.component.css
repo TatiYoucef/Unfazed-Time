@@ -31,7 +31,7 @@ button{
   border-radius: 12px;
   border: none;
   background-color: white;
-  cursor: pointer;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s ;
 }
 
@@ -125,7 +125,7 @@ h5{
   background: #ccc;
   border-radius: 30px;
   position: relative;
-  cursor: pointer;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   transition: background 0.3s ease-in-out;
 }
 

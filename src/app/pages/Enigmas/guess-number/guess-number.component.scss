@@ -1,0 +1,43 @@
+/* number-guess.component.scss */
+.game-container {
+  text-align: center;
+  background-color: #3a0ca3;
+  color: white;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #7209b7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: #7209b7;
+}
+
+input {
+  padding: 8px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  width: 50%;
+  border: 1px solid white;
+  font-family: "Quicksand";
+  cursor: url('../../../../assets/Images/mouse/input.png'), text;
+  margin: 10px;
+}

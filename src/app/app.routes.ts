@@ -101,5 +101,21 @@ export const routes: Routes = [
       return m.AnnoyingbuttonComponent;
     }
   },
+  { //05 May: 05/05
+    path :'games/guess' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/guess-number/guess-number.component");
+      return m.GuessNumberComponent;
+    }
+  },
+  { //10 May: 05/05
+    path :'games/itemRoulette' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/spin-items/spin-items.component");
+      return m.SpinItemsComponent;
+    }
+  },
 
 ];

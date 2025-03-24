@@ -1,0 +1,21 @@
+<div class="game-container">
+  <!-- Welcome Screen -->
+  <div *ngIf="!gameStarted" class="welcome-screen">
+    <h1>Welcome to the Number Guessing Game!</h1>
+    <h2 style="margin-bottom: 100px;">Guess my number, and the flag shall be yours !!!</h2>
+    <button (click)="startGame()" class="start-btn">Start Game</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div *ngIf="gameStarted" class="game-screen">
+    <h1>it's Telepathy time !!!</h1>
+    <h2 style="margin-bottom: 100px;">Attempts remaining: <strong>{{ attempts }}</strong></h2>
+    
+    <!-- Input Field for Guess -->
+    <input *ngIf="attempts > 0" type="number" [(ngModel)]="userGuess" (keyup.enter)="checkGuess()" placeholder="Enter your guess..." class="guess-input" />    
+    <!-- Message Display -->
+    <h2 class="message" *ngIf="message">{{ message }}</h2>
+
+    <button (click)="gameStarted = false; matchSound.pause()" class="guess-btn">Retry</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="game-container">
+
+  <h1>Enigma Item Roulette</h1>
+  <h2>Spin the wheel and try to get a sunshine !!!</h2>
+
+  <div class="item-box">
+    <img [src]="'../../../../assets/Images/items/' + currentItem" alt="Mario Item">
+  </div>
+  <button *ngIf="!isPlaying" (click)="startGame()">Start</button>
+  <button *ngIf="isPlaying" (click)="stopGame()">Stop</button>
+
+  <h2 class="message">{{ message }}</h2>
+
+</div>

@@ -80,9 +80,22 @@ export class DailyQuizComponent implements OnInit {
     this.notificationMessage = message;
     this.isSuccess = success;
     this.showNotification = true;
-    setTimeout(() => {
-      this.showNotification = false;
-    }, 3000); // Hide after 3 seconds
+
+    if(!this.isSuccess){
+
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 3000); // Hide after 3 seconds
+
+    } else {
+
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 6000); // Hide after 3 seconds
+
+    }
+
+
   }
 
 
@@ -98,7 +111,7 @@ export class DailyQuizComponent implements OnInit {
   //date = this.d.getDate();
   //month = this.d.getMonth() + 1;
   year = this.d.getFullYear();
-  date = 2;
+  date = 10;
   month = 5;
 
   ngOnInit(): void {

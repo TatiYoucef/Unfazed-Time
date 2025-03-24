@@ -109,12 +109,20 @@ export const routes: Routes = [
       return m.GuessNumberComponent;
     }
   },
-  { //10 May: 05/05
+  { //10 May: 10/05
     path :'games/itemRoulette' , 
     pathMatch: 'full', 
     loadComponent: async () => {
       const m = await import("./pages/Enigmas/spin-items/spin-items.component");
       return m.SpinItemsComponent;
+    }
+  },
+  { //14 May: 14/05
+    path :'games/reflexe' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/reflexe/reflexe.component");
+      return m.ReflexeComponent;
     }
   },
 

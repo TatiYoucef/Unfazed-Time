@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1 style="margin-bottom: auto;">Reflex Contest</h1>
+  <p>{{ message }}</p>
+  <p *ngIf="gameActive">Countdown: <strong>{{ countdown }}</strong></p>
+  <button class="circle-btn" (click)="gameActive ? handleClick() : startGame()">
+    {{ gameActive ? 'CLICK!' : 'START' }}
+  </button>
+
+</div>

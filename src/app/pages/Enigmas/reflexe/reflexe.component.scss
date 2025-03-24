@@ -1,0 +1,46 @@
+.container {
+  text-align: center;
+  color: white;
+  background-color: blueviolet;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+p {
+  font-size: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.circle-btn {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin-bottom: auto;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2em;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'),pointer;
+  transition: background 0.3s, transform 0.1s;
+
+  &:hover {
+    background-color: white;
+    color: #2a0a61;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:focus {
+    outline: 3px solid #ffffff;
+  }
+}

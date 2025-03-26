@@ -109,20 +109,20 @@ export const routes: Routes = [
       return m.GuessNumberComponent;
     }
   },
-  { //10 May: 10/05
-    path :'games/itemRoulette' , 
-    pathMatch: 'full', 
-    loadComponent: async () => {
-      const m = await import("./pages/Enigmas/spin-items/spin-items.component");
-      return m.SpinItemsComponent;
-    }
-  },
   { //14 May: 14/05
     path :'games/reflexe' , 
     pathMatch: 'full', 
     loadComponent: async () => {
       const m = await import("./pages/Enigmas/reflexe/reflexe.component");
       return m.ReflexeComponent;
+    }
+  },
+  { //24 May: 24/05
+    path :'games/maths' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/maths/maths.component");
+      return m.MathsComponent;
     }
   },
 

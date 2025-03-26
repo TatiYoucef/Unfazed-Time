@@ -1,0 +1,56 @@
+.math-game {
+  text-align: center;
+  font-family: "Quicksand";
+  color: #fff;
+  background: #7300ff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  background: #a92cdf;
+  color: white;
+  border: none;
+  font-family: "Quicksand";
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: url('../../../../assets/Images/mouse/pointer.png'),pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: white;
+    color: #7300ff;
+  }
+}
+
+.game-area {
+  margin-top: 20px;
+}
+
+.math-question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+input {
+  width: 60px;
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.message {
+  font-size: 18px;
+  margin-top: 10px;
+}

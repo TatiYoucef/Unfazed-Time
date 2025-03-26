@@ -1,0 +1,23 @@
+<div class="math-game">
+  
+  <h1>Fast Math Enigma</h1>
+
+  <button *ngIf="!gameStarted" (click)="startGame()">Start Game</button>
+
+  <div *ngIf="gameStarted" class="game-area">
+    <p>Time Left: <strong>{{ timeLeft }}</strong> seconds</p>
+    <p>Score: <strong>{{ score }}/10</strong></p>
+
+    <div class="math-question">
+      <span>{{ num1 }}</span>
+      <span>{{ operator }}</span>
+      <span>{{ num2 }}</span>
+      <span>=</span>
+      <input type="number" [(ngModel)]="answer" (keydown.enter)="checkAnswer()" autofocus />
+    </div>
+
+    <button (click)="checkAnswer()">Submit</button>
+  </div>
+  <p class="message">{{ message }}</p>
+
+</div>

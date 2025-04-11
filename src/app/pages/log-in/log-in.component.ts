@@ -26,7 +26,7 @@ export class LogInComponent implements OnInit{
   url="../../../assets/Images/Cina.png";
 
   d = Math.floor(new Date().getTime() / 1000); //current date
-  dCh = Math.floor(new Date(2025,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
+  dCh = Math.floor(new Date(2026,3,10,0,0,0,0).getTime() / 1000); //Buyel Date
   //dCh = new Date(2025,1,19,20,59,0,0).getTime() / 1000; //Buyel Date
 
   cpt=0;

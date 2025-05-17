@@ -85,6 +85,14 @@ export const routes: Routes = [
       return m.RootComponent;
     }
   },
+  { //30 Avril: 30/04
+    path :'MjE3NDM1Cg==' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/sun-secret/sun-secret.component");
+      return m.SunSecretComponent;
+    }
+  },
   { //01 May: 01/05
     path :'games/RPS' , 
     pathMatch: 'full', 

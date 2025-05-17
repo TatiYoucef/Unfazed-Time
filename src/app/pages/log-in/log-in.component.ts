@@ -13,7 +13,7 @@ export class LogInComponent implements OnInit{
 
   isLoggedIn = false;
   isDay = false;
-  isClose = false;
+  isClose = false; 
 
   weirdText = "??????";
   cptW = 0;

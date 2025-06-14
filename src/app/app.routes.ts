@@ -133,5 +133,13 @@ export const routes: Routes = [
       return m.MathsComponent;
     }
   },
+  { //14 Juin: 14/06
+    path :'Void' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/void/void.component");
+      return m.VoidComponent;
+    }
+  },
 
 ];

@@ -1,0 +1,26 @@
+<div class="game-container">
+
+  @if (currentDice === 7) {
+    <h1>You did it !!!</h1>
+    <img [src]="'../../../../assets/Images/Dice/'+currentDice+'.png'" alt="Dice face" class="dice-image" />
+
+    <h2> Here's the flag : ChaosMasterCTF&#123;D1c3_m4st3r3d_1n_ch405&#125;</h2>
+
+  } @else {
+
+    <h1>Welcome to Chaos mini-game !!!!</h1>
+    <h2>You will win once you get the secret face dice !!!</h2>
+
+    <h3>Current dice: {{ currentDice }}</h3>
+    
+    <img [src]="'../../../../assets/Images/Dice/'+currentDice+'.png'" alt="Dice face" class="dice-image" />
+
+    <button (click)="rollDice()">
+     <h2 style="margin:0;">Roll Dice</h2>
+    </button>
+
+  }
+
+  
+
+</div>

@@ -141,5 +141,13 @@ export const routes: Routes = [
       return m.VoidComponent;
     }
   },
+  { //30 September: 30/09
+    path :'games/dice' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/Enigmas/dice/dice.component");
+      return m.DiceComponent;
+    }
+  },
 
 ];

@@ -25,6 +25,9 @@ export class DiceComponent {
     }
 
     this.currentDice = Math.floor(Math.random() * 7) + 1;
+    const random = Math.floor(Math.random() * 3) + 1;
+  
+    if(this.currentDice === 7 && random != 3) this.currentDice = 2; 
   }
 
 }

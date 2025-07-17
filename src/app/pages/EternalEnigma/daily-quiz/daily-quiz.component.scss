@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center ;
 
-  background: linear-gradient(45deg, #0082cd, #b0daec, #d1ebf6, #e97ff7);
+  background: linear-gradient(45deg, #000000, #050018, #03024b, #6d3c73);
   background-size: 300% 300%; /* Allows the gradient to shift smoothly */
   animation: gradientMove 6s ease-in-out infinite;
 }
@@ -57,7 +57,6 @@ h2{
 h3{
   font-size: 20px;
   font-weight:bolder;
-  text-align: center;
 }
 
 .card{

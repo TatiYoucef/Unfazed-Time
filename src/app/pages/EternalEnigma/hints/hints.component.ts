@@ -28,10 +28,8 @@ export class HintsComponent {
   fetchServices = inject(FetchModulesService);
 
   d = new Date() ;
-  //date = this.d.getDate();
-  //month = this.d.getMonth() + 1;
-  date = 1;
-  month = 4;
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1;
 
   ngOnInit(): void {
 

@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
 import { MonthPacket, QuizDay } from '../../../models/types';
 import { Router } from '@angular/router';
+import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 
 @Component({
   selector: 'app-daily-quiz',
   standalone: true,
-  imports: [LoadingScreenComponent, FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, LoadingDailyComponent],
   templateUrl: './daily-quiz.component.html',
   styleUrl: './daily-quiz.component.scss'
 })
@@ -108,11 +109,11 @@ export class DailyQuizComponent implements OnInit {
   h = this.d.getHours();
   m = this.d.getMinutes();
   s = this.d.getSeconds();
-  //date = this.d.getDate();
-  //month = this.d.getMonth() + 1;
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1;
   year = this.d.getFullYear();
-  date = 10;
-  month = 5;
+
+  isStarted: boolean = false;
 
   ngOnInit(): void {
     
@@ -120,7 +121,10 @@ export class DailyQuizComponent implements OnInit {
       this.monthPack = liste;
     });
 
-    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => this.enigma = quiz);
+    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => {
+      this.enigma = quiz;
+    });
+
     this.clock();
 
   }

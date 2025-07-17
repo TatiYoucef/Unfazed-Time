@@ -1,0 +1,160 @@
+
+.content{
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+  position: relative;
+}
+/*---------------------------------------------------------------*/
+
+.animated-text{
+  margin-top: 50vh;
+  font-family: "Noto Sans KR";
+  font-size: 40px;
+  color: #aa00ba;
+  font-weight:bolder;
+  -webkit-text-stroke: 2px white; /* Border width and color */
+  text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white
+
+}
+
+.animated-text span {
+  display: inline-block;
+  animation: jump 4s infinite;
+}
+
+/* Define the keyframes for jumping */
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Apply delays so each letter starts its animation one after the other */
+.animated-text span:nth-child(1) { animation-delay: 0s; }
+.animated-text span:nth-child(2) { animation-delay: 0.2s; }
+.animated-text span:nth-child(3) { animation-delay: 0.4s; }
+.animated-text span:nth-child(4) { animation-delay: 0.6s; }
+/*---------------------------------------------------------------*/
+
+.resizing-div1 {
+  position: absolute;
+  top: 1%;
+  padding: 0;
+  animation: jump 12s infinite alternate ease-in-out;
+}
+
+.resizing-div2 {
+  position: absolute;
+  top: -25px;
+  padding: 0;
+  animation: jump 10s infinite alternate ease-in-out;
+  animation-delay: 2s;
+}
+
+.resizing-div3 {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  animation: jump 8s infinite alternate ease-in-out;
+}
+
+.resizing-div4 {
+  position: absolute;
+  top: 10%;
+  padding: 0;
+  animation: jump 16s infinite alternate ease-in-out;
+}
+
+.resizing-div5 {
+  position: absolute;
+  top: 27%;
+  padding: 0;
+  animation: jump 8s infinite alternate ease-in-out;
+  animation-delay: 1s;
+}
+
+.resizing-div5 {
+  position: absolute;
+  top: 25%;
+  padding: 0;
+  animation: jump 14s infinite alternate ease-in-out;
+  animation-delay: 4s;
+}
+
+.resizing-div6 {
+  position: absolute;
+  top: 20%;
+  padding: 0;
+  animation: jump 9s infinite alternate ease-in-out;
+}
+
+.progress {
+  background: rgba(255,255,255,0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 30px;
+  width: 700px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white;
+
+}
+
+.progress-value {
+  animation: load 50s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: #fff;
+  height: 20px;
+  width: 0;
+}
+
+@keyframes load {
+  0% { width: 5%; }
+  20% { width: 20%; }
+  30% { width: 20%; }
+  70% { width: 80%; }
+  90% { width: 80%; }
+  100% { width: 100%; }
+}
+
+h1{
+
+  color: white;
+  font-weight:bolder;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white
+}
+
+h2{
+  margin: 0;
+  margin-top: -20px;
+  font-size: 20px;
+  color: white;
+  font-weight:bolder;
+  text-align: center;
+  width: 700px;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white;
+
+  animation: fadeIn 14s infinite;
+}
+
+@keyframes fadeIn {
+  0%,100% { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  20% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+
+}

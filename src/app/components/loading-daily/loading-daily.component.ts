@@ -26,6 +26,10 @@ export class LoadingDailyComponent implements OnInit {
     "Lower and upper cases are not sensitive in your answers, also same for external spaces",
     "hope the kitten found her mom...",
     "This tip is totally useless, but I helped wasting your time waiting for the quest to load :3",
+    "내  햇빛이  나를  인도하길",
+    "All of above, as all of below, Sun and Moon shall meet yet again",
+    "if your intuition leads you to uncertainty, follow it, the answers you seek could be anywhere",
+    "patience is the key"
   ]
 
   currentTip: string = '';

@@ -35,6 +35,7 @@ export class FetchModulesService {
 
   fetchAllEnigmas(){
     
+    //equivalnt of sleep
     const url = "http://localhost:3000/api/quiz";
 
     return this.http.get<Array<MonthPacket>>(url).pipe( //pipe to catch any error

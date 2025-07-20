@@ -1,5 +1,4 @@
 import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
-import { LoadingScreenComponent } from "../../../components/loading-screen/loading-screen.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
@@ -124,6 +123,11 @@ export class DailyQuizComponent implements OnInit {
     this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => {
       this.enigma = quiz;
     });
+
+    //simulate loading time
+    setTimeout(() => {
+      this.isStarted = true;
+    }, 5000); // Simulate loading time of 5 seconds
 
     this.clock();
 

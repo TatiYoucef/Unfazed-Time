@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
+import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 
 @Component({
   selector: 'app-hints',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoadingDailyComponent],
   templateUrl: './hints.component.html',
   styleUrl: './hints.component.scss'
 })
@@ -31,9 +32,15 @@ export class HintsComponent {
   date = this.d.getDate();
   month = this.d.getMonth() + 1;
 
+  isStarted: boolean = false;
+
+
   ngOnInit(): void {
 
-    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => this.hints = quiz.hints);
+    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => {
+      this.hints = quiz.hints;
+      this.isStarted = true; 
+    });
 
   }
 

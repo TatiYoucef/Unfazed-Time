@@ -4,9 +4,9 @@
     {{ notificationMessage }}
   </div>
 
-  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px;">
+  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; background: linear-gradient(-45deg, #03024b, blueviolet);">
 
-    <h1>Welcome to Daily Enigma !!</h1>
+    <h1>Welcome to Moon Quest !!</h1>
     <h1 style="font-size: 40px;">Month Theme: {{monthPack.Theme}}</h1>
     <h1 style="font-size: 30px; color: rgb(218, 0, 218);
     -webkit-text-stroke: 2px white;">Quiz of today: {{enigma.day}}th {{monthPack.name}}</h1>
@@ -61,7 +61,8 @@
   
     </div>
   
-    <button class="main-button">See my progress</button>
+    <button class="main-button" (click)="router.navigate(['home/dailyQuiz/progress'])">Progress</button>
+    <button class="main-button" (click)="router.navigate(['home'])">Home</button>
 
     <h1 
       style="font-size: 50px; color: rgb(218, 0, 218); 

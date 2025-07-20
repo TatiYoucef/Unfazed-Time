@@ -1,0 +1,48 @@
+@if (isStarted) {
+
+  <div class="center-div" style="padding: 100px 0px; justify-content: start; height: auto;   background: linear-gradient(45deg, #03024b, blueviolet);">
+
+    <div class="horiz">
+      <button class="main-button">return</button>
+      <button class="main-button">Achievements</button>
+      <button class="main-button">Badges</button>
+    </div>
+
+    <div class="bigCard">
+      <h2>Main Progress</h2>
+      <h3 style="margin-top: 10px;">Shards collected : 77 / 366</h3>
+      <h3>Achievements : 0/5</h3>
+      <h3>Badges : 1/6</h3>
+      <h3>Pourcentage : 10.11%</h3>
+    </div>
+
+    <h2 style="-webkit-text-stroke: 3px white; margin-bottom: 20px;">Main Agenda Status</h2>
+    
+    <div class="horiz">
+      <button class="sub-button" (click)="previousMonth()"><</button>
+        <h1 style="background-color: white;border-radius: 12px; color: blue; min-width: 400px; text-align: center;">{{monthPack[currentMonthIndex].name}}</h1>
+      <button class="sub-button" (click)="nextMonth()">></button>
+    </div>
+
+    <h1>Theme: {{monthPack[currentMonthIndex].solvedOne ? monthPack[currentMonthIndex].Theme : "????"}}</h1>
+
+   
+    <div class="flex-container">
+      @for (day of monthPack[currentMonthIndex].days; track $index) {
+        <div class="card" [ngClass]="{ 'solved': day.solved }">
+          {{day.day}}
+          <div class="description-card">
+            {{day.solved ? day.title:"????"}}<br/>
+            @if (day.solved) {solved at: {{day.sYear}} }
+          </div>
+        </div>
+      } 
+    </div>
+    
+  </div>
+
+} @else {
+  <div class="center-div">
+    <app-loading-daily/>
+  </div>
+}

@@ -67,6 +67,15 @@ export const routes: Routes = [
     }
   },
 
+  {
+    path :'home/dailyQuiz/progress' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/progress/progress.component");
+      return m.ProgressComponent;
+    }
+  },
+
   //-----------------------------ENIGMAS-------------------------
 
   { //06 Avril: 06/04

@@ -1,24 +1,30 @@
-<div class="hints-container">
+@if (isStarted) {
 
-  <ng-container *ngFor="let hint of hints; let i = index">
-    <button *ngIf="!revealedHints[i]" (click)="toggleHint(i)" class="hint-button">
-      Hint {{ i + 1 }}
-    </button>
+  <div class="hints-container">
 
-    @if (revealedHints[i]) {
-      <div *ngIf="revealedHints[i]" class="hint-text">
+    <ng-container *ngFor="let hint of hints; let i = index">
+      <button *ngIf="!revealedHints[i]" (click)="toggleHint(i)" class="hint-button">
+        Hint {{ i + 1 }}
+      </button>
 
-        <h4 style="margin: 0;">{{ hint }}</h4>
+      @if (revealedHints[i]) {
+        <div *ngIf="revealedHints[i]" class="hint-text">
 
-        <button (click)="toggleHint(i)" class="hint-button">
-          Hide hint {{ i + 1 }}
-        </button>
-      </div>
-      
-    }
+          <h4 style="margin: 0;">{{ hint }}</h4>
 
-  </ng-container>
+          <button (click)="toggleHint(i)" class="hint-button">
+            Hide hint {{ i + 1 }}
+          </button>
+        </div>
+        
+      }
 
-  <button class="hint-button" style="margin-top: 100px;" (click)="goBack()">Go back to Quiz</button>
+    </ng-container>
 
-</div>
+    <button class="hint-button" style="margin-top: 100px;" (click)="goBack()">Go back to Quiz</button>
+
+  </div>
+
+} @else {
+  <app-loading-daily/>
+}

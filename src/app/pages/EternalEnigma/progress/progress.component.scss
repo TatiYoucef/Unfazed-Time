@@ -1,0 +1,192 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #54275a, #6d3c73, #62049c, #03024b);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+.horiz{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  margin-bottom: 50px;
+}
+
+.main-button{
+  font-family: "Quicksand";
+  padding: 10px 50px ;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+  font-size: 25px;
+  color: rgb(55, 0, 218);
+  font-weight:bolder; 
+
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;
+
+  &:hover{
+    background-color: rgb(55, 0, 218);
+    font-size: 30px;
+    color: white;
+    font-weight:bolder;
+
+  }
+}
+
+.sub-button{
+  font-family: "Quicksand";
+  padding: 10px 50px ;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+  font-size: 25px;
+  color: rgb(55, 0, 218);
+  font-weight:bolder; 
+
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;
+
+  &:hover{
+    background-color: rgb(55, 0, 218);
+    color: white;
+    font-weight:bolder;
+
+  }
+}
+
+.flex-container {
+  padding: 20px 70px;
+  display: flex;
+  flex-wrap: wrap;       /* Allow wrapping to next line */
+  justify-content: center; /* Center items horizontally */
+  gap: 30px;              /* Optional: space between items */
+  row-gap: 30px;
+}
+
+.bigCard{
+
+  display: flex;
+  flex-direction: column; /* Flex items will be arranged vertically */
+  justify-content: flex-start; /* Align items at the top by default */
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px 40px;
+  margin: 20px 0px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  background-color: white;
+  width: 50%;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+}
+
+.card{
+  position: relative; /* Needed for absolute positioning of the description */
+
+  font-size: 30px;
+  font-weight: bolder;
+
+  flex: 0 1 auto;         /* Prevent stretching, allow shrinking */
+  min-width: 50px;       /* Set your preferred min size */
+  background: rgb(213, 213, 213);
+  padding: 10px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column; /* Flex items will be arranged vertically */
+  justify-content: flex-start; /* Align items at the top by default */
+  align-items: center;
+
+  padding: 10px 10px;
+  border-radius: 20px;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+  transition: all 0.3s ease; /* Smooth scaling effect */
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+
+  &:hover {
+    transform: scale(1.5); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+    background-color: #1d19e4;
+    color: white;
+    z-index: 1000;
+  }
+
+  &:hover .description-card {
+    opacity: 1; /* Show the description on hover */
+    visibility: visible; /* Make it visible */
+  }
+
+}
+
+.card.solved {
+  background-color: #4caf50; // a nice green
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+
+  &:hover {
+    transform: scale(1.5); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+    background-color: white;
+    color: #4caf50;
+    z-index: 1000;
+  }
+}
+
+.description-card {
+
+  position: absolute;
+  top: 100%; /* Position it right below the button */
+  left: 50%;
+
+  font-size: 10px;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  background-color: black;
+  z-index: 999;
+}
+
+h1{
+  font-size: 50px;
+  margin: 0;
+  color: white;
+}
+
+h2{
+  font-size: 40px;
+  color: white;
+  margin: 0;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px #e97ff7; /* Border width and color */
+}
+
+h3{
+  margin: 0;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+

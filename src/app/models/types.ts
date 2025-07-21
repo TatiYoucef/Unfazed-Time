@@ -1,3 +1,13 @@
+export type Achievements = {
+  nbrSolved: number;
+  Streak: number;
+  BestStreak: number;
+  nbrFailures: number;
+  BrokenStreak: boolean;
+  EarlyBird: boolean;
+  NightOwl: boolean;
+};
+
 export type QuizDay = {
 
   day: number,

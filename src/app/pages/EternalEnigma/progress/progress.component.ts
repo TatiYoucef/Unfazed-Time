@@ -1,6 +1,6 @@
 import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
-import { MonthPacket } from '../../../models/types';
+import { Achievements, MonthPacket } from '../../../models/types';
 import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 import { CommonModule } from '@angular/common';
 
@@ -17,13 +17,18 @@ export class ProgressComponent implements OnInit {
 
   fetchServices = inject(FetchModulesService);
   monthPack !: Array<MonthPacket>;
+  achievements !: Achievements;
   currentMonthIndex = 0; // Assuming January is the first month
 
   ngOnInit(): void {
     
     this.fetchServices.fetchAllEnigmas().subscribe((liste) => {
       this.monthPack = liste;
-      this.isStarted = true; // Set to true after fetching enigmas
+      this.fetchServices.fetchAchievements().subscribe((achievements) => {
+        this.achievements = achievements;
+        this.isStarted = true; // Set to true after fetching enigmas
+
+      });
     });
 
   }

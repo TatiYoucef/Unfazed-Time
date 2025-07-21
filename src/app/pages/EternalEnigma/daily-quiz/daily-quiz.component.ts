@@ -1,8 +1,9 @@
 import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
-import { MonthPacket, QuizDay } from '../../../models/types';
+import { Achievements, MonthPacket, QuizDay } from '../../../models/types';
 import { Router } from '@angular/router';
 import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 
@@ -43,6 +44,26 @@ export class DailyQuizComponent implements OnInit {
   notificationMessage: String = '';
   isSuccess: boolean = false;
 
+  async isPreviousSolved(day: number, month: number): Promise<boolean> {
+    if (day != 1) {
+      const previousDay = this.monthPack.days[day - 2];
+      return previousDay.solved;
+    } else {
+      let previousMonth = month - 1;
+      if (previousMonth === 0) previousMonth = 12;
+
+      try {
+        const prevMonth = await lastValueFrom(this.fetchServices.fetchlistMonth(previousMonth));
+        const previousDay = prevMonth.days[prevMonth.days.length - 1];
+        console.log("previousDay", previousDay);
+        return previousDay.solved;
+      } catch (error) {
+        console.error("Error fetching previous month:", error);
+        return false; // Fallback
+      }
+    }
+  }
+
   testSubmit(){
 
     switch (this.input.trim().toLowerCase()) {
@@ -51,11 +72,21 @@ export class DailyQuizComponent implements OnInit {
 
         if(!this.enigma.solved){
           
-          this.fetchServices.solveEnigma(this.month,this.date,this.year).subscribe((response) => {
+          this.fetchServices.solveEnigma(this.month,this.date,this.year).subscribe(() => {
             this.solvedSound.play();
             this.enigma.solved = true;
             this.enigma.sYear = this.year;
-            this.displayNotification(this.enigma.reaction , true);
+            let Streak = this.achievements.Streak;
+            if(this.isBeforeSolved) Streak++;
+            else Streak = 1; // Reset streak if it was broken
+
+            console.log("New Streak: ", Streak);
+            this.fetchServices.setStreak(Streak).subscribe(() =>{
+              this.displayNotification(this.enigma.reaction , true);
+              this.achievements.Streak = Streak;
+              this.achievements.nbrSolved++;
+            });
+            
           });
 
         } else {
@@ -70,7 +101,10 @@ export class DailyQuizComponent implements OnInit {
       break;
 
       default:
-        this.displayNotification("Don't worry, you have infinite of tries !!!", false);
+        this.fetchServices.setFails(this.achievements.nbrFailures + 1).subscribe(() => {
+          this.achievements.nbrFailures++;
+          this.displayNotification("Don't worry, you have infinite of tries !!!", false);
+        });
       break;
     }
 
@@ -98,39 +132,56 @@ export class DailyQuizComponent implements OnInit {
 
   }
 
-
-
   fetchServices = inject(FetchModulesService);
   enigma !: QuizDay;
   monthPack !: MonthPacket;
+  achievements !: Achievements;
 
   d = new Date() ;
   h = this.d.getHours();
   m = this.d.getMinutes();
   s = this.d.getSeconds();
-  date = this.d.getDate();
-  month = this.d.getMonth() + 1;
+  // date = this.d.getDate();
+  date = 2;
+  // month = this.d.getMonth() + 1;
+  month = 8 ;
   year = this.d.getFullYear();
 
   isStarted: boolean = false;
+  isBeforeSolved: boolean = false;
 
-  ngOnInit(): void {
-    
-    this.fetchServices.fetchlistMonth(this.month).subscribe((liste) => {
+  async ngOnInit() {
+    try {
+      // Fetch month data
+      const liste = await lastValueFrom(this.fetchServices.fetchlistMonth(this.month));
       this.monthPack = liste;
-    });
+      this.enigma = this.monthPack.days[this.date - 1];
 
-    this.fetchServices.fetchdailyEnigma(this.month,this.date).subscribe((quiz) => {
-      this.enigma = quiz;
-    });
+      // Fetch achievements
+      const achieve = await lastValueFrom(this.fetchServices.fetchAchievements());
+      this.achievements = achieve;
 
-    //simulate loading time
-    setTimeout(() => {
-      this.isStarted = true;
-    }, 5000); // Simulate loading time of 5 seconds
+      // Check if previous day was solved
+      this.isBeforeSolved = await this.isPreviousSolved(this.date, this.month);
+
+      // Reset streak if needed
+      if (!this.isBeforeSolved && this.achievements.Streak > 0) {
+        await lastValueFrom(this.fetchServices.setStreak(0));
+        this.achievements.Streak = 0;
+      }
+
+      // Simulate loading
+      setTimeout(() => {
+        this.isStarted = true;
+        console.log("Current Streak: ", this.achievements.Streak);
+        console.log("before? : ", this.isBeforeSolved);
+      }, 5000);
+
+    } catch (error) {
+      console.error("Error in ngOnInit:", error);
+    }
 
     this.clock();
-
   }
 
   clock(){

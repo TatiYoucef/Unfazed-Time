@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
-import { MonthPacket, QuizDay } from '../models/types';
+import { Achievements, MonthPacket, QuizDay } from '../models/types';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +33,69 @@ export class FetchModulesService {
     
   }
 
+  fetchAchievements() {
+
+    const url = "http://localhost:3000/api/achievements";
+
+    return this.http.get<Achievements>(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+
+  }
+
+  setStreak(nbr: number){
+    const url = `http://localhost:3000/api/achievements/streak/${nbr}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+  }
+
+  setFails(nbr: number){
+    const url = `http://localhost:3000/api/achievements/nbrFails/${nbr}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+  }
+
+  setEarlyBird(status: boolean){
+    const url = `http://localhost:3000/api/achievements/earlyBird/${status}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+  }
+
+  setNightOwl(status: boolean){
+    const url = `http://localhost:3000/api/achievements/nightOwl/${status}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+  }
+
   fetchAllEnigmas(){
     
-    //equivalnt of sleep
     const url = "http://localhost:3000/api/quiz";
 
     return this.http.get<Array<MonthPacket>>(url).pipe( //pipe to catch any error

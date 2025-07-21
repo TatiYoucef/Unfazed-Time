@@ -1,4 +1,6 @@
 .center-div{
+  position: relative;
+
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -74,22 +76,26 @@
   justify-content: center; /* Center items horizontally */
   gap: 30px;              /* Optional: space between items */
   row-gap: 30px;
+
+  z-index: 2;
 }
 
 .bigCard{
+  position: relative;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column; /* Flex items will be arranged vertically */
   justify-content: flex-start; /* Align items at the top by default */
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 
-  padding: 20px 40px;
+  padding: 40px 80px;
   margin: 20px 0px;
   margin-bottom: 100px;
   border-radius: 20px;
-  background-color: white;
-  width: 50%;
+  background: linear-gradient(225deg, blue, black);
+  color: white;
   
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
 
@@ -184,9 +190,20 @@ h2{
 }
 
 h3{
+  position: relative;
   margin: 0;
-  margin-right: auto;
   font-size: 25px;
+  white-space: nowrap;
+}
+
+img{
+  position: absolute;
+  animation: jump 6s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 

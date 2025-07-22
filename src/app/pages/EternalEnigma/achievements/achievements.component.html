@@ -1,0 +1,97 @@
+@if(isStarted){
+
+  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; background: linear-gradient(-45deg, #03024b, blueviolet);">
+    @if (achievements.EarlyBird) {
+      <div class="card">
+        <h1>Early Bird</h1>
+        <h2>This title is only given to whome shall witness the Sun rises to remove the still darkness of the sky</h2>
+      </div>
+    } @else {
+      <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 100px 50px;">
+        <h1 style="font-size: 100px; color: white;">????</h1>
+        <img src="../../../../assets/Images/SUN.png" width="200px" style="bottom: -70px; right: -50px;">
+        <img src="../../../../assets/Images/3AM.png" width="100px" style="top: 5%; left: 20%;">
+      </div>
+    }
+
+    @if (achievements.NightOwl) {
+      <div class="card" style=" background: linear-gradient(225deg, blue, black);">
+        <h1>Night Owl</h1>
+        <h2>This title is only given to whome shall witness the broken moon rises to clear the darkness roaming across the mist</h2>
+      </div>
+    } @else {
+      <div class="card" style="background-color: black; color: white; padding: 100px 50px;">
+        <h1 style="font-size: 100px; color: white;">????</h1>
+        <img src="../../../../assets/Images/OWL.png" width="30%" style="top: 5%; right: 5%; rotate: 30deg;">
+
+      </div>
+    }
+
+    @if (achievements.BestStreak >= 50) {
+
+      <div class="card" style=" background: linear-gradient(225deg, blue, black);">
+        <h1>Locked In</h1>
+        <h2>This title is only given to whome focused on collecting the shards with intense will</h2>
+      </div>
+
+    } @else {
+      <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 100px 50px;">
+        <h1 style="font-size: 100px; color: white;">????</h1>
+        <img src="../../../../assets/Images/CurrentStreak.png" width="50%" style="top: 10%; right: -5%;">
+      </div>
+    }
+
+    @if (achievements.BrokenStreak) {
+
+      <div class="card" style=" background: linear-gradient(225deg, blue, black);">
+        <h1>lost a battle, but not the war</h1>
+        <h2>Losing a Streak is an achievement proving a dedication does include fails, and that's fine to have in your way of success</h2>
+      </div>
+
+    } @else {
+      <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 100px 50px;">
+        <h1 style="font-size: 100px; color: white;">????</h1>
+        <img src="../../../../assets/Images/CurrentStreak.png" width="20%" style="top: 20%; left: 20%;">
+        <img src="../../../../assets/Images/SeriousStreak.png" width="70%" style="top: -40%; right: -15%;">
+      </div>
+    }
+
+    @if (achievements.nbrFailures >= 100) {
+
+      <div class="card" style=" background: linear-gradient(225deg, blue, black);">
+        <h1>Diamond Heart</h1>
+        <h2>Many failed attempts, but those tries never shook the heart of reader</h2>
+      </div>
+
+    } @else {
+      <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 100px 50px;">
+        <img src="../../../../assets/Images/False.png" width="50%" style="top: 10%; right: -5%;">
+        <h1 style="font-size: 100px; color: white;">????</h1>
+      </div>
+    }
+
+    <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 0px 50px; gap: 0; height: 325px;">
+      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+    </div>
+
+    <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 0px 50px; gap: 0; height: 325px;">
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+      <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
+
+    </div>
+
+  </div>
+
+} @else {
+  <div class="center-div">
+    <app-loading-daily/>
+  </div>
+}

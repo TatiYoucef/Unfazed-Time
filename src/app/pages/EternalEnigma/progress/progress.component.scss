@@ -206,4 +206,27 @@ img{
   50% { transform: translateY(-10px); }
 }
 
+$notification-height: 100px;
+
+.notification-bar {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  width: 100%;
+  height: $notification-height;
+  line-height: $notification-height;
+  text-align: center;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+  
+  &.show {
+    transform: translateY(0);
+  }
+}
+
 

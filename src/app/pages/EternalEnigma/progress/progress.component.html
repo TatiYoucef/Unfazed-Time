@@ -1,10 +1,14 @@
 @if (isStarted) {
 
+  <div #notificationBar class="notification-bar" [ngClass]="{'show': showNotification}">
+    {{ notificationMessage }}
+  </div>
+
   <div class="center-div" style="padding: 100px 0px; justify-content: start; height: auto;   background: linear-gradient(45deg, #03024b, blueviolet);">
 
     <div class="horiz">
-      <button class="main-button">return</button>
-      <button class="main-button">Achievements</button>
+      <button class="main-button" (click)="router.navigate(['home/dailyQuiz'])">return</button>
+      <button class="main-button" (click)="router.navigate(['/home/dailyQuiz/progress/achievements'])">Achievements</button>
       <button class="main-button">Badges</button>
     </div>
 
@@ -23,11 +27,11 @@
       </div>
 
       <div class="horiz" style="justify-content: center; margin: 0;">
-        <h3 style="margin-right: 70px;">Achievements : 0/5</h3>
-        <h3>Badges : 1/6</h3>
+        <h3 style="margin-right: 70px;">Achievements : {{nbrAchieved}}/7</h3>
+        <h3>Badges : {{nbrBadges}}/6</h3>
       </div>
 
-      <h3 style="margin: auto;">Main progress : 10.11%</h3>
+      <h3 style="margin: auto;">Main progress : {{mainProgress}}%</h3>
     </div>
 
     <h2 style="-webkit-text-stroke: 3px white; margin-bottom: 20px;">Main Agenda Status</h2>
@@ -43,7 +47,7 @@
    
     <div class="flex-container">
       @for (day of monthPack[currentMonthIndex].days; track $index) {
-        <div class="card" [ngClass]="{ 'solved': day.solved }">
+        <div class="card" [ngClass]="{ 'solved': day.solved }" (click)="clickCard(currentMonthIndex+1 , day)">
           {{day.day}}
           <div class="description-card">
             {{day.solved ? day.title:"????"}}<br/>

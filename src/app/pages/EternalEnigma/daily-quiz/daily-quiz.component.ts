@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
 import { Achievements, MonthPacket, QuizDay } from '../../../models/types';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 
 @Component({
@@ -86,7 +86,9 @@ export class DailyQuizComponent implements OnInit {
               this.achievements.Streak = Streak;
               this.achievements.nbrSolved++;
             });
-            
+
+            if(this.h >=22) this.fetchServices.setNightOwl(true).subscribe(() => {});
+            if(this.h >= 3 &&  this.h < 6) this.fetchServices.setEarlyBird(true).subscribe(() => {});             
           });
 
         } else {
@@ -141,21 +143,41 @@ export class DailyQuizComponent implements OnInit {
   h = this.d.getHours();
   m = this.d.getMinutes();
   s = this.d.getSeconds();
-  // date = this.d.getDate();
-  date = 2;
-  // month = this.d.getMonth() + 1;
-  month = 8 ;
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1;
   year = this.d.getFullYear();
 
   isStarted: boolean = false;
   isBeforeSolved: boolean = false;
 
+  rout = inject(ActivatedRoute);
   async ngOnInit() {
+
+    this.rout.paramMap.subscribe((params) =>{
+
+      this.month = Number(params.get("month")); 
+      this.date = Number(params.get("day"));
+      console.log("Current Month: ", this.month);
+      console.log("Current Day: ", this.date);
+      //if no parameters are given, we assume it's the current day
+      if(!this.month || !this.date){
+        this.month = this.d.getMonth() + 1;
+        this.date = this.d.getDate();
+      }
+
+    });
+
+
     try {
       // Fetch month data
-      const liste = await lastValueFrom(this.fetchServices.fetchlistMonth(this.month));
+      let liste = await lastValueFrom(this.fetchServices.fetchlistMonth(this.month));
       this.monthPack = liste;
       this.enigma = this.monthPack.days[this.date - 1];
+
+      if(!this.enigma.solved && (this.month != this.d.getMonth() + 1 || this.date != this.d.getDate()) ){ 
+        alert("You can't visit an Enigma that wasn't solved yet, nice try tho :3");
+        this.router.navigate(['/home/dailyQuiz']);
+      }
 
       // Fetch achievements
       const achieve = await lastValueFrom(this.fetchServices.fetchAchievements());

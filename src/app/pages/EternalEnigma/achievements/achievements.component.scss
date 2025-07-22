@@ -1,0 +1,90 @@
+.center-div{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #000000, #050018, #03024b, #6d3c73);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1{
+  font-size: 40px;
+  margin: 0;
+  color: #9703a1;
+  font-weight:bolder;
+  -webkit-text-stroke: 3px white; /* Border width and color */
+}
+
+h2{
+  font-size: 25px;
+  color: white;
+  margin: 0;
+  font-weight:bolder;
+  text-align: center;
+}
+
+h3{
+  font-size: 20px;
+  font-weight:bolder;
+}
+
+
+.card{
+
+  display: flex;
+  flex-direction: column; /* Flex items will be arranged vertically */
+  justify-content: flex-start; /* Align items at the top by default */
+  align-items: center;
+  gap: 100px;
+
+  padding: 50px 40px;
+  margin: 20px 0px;
+  border-radius: 20px;
+  width: 50%;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.personal-button{
+  padding: 10px 50px ;
+  margin: 30px 0px;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+
+  font-size: 1em;
+  color: rgb(218, 0, 218);
+  font-weight:bolder;
+
+  cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;
+
+  &:hover{
+    background-color: rgb(218, 0, 218);
+    font-size: 1.5em;
+    color: white;
+    font-weight:bolder;
+
+    animation: float 5s infinite linear ;
+  }
+}
+
+img{
+  position: absolute;
+}
+

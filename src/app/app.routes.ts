@@ -49,32 +49,50 @@ export const routes: Routes = [
     }
   },
 
-  // {
-  //   path :'home/dailyQuiz' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/EternalEnigma/daily-quiz/daily-quiz.component");
-  //     return m.DailyQuizComponent;
-  //   }
-  // },
+  {
+    path :'home/dailyQuiz/progress/achievements' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/achievements/achievements.component");
+      return m.AchievementsComponent;
+    }
+  },
 
-  // {
-  //   path :'home/dailyQuiz/hints' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/EternalEnigma/hints/hints.component");
-  //     return m.HintsComponent;
-  //   }
-  // },
+    {
+    path :'home/dailyQuiz/hints' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/hints/hints.component");
+      return m.HintsComponent;
+    }
+  },
 
-  // {
-  //   path :'home/dailyQuiz/progress' , 
-  //   pathMatch: 'full', 
-  //   loadComponent: async () => {
-  //     const m = await import("./pages/EternalEnigma/progress/progress.component");
-  //     return m.ProgressComponent;
-  //   }
-  // },
+  {
+    path :'home/dailyQuiz/progress' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/progress/progress.component");
+      return m.ProgressComponent;
+    }
+  },
+
+  {
+    path :'home/dailyQuiz/:month/:day' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/daily-quiz/daily-quiz.component");
+      return m.DailyQuizComponent;
+    }
+  },
+
+  {
+    path :'home/dailyQuiz' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/daily-quiz/daily-quiz.component");
+      return m.DailyQuizComponent;
+    }
+  },
 
   //-----------------------------ENIGMAS-------------------------
 

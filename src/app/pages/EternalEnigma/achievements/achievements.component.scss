@@ -20,10 +20,10 @@
 
 h1{
   font-size: 40px;
+  color: white;
   margin: 0;
-  color: #9703a1;
   font-weight:bolder;
-  -webkit-text-stroke: 3px white; /* Border width and color */
+  -webkit-text-stroke: 3px #e97ff7; /* Border width and color */
 }
 
 h2{
@@ -46,7 +46,7 @@ h3{
   flex-direction: column; /* Flex items will be arranged vertically */
   justify-content: flex-start; /* Align items at the top by default */
   align-items: center;
-  gap: 100px;
+  gap: 50px;
 
   padding: 50px 40px;
   margin: 20px 0px;

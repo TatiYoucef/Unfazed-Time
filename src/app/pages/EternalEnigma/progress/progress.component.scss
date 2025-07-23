@@ -33,6 +33,7 @@
   font-size: 25px;
   color: rgb(55, 0, 218);
   font-weight:bolder; 
+  z-index: 2;
 
   cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   transition: background-color 0.5s, color 0.5s, font-size 0.6s, animation 0s, -webkit-text-stroke 0.6s ;

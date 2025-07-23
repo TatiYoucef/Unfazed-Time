@@ -31,6 +31,7 @@ export class ProgressComponent implements OnInit {
       this.monthPack = liste;
       this.fetchServices.fetchAchievements().subscribe((achievements) => {
         this.achievements = achievements;
+        this.percentage = ((this.achievements.nbrSolved / 367) * 100);
         this.isStarted = true; // Set to true after fetching enigmas
         this.nbrAchieved = this.CalculatenbrAchievements();
 
@@ -50,18 +51,18 @@ export class ProgressComponent implements OnInit {
   }
 
   CalculateProgress() {
-    return ((this.achievements.nbrSolved + this.nbrAchieved + this.nbrBadges) / (366 + 7 + 6) * 100).toFixed(2);
+    return ((this.achievements.nbrSolved + this.nbrAchieved + this.nbrBadges) / (367 + 7 + 7) * 100).toFixed(2);
   }
 
   CalculatenbrBadges(){
-    let percentage:number = Number(((this.achievements.nbrSolved / 366) * 100).toFixed(2));
+    let percentage:number = Number(((this.achievements.nbrSolved / 367) * 100).toFixed(2));
 
-    if(percentage < 10) return 1;
-    if(percentage < 25) return 2;
-    if(percentage < 50) return 3;
-    if(percentage < 80) return 4;
-    if(percentage < 100) return 5;
-    return 6; // If percentage is 100 or more
+    if(percentage < 10) return 2;
+    if(percentage < 25) return 3;
+    if(percentage < 50) return 4;
+    if(percentage < 80) return 5;
+    if(percentage < 100) return 6;
+    return 7; // If percentage is 100 or more
 
   }
 
@@ -95,5 +96,15 @@ export class ProgressComponent implements OnInit {
   }
 
   router = inject(Router);
+
+
+  percentage!: number;
+  isNeonCina = false;
+  isNeonFlower = false;
+  isNeonByul = false;
+  isNeonBG = false;
+  isNeonSun = false;
+  isNeonNiwa = false;
+  isNeonPico = false;
 
 }

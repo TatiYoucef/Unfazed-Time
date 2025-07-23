@@ -15,11 +15,31 @@
     <div class="bigCard">
 
       <img src="../../../assets/Images/Galaxy.png" style="top: -12%;right: 15%; animation-delay: 2s;">
-      <img src="../../../assets/Images/ShinyByul.png" width="100px" style="bottom: 0%;left: 0%; animation: none;">
+
+
+      @if (percentage >= 25) {
+        <img [src]="isNeonByul ? '../../../assets/Images/ShinyByul.png':'../../../assets/Images/WhiteByul.png'" 
+        (click)="isNeonByul = !isNeonByul" 
+        [style.width]="isNeonByul ? '100px' : '80px'" 
+        [style.bottom]="isNeonByul ? '0%' : '2%'" 
+        [style.left]="isNeonByul ? '0%' : '1%'" 
+        style="animation: none; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+        >
+      }
+
+      @if (percentage === 100) {
+        <img [src]="isNeonBG ? '../../../assets/Images/BGNeon.png':'../../../assets/Images/BG.png'" 
+        (click)="isNeonBG = !isNeonBG" 
+        [style.width]="isNeonBG ? '20%' : '18%'" 
+        [style.bottom]="isNeonBG ? '-1%' : '2%'" 
+        [style.right]="isNeonBG ? '0.5%' : '1%'" 
+        style="animation: none; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+        >
+      }
 
       <h2>Current Status</h2>
 
-      <h3 style="margin: auto;">Shards collected &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../../../assets/Images/Moon/smallNorth.png" width="200px" style="top: -100px; left: 35%;">{{achievements.nbrSolved}} / 366</h3>
+      <h3 style="margin: auto;">Shards collected &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../../../assets/Images/Moon/smallNorth.png" width="200px" style="top: -100px; left: 35%;">{{achievements.nbrSolved}} / 367</h3>
 
       <div class="horiz" style="justify-content: center; margin: 0;">
         <h3 style="margin-right: 50px;">Current streak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../../../assets/Images/CurrentStreak.png" style="top: -50px; left: 61%; animation: none; width: 100px;">{{achievements.Streak}}</h3>
@@ -28,7 +48,7 @@
 
       <div class="horiz" style="justify-content: center; margin: 0;">
         <h3 style="margin-right: 70px;">Achievements : {{nbrAchieved}}/7</h3>
-        <h3>Badges : {{nbrBadges}}/6</h3>
+        <h3>Neons : {{nbrBadges}}/7</h3>
       </div>
 
       <h3 style="margin: auto;">Main progress : {{mainProgress}}%</h3>
@@ -57,8 +77,51 @@
       } 
     </div>
 
-    <img src="../../../assets/Images/WhiteCina.png" width="30%" style="bottom: 5%;right: 1%; animation: none; z-index: 1;">
-    <img src="../../../assets/Images/Flower.png" width="20%" style="bottom: 1%;Left: 1%; animation: none; z-index: 1;">
+    <img [src] = "isNeonCina? '../../../assets/Images/WhiteCinaNeon.png':'../../../assets/Images/WhiteCina.png'" 
+    (click)="isNeonCina = !isNeonCina" 
+    [style.width]="isNeonCina ? '35%' : '30%'" 
+    [style.bottom]="isNeonCina ? '2.5%' : '5%'" 
+    [style.right]="isNeonCina ? '-1%' : '1%'" 
+    style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+    >
+
+    @if (percentage >= 10) {
+      <img [src] = "isNeonNiwa? '../../../assets/Images/NiwaNeon.png':'../../../assets/Images/Niwa.png'" 
+      (click)="isNeonNiwa = !isNeonNiwa" 
+      [style.width]="isNeonNiwa ? '20%' : '15%'" 
+      [style.bottom]="isNeonNiwa ? '38.5%' : '42%'" 
+      [style.right]="isNeonNiwa ? '2%' : '5%'" 
+      style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      > 
+    }
+
+    @if (percentage >= 70) {
+      <img [src] = "isNeonPico? '../../../assets/Images/PicoNeon.png':'../../../assets/Images/WhitePico.png'" 
+      (click)="isNeonPico = !isNeonPico"
+      [style.width]="isNeonPico ? '12%' : '6%'" 
+      [style.bottom]="isNeonPico ? '37.5%' : '40.5%'" 
+      [style.left]="isNeonPico ? '8%' : '11%'" 
+      style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    }
+    
+    <img [src] = "isNeonFlower? '../../../assets/Images/FlowerNeon.png':'../../../assets/Images/Flower.png'" 
+    (click)="isNeonFlower = !isNeonFlower"
+    [style.width]="isNeonFlower ? '30%' : '20%'" 
+    [style.bottom]="isNeonFlower ? '-4%' : '1%'" 
+    [style.left]="isNeonFlower ? '-4%' : '1%'" 
+    style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+    >
+
+    @if (percentage >= 50) {
+      <img [src] = "isNeonSun? '../../../assets/Images/SunNeon.png':'../../../assets/Images/Sun.png'" 
+      (click)="isNeonSun = !isNeonSun"
+      [style.width]="isNeonSun ? '30%' : '20%'" 
+      [style.top]="isNeonSun ? '-4%' : '1%'" 
+      [style.left]="isNeonSun ? '-4%' : '1%'" 
+      style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    }
     
   </div>
 

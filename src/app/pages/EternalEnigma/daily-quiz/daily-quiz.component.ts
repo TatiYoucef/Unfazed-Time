@@ -187,7 +187,7 @@ export class DailyQuizComponent implements OnInit {
       this.isBeforeSolved = await this.isPreviousSolved(this.date, this.month);
 
       // Reset streak if needed
-      if (!this.isBeforeSolved && this.achievements.Streak > 0) {
+      if (!this.isBeforeSolved && this.achievements.Streak > 0 && !this.enigma.solved) {
         await lastValueFrom(this.fetchServices.setStreak(0));
         this.achievements.Streak = 0;
       }

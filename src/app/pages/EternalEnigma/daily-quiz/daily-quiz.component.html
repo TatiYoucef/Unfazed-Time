@@ -4,7 +4,9 @@
     {{ notificationMessage }}
   </div>
 
-  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; background: linear-gradient(-45deg, #03024b, blueviolet);">
+  <div class="center-div" 
+  [style.background]="isDarkMode ? 'black' : 'linear-gradient(45deg, #03024b, blueviolet)'"
+  style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; z-index: 2;">
 
     <h1>Welcome to Moon Quest !!</h1>
     <h1 style="font-size: 40px;">Month Theme: {{monthPack.Theme}}</h1>
@@ -18,9 +20,9 @@
 
     <div class="card">
       <h2 style="margin-top: 20px; text-align: center;">{{enigma.title}}</h2>
-      <h2 style="margin-right: auto;margin-top: 30px; font-size: 25px; color: #9baefb; -webkit-text-stroke: 2px #5a7afa;">Difficulty: {{enigma.difficulty}}</h2>
-      <h2 style="margin-right: auto;margin-top: 5px; font-size: 25px; color: #9baefb; -webkit-text-stroke: 2px #5a7afa;">Status: {{ !enigma.solved ? "Not yet solved":"Solved !!"}}</h2>
-      <h2 style="margin-right: auto;margin-top: 5px; font-size: 25px; color: #9baefb; -webkit-text-stroke: 2px #5a7afa;">{{ !enigma.solved ? "":"Solved at year: "+ enigma.sYear}}</h2>
+      <h2 style="margin-right: auto;margin-top: 30px; font-size: 25px; color: white; -webkit-text-stroke: 1px #5a7afa;">Difficulty: {{enigma.difficulty}}</h2>
+      <h2 style="margin-right: auto;margin-top: 5px; font-size: 25px; color: white; -webkit-text-stroke: 1px #5a7afa;">Status: {{ !enigma.solved ? "Not yet solved":"Solved !!"}}</h2>
+      <h2 style="margin-right: auto;margin-top: 5px; font-size: 25px; color: white; -webkit-text-stroke: 1px #5a7afa;">{{ !enigma.solved ? "":"Solved at year: "+ enigma.sYear}}</h2>
 
       <h3 style="font-size: 30px; margin-top: 30px; margin-bottom: -5px; margin-right: auto;">Description</h3>
 
@@ -72,10 +74,65 @@
     >
       {{h.toString().padStart(2, '0')}}:{{m.toString().padStart(2, '0')}}:{{s.toString().padStart(2, '0')}}
     </h1>
-  
-  
-    <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
-  
+    
+    <img [src] = "isNeonCina? '../../../assets/Images/WhiteCinaNeon.png':'../../../assets/Images/WhiteCina.png'" 
+    (click)="isNeonCina = !isNeonCina; toggleSwitch(isNeonCina)" 
+    [style.width]="isNeonCina ? '35%' : '30%'" 
+    [style.top]="isNeonCina ? '7.5%' : '11%'" 
+    [style.left]="isNeonCina ? '-1%' : '1.75%'" 
+    >
+
+    <img [src] = "isNeonFlower? '../../../assets/Images/FlowerNeon.png':'../../../assets/Images/Flower.png'" 
+    (click)="isNeonFlower = !isNeonFlower; toggleSwitch(isNeonFlower)"
+    [style.width]="isNeonFlower ? '30%' : '20%'" 
+    [style.bottom]="isNeonFlower ? '5%' : '11%'" 
+    [style.right]="isNeonFlower ? '-4%' : '1%'" 
+    >
+
+    @if (percentage >= 10) {
+      <img [src] = "isNeonNiwa? '../../../assets/Images/NiwaNeon.png':'../../../assets/Images/Niwa.png'" 
+      (click)="isNeonNiwa = !isNeonNiwa; ; toggleSwitch(isNeonNiwa)" 
+      [style.width]="isNeonNiwa ? '20%' : '15%'" 
+      [style.top]="isNeonNiwa ? '7.5%' : '11%'" 
+      [style.right]="isNeonNiwa ? '2.25%' : '5%'" 
+      > 
+    }
+
+    @if (percentage >= 25) {
+      <img [src] = "isNeonSun? '../../../assets/Images/SunNeon.png':'../../../assets/Images/Sun.png'" 
+      (click)="isNeonSun = !isNeonSun; toggleSwitch(isNeonSun)"
+      [style.width]="isNeonSun ? '35%' : '23%'" 
+      [style.top]="isNeonSun ? '33%' : '40%'" 
+      [style.left]="isNeonSun ? '-5%' : '1%'" 
+      >
+    }
+
+    @if (percentage >= 50) {
+      <img [src] = "isNeonPico? '../../../assets/Images/PicoNeon.png':'../../../assets/Images/WhitePico.png'" 
+      (click)="isNeonPico = !isNeonPico; ; toggleSwitch(isNeonPico)"
+      [style.width]="isNeonPico ? '12%' : '6%'" 
+      [style.bottom]="isNeonPico ? '-3.5%' : '0%'" 
+      [style.left]="isNeonPico ? '-1%' : '2%'" 
+      >
+    }
+
+    @if (percentage >= 80) {
+      <img [src]="isNeonByul ? '../../../assets/Images/ShinyByul.png':'../../../assets/Images/WhiteByul.png'" 
+      (click)="isNeonByul = !isNeonByul; ; toggleSwitch(isNeonByul)" 
+      [style.width]="isNeonByul ? '10%' : '8%'" 
+      [style.bottom]="isNeonByul ? '-1%' : '0%'" 
+      [style.left]="isNeonByul ? '15%' : '16%'" 
+      >
+    }
+
+    @if (percentage === 100) {
+      <img [src]="isNeonBG ? '../../../assets/Images/BGNeon.png':'../../../assets/Images/BG.png'" 
+      (click)="isNeonBG = !isNeonBG; ; toggleSwitch(isNeonBG)" 
+      [style.width]="isNeonBG ? '17%' : '15%'" 
+      [style.bottom]="isNeonBG ? '-1%' : '1%'" 
+      [style.right]="isNeonBG ? '20%' : '20%'" 
+      >
+    }
   
   </div>
 

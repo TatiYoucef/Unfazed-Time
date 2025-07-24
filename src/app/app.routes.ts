@@ -58,7 +58,16 @@ export const routes: Routes = [
     }
   },
 
-    {
+  {
+    path :'home/dailyQuiz/progress/Neons' , 
+    pathMatch: 'full', 
+    loadComponent: async () => {
+      const m = await import("./pages/EternalEnigma/neons/neons.component");
+      return m.NeonsComponent;
+    }
+  },
+
+  {
     path :'home/dailyQuiz/hints' , 
     pathMatch: 'full', 
     loadComponent: async () => {

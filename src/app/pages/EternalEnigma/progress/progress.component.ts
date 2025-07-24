@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { FetchModulesService } from '../../../services/fetch-modules.service';
 import { Achievements, MonthPacket, QuizDay } from '../../../models/types';
 import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
@@ -106,5 +106,26 @@ export class ProgressComponent implements OnInit {
   isNeonSun = false;
   isNeonNiwa = false;
   isNeonPico = false;
+  isDarkMode = false;
+
+  turnON = new Audio('../../../assets/Sounds/lightON.wav');
+  turnOFF = new Audio('../../../assets/Sounds/lightOFF.mp4');
+
+  toggleSwitch(isNeon: boolean){
+    if(isNeon) this.turnON.play();
+    else this.turnOFF.play();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+
+    if (event.key === ' ') {
+      this.isDarkMode = !this.isDarkMode;
+      this.toggleSwitch(this.isDarkMode);
+    }
+
+    if(event.key === ' ') event.preventDefault(); // Prevent scrolling when pressing space
+
+  }
 
 }

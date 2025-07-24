@@ -1,0 +1,96 @@
+@if (isStarted) {
+
+  <div class="center-div" 
+  style="padding: 100px 0px; justify-content: start; height: auto; animation: none;"
+  [style.background]="isDarkMode ? 'black' : 'linear-gradient(45deg, #03024b, blueviolet)'">
+  
+    <div class="card">
+      <h1>Neons are collectibles that are claimed throughout Byul's Journey. Each Shard she collected will gain the Moon enough power to generate Neons shaped by its memories that can glow thanks to the energy transmited from the Sun. the formula for given percentages is : (nbrShards / 367)*100</h1>
+      <h1 style="color: gold;">Current percentage: {{percentage.toFixed(2)}}%</h1>
+    </div>
+
+    <h1 style="font-size: 60px;">0% (free)</h1>
+
+    <img [src] = "isNeonCina? '../../../assets/Images/WhiteCinaNeon.png':'../../../assets/Images/WhiteCina.png'" 
+    (click)="isNeonCina = !isNeonCina; toggleSwitch(isNeonCina)" 
+    [style.width]="isNeonCina ? '50%' : '40%'" 
+    [style.margin-top]="isNeonCina ? '-2%':'2%'"
+    style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+    >
+
+    <img [src] = "isNeonFlower? '../../../assets/Images/FlowerNeon.png':'../../../assets/Images/Flower.png'" 
+    (click)="isNeonFlower = !isNeonFlower; toggleSwitch(isNeonCina)" 
+    [style.width]="isNeonFlower ? '40%' : '30%'" 
+    [style.margin-top]="isNeonFlower ? '-2%':'2%'"
+    style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+    >
+
+    <h1 style="font-size: 60px; margin-top: 100px;">10%</h1>
+    @if (percentage >= 10) {
+      <img [src] = "isNeonNiwa? '../../../assets/Images/NiwaNeon.png':'../../../assets/Images/Niwa.png'" 
+      (click)="isNeonNiwa = !isNeonNiwa; ; toggleSwitch(isNeonNiwa)" 
+      [style.margin-top]="isNeonNiwa ? '-3%':'2%'"
+      [style.width]="isNeonNiwa ? '32%' : '25%'" 
+      style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      > 
+    } @else {
+      <img src="../../../../assets/Images/mysterious.webp" style="border-radius: 50px; padding: 50px 0px; background-color: black;">
+    }
+
+    <h1 style="font-size: 60px; margin-top: 100px;">25%</h1>
+    @if (percentage >= 25) {
+      <img [src] = "isNeonSun? '../../../assets/Images/SunNeon.png':'../../../assets/Images/Sun.png'" 
+      (click)="isNeonSun = !isNeonSun; toggleSwitch(isNeonSun)"
+      [style.width]="isNeonSun ? '50%' : '30%'" 
+      [style.margin-top]="isNeonSun ? '-7%' : '2%'" 
+      style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    } @else {
+      <img src="../../../../assets/Images/mysterious.webp" style="border-radius: 50px; padding: 50px 0px; background-color: black;">
+    }
+
+    <h1 style="font-size: 60px; margin-top: 100px;">50%</h1>
+    @if (percentage >= 50) {
+      <img [src] = "isNeonPico? '../../../assets/Images/PicoNeon.png':'../../../assets/Images/WhitePico.png'" 
+      (click)="isNeonPico = !isNeonPico; ; toggleSwitch(isNeonPico)"
+      [style.width]="isNeonPico ? '30%' : '16%'" 
+      [style.margin-top]="isNeonPico ? '-5%' : '2%'" 
+      style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    } @else {
+      <img src="../../../../assets/Images/mysterious.webp" style="border-radius: 50px; padding: 50px 0px; background-color: black;">
+    }
+
+    <h1 style="font-size: 60px; margin-top: 100px;">80%</h1>
+    @if (percentage >= 80) {
+      <img [src]="isNeonByul ? '../../../assets/Images/ShinyByul.png':'../../../assets/Images/WhiteByul.png'" 
+      (click)="isNeonByul = !isNeonByul; ; toggleSwitch(isNeonByul)" 
+      [style.width]="isNeonByul ? '30%' : '20%'" 
+      [style.margin-top]="isNeonByul ? '-2%' : '2%'" 
+      style="animation: none; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    } @else {
+      <img src="../../../../assets/Images/mysterious.webp" style="border-radius: 50px; padding: 50px 0px; background-color: black;">
+    }
+
+    <h1 style="font-size: 60px; margin-top: 100px;">100%</h1>
+    @if (percentage === 100) {
+      <img [src]="isNeonBG ? '../../../assets/Images/BGNeon.png':'../../../assets/Images/BG.png'" 
+      (click)="isNeonBG = !isNeonBG; ; toggleSwitch(isNeonBG)" 
+      [style.width]="isNeonBG ? '38%' : '30%'" 
+      [style.margin-top]="isNeonBG ? '-5%' : '2%'" 
+      style="cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      >
+    }@else {
+      <img src="../../../../assets/Images/mysterious.webp" style="border-radius: 50px; padding: 50px 0px; background-color: black;">
+    }
+
+  </div>
+
+} @else {
+
+  <div class="center-div">
+    <app-loading-daily/>
+  </div>
+
+}

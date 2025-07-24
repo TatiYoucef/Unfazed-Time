@@ -9,9 +9,15 @@
   justify-content: center;
   align-items: center ;
 
-  background: linear-gradient(45deg, #54275a, #6d3c73, #62049c, #03024b);
+  background: linear-gradient(45deg, #000000, #050018, #03024b, #6d3c73);
   background-size: 300% 300%; /* Allows the gradient to shift smoothly */
   animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .horiz{

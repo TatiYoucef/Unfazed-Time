@@ -1,0 +1,51 @@
+.center-div{
+  position: relative;
+
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center ;
+
+  background: linear-gradient(45deg, #000000, #050018, #03024b, #6d3c73);
+  background-size: 300% 300%; /* Allows the gradient to shift smoothly */
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card{
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column; /* Flex items will be arranged vertically */
+  justify-content: flex-start; /* Align items at the top by default */
+  align-items: center;
+  gap: 40px;
+
+  padding: 40px 80px;
+  margin: 20px 0px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  background: linear-gradient(225deg, blue, black);
+  color: white;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+  width: 80%;
+
+}
+
+
+h1{
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  color: white;
+}

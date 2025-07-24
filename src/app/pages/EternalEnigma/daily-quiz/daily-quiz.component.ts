@@ -182,6 +182,8 @@ export class DailyQuizComponent implements OnInit {
       // Fetch achievements
       const achieve = await lastValueFrom(this.fetchServices.fetchAchievements());
       this.achievements = achieve;
+      this.percentage = ((this.achievements.nbrSolved / 367) * 100);
+
 
       // Check if previous day was solved
       this.isBeforeSolved = await this.isPreviousSolved(this.date, this.month);
@@ -197,7 +199,7 @@ export class DailyQuizComponent implements OnInit {
         this.isStarted = true;
         console.log("Current Streak: ", this.achievements.Streak);
         console.log("before? : ", this.isBeforeSolved);
-      }, 5000);
+      }, 20000);
 
     } catch (error) {
       console.error("Error in ngOnInit:", error);
@@ -223,4 +225,44 @@ export class DailyQuizComponent implements OnInit {
   router = inject(Router) ;
   urlLink = window;
 
+  percentage!: number;
+  isNeonCina = false;
+  isNeonFlower = false;
+  isNeonByul = false;
+  isNeonBG = false;
+  isNeonSun = false;
+  isNeonNiwa = false;
+  isNeonPico = false;
+  isDarkMode = false;
+
+  turnON = new Audio('../../../assets/Sounds/lightON.wav');
+  turnOFF = new Audio('../../../assets/Sounds/lightOFF.mp4');
+
+  toggleSwitch(isNeon: boolean){
+    if(isNeon) this.turnON.play();
+    else this.turnOFF.play();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+
+    if (event.key === ' ' && !this.isInputField(event.target)) {
+      this.isDarkMode = !this.isDarkMode;
+      this.toggleSwitch(this.isDarkMode);
+      event.preventDefault();
+    }
+
+
+  }
+
+  private isInputField(target: EventTarget | null): boolean {
+    // Check if target is an input, textarea, or contenteditable element
+    const element = target as HTMLElement;
+    return element && (
+      element.tagName === 'INPUT' ||
+      element.tagName === 'TEXTAREA' ||
+      element.isContentEditable
+    );
+  }
+  
 }

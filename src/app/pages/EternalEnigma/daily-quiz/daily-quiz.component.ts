@@ -194,12 +194,7 @@ export class DailyQuizComponent implements OnInit {
         this.achievements.Streak = 0;
       }
 
-      // Simulate loading
-      setTimeout(() => {
-        this.isStarted = true;
-        console.log("Current Streak: ", this.achievements.Streak);
-        console.log("before? : ", this.isBeforeSolved);
-      }, 20000);
+      this.isStarted = true;
 
     } catch (error) {
       console.error("Error in ngOnInit:", error);

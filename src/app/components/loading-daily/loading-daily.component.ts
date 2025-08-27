@@ -11,7 +11,7 @@ export class LoadingDailyComponent implements OnInit {
 
   listTips = [
     "don't forget to use hints if you get stuck!!!",
-    "(366?) days, (366?) shards, (366?) challenges... can you collect them all?",
+    "366 days, (366?) shards, (366?) challenges... can you collect them all?",
     "30/04...",
     "you have infinite tries, no worry for failing and trying!!!",
     "so ummm, how was your day?",
@@ -21,12 +21,12 @@ export class LoadingDailyComponent implements OnInit {
     "secrets everywhere...",
     "Database file is about 6009 lines!!!",
     "Loading might take long cause Backend server needs about a minute to fetch the daily quest",
-    "Moon quest was referenced on a true stroy",
     "Some shards might hold special memories rather than challenges...",
     "Lower and upper cases are not sensitive in your answers, also same for external spaces",
     "hope the kitten found her mom...",
     "This tip is totally useless, but I helped wasting your time waiting for the quest to load :3",
     "내  햇빛이  나를  인도하길",
+    "Around a time before the past and present, the Sun ceased to exist too...",
     "All of above, as all of below, Sun and Moon shall meet yet again",
     "if your intuition leads you to uncertainty, follow it, the answers you seek could be anywhere",
     "patience is the key",

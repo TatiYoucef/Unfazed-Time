@@ -11,31 +11,22 @@ export class FetchModulesService {
 
   http = inject(HttpClient);
 
-  getGlobalTimeParts(): void {
+  fetchDate() {
 
-    this.http.get<any>('http://worldtimeapi.org/api/timezone/Africa/Algiers')
-    .subscribe(response => {
-        const datetime = response.datetime; // Example: "2025-07-16T12:47:22.439218+00:00"
+    const url = "https://temple-of-time-vault.onrender.com/api/date";
 
-        // Extract components using native Date
-        const dateObj = new Date(datetime);
+    return this.http.get<{ date: string }>(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
 
-        const year = dateObj.getFullYear();
-        const month = dateObj.getMonth() + 1; // Months are zero-based
-        const date = dateObj.getDate();
-        const hour = dateObj.getHours();
-        const minute = dateObj.getMinutes();
-        const second = dateObj.getSeconds();
-
-        console.log(`Year: ${year}, Month: ${month}, Date: ${date}`);
-        console.log(`Hour: ${hour}, Minute: ${minute}, Second: ${second}`);
-    });
-    
   }
 
   fetchAchievements() {
 
-    const url = "http://localhost:3000/api/achievements";
+    const url = "https://temple-of-time-vault.onrender.com/api/achievements";
 
     return this.http.get<Achievements>(url).pipe( //pipe to catch any error
       catchError((err) => {
@@ -47,7 +38,7 @@ export class FetchModulesService {
   }
 
   setStreak(nbr: number){
-    const url = `http://localhost:3000/api/achievements/streak/${nbr}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/achievements/streak/${nbr}`;
 
 
     return this.http.get(url).pipe( //pipe to catch any error
@@ -59,7 +50,7 @@ export class FetchModulesService {
   }
 
   setFails(nbr: number){
-    const url = `http://localhost:3000/api/achievements/nbrFails/${nbr}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/achievements/nbrFails/${nbr}`;
 
 
     return this.http.get(url).pipe( //pipe to catch any error
@@ -71,7 +62,7 @@ export class FetchModulesService {
   }
 
   setEarlyBird(status: boolean){
-    const url = `http://localhost:3000/api/achievements/earlyBird/${status}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/achievements/earlyBird/${status}`;
 
 
     return this.http.get(url).pipe( //pipe to catch any error
@@ -83,7 +74,7 @@ export class FetchModulesService {
   }
 
   setNightOwl(status: boolean){
-    const url = `http://localhost:3000/api/achievements/nightOwl/${status}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/achievements/nightOwl/${status}`;
 
 
     return this.http.get(url).pipe( //pipe to catch any error
@@ -96,7 +87,7 @@ export class FetchModulesService {
 
   fetchAllEnigmas(){
     
-    const url = "http://localhost:3000/api/quiz";
+    const url = "https://temple-of-time-vault.onrender.com/api/quiz";
 
     return this.http.get<Array<MonthPacket>>(url).pipe( //pipe to catch any error
       catchError((err) => {
@@ -109,7 +100,7 @@ export class FetchModulesService {
 
   fetchlistMonth(month:number){
     
-    const url = `http://localhost:3000/api/quiz/${month}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/quiz/${month}`;
 
 
     return this.http.get<MonthPacket>(url).pipe( //pipe to catch any error
@@ -123,7 +114,7 @@ export class FetchModulesService {
 
   fetchdailyEnigma(month:number, day:number){
     
-    const url = `http://localhost:3000/api/quiz/${month}/${day}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/quiz/${month}/${day}`;
 
 
     return this.http.get<QuizDay>(url).pipe( //pipe to catch any error
@@ -137,7 +128,7 @@ export class FetchModulesService {
 
   solveEnigma(month:number, day:number, sYear:number){
       
-    const url = `http://localhost:3000/api/quiz/${month}/${day}/solve/${sYear}`;
+    const url = `https://temple-of-time-vault.onrender.com/api/quiz/${month}/${day}/solve/${sYear}`;
 
 
     return this.http.get(url).pipe( //pipe to catch any error

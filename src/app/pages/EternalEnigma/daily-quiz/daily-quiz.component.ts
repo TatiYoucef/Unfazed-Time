@@ -65,7 +65,7 @@ export class DailyQuizComponent implements OnInit {
   }
 
   testSubmit(){
-
+  
     switch (this.input.trim().toLowerCase()) {
 
       case this.enigma.answer.trim().toLowerCase() :
@@ -143,9 +143,9 @@ export class DailyQuizComponent implements OnInit {
   h = this.d.getHours();
   m = this.d.getMinutes();
   s = this.d.getSeconds();
-  date = this.d.getDate();
-  month = this.d.getMonth() + 1;
-  year = this.d.getFullYear();
+  date !: number;
+  month !: number;
+  year !: number;
 
   isStarted: boolean = false;
   isBeforeSolved: boolean = false;
@@ -157,16 +157,20 @@ export class DailyQuizComponent implements OnInit {
 
       this.month = Number(params.get("month")); 
       this.date = Number(params.get("day"));
-      console.log("Current Month: ", this.month);
-      console.log("Current Day: ", this.date);
-      //if no parameters are given, we assume it's the current day
-      if(!this.month || !this.date){
-        this.month = this.d.getMonth() + 1;
-        this.date = this.d.getDate();
-      }
 
     });
 
+    //if no parameters are given, we assume it's the current day
+    if(!this.month || !this.date){ // we fetch
+
+      [this.year, this.month, this.date] = await lastValueFrom(this.fetchServices.fetchDate()).then(dateResponse => {
+        const [year, month, day] = dateResponse.date.split('-').map(Number);
+        return [year, month, day];
+      });
+    }
+
+    console.log("Current Month: ", this.month);
+    console.log("Current Day: ", this.date);
 
     try {
       // Fetch month data

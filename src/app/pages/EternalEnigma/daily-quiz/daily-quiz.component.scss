@@ -326,6 +326,7 @@ $notification-height: 100px;
 
 .notification-bar {
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   font-size: 20px;

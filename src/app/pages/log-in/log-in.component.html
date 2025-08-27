@@ -95,12 +95,13 @@
           
           * Name of the project: ????<br/>
           * the Project was launched at: 12/03/2025.<br/>
+          * the Project was ended at: 24/08/2025.<br/>
           * Main objective:Make an "Enigma" that should let her enjoy and have fun 'eternally'.<br/><br/>
 
           PROGRESS:<br/>
           * étude de préalable: DONE !<br/>
           * Conception: 730/730: DONE !<br/><br/>
-          * Last Phase: Bonuses : 90% <br/><br/>
+          * Last Phase: Bonuses : 100% <br/><br/>
           BONUS STATUS :3 :<br/>
           * number of lines of a mysterious file: 6009 <br/>
           * number of hours sacrificed for this project till now : 180h <br/><br/>
@@ -111,11 +112,8 @@
 
       <button (click)="goToWaitRoom()">main Room</button>
 
-      <button 
-      (mouseover)="behaveWeird()" 
-      (mouseleave)="didHover = false; weirdText='??????'"
-      (click)="weirdClicked()">
-        {{weirdText}} 
+      <button class="special-button">
+        <img src="../../../assets/Images/Moon.png" style="position: static; width: 200px; animation: none;">
       </button>
 
       <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
@@ -125,7 +123,7 @@
     
   </div>
   
-} @loading (minimum 5s) {
+} @loading (minimum 2s) {
   <div class="center-div">
     <app-loading-screen />
   </div>

@@ -45,6 +45,8 @@ export class DailyQuizComponent implements OnInit {
   isSuccess: boolean = false;
 
   async isPreviousSolved(day: number, month: number): Promise<boolean> {
+    if(day === 14 && month === 14) return true;
+
     if (day != 1) {
       const previousDay = this.monthPack.days[day - 2];
       return previousDay.solved;
@@ -88,7 +90,8 @@ export class DailyQuizComponent implements OnInit {
             });
 
             if(this.h >=22) this.fetchServices.setNightOwl(true).subscribe(() => {});
-            if(this.h >= 3 &&  this.h < 6) this.fetchServices.setEarlyBird(true).subscribe(() => {});             
+            if(this.h >= 3 &&  this.h < 6) this.fetchServices.setEarlyBird(true).subscribe(() => {});
+            if(this.month === 14 && this.date === 14) this.fetchServices.setSecretDay(true).subscribe(() => {});
           });
 
         } else {
@@ -178,7 +181,8 @@ export class DailyQuizComponent implements OnInit {
       this.monthPack = liste;
       this.enigma = this.monthPack.days[this.date - 1];
 
-      if(!this.enigma.solved && (this.month != this.d.getMonth() + 1 || this.date != this.d.getDate()) ){ 
+      if(this.month === 14 && this.date === 14){} 
+      else if(!this.enigma.solved && (this.month != this.d.getMonth() + 1 || this.date != this.d.getDate()) ){ 
         alert("You can't visit an Enigma that wasn't solved yet, nice try tho :3");
         this.router.navigate(['/home/dailyQuiz']);
       }

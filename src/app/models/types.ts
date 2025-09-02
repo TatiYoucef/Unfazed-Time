@@ -5,6 +5,7 @@ export type Achievements = {
   nbrFailures: number;
   BrokenStreak: boolean;
   EarlyBird: boolean;
+  lostFragment: boolean;
   NightOwl: boolean;
 };
 

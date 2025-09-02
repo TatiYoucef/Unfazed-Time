@@ -61,7 +61,7 @@
 
       <div class="card" style=" background: linear-gradient(225deg, blue, black);">
         <h1>Diamond Heart</h1>
-        <h2>Many failed attempts, but those tries never shook the heart of reader</h2>
+        <h2>Many failed attempts, but those tries never shook the heart of choosen one</h2>
       </div>
 
     } @else {
@@ -71,11 +71,20 @@
       </div>
     }
 
-    <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 0px 50px; gap: 0; height: 325px; ">
-      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
-      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
-      <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
-    </div>
+    @if (achievements.lostFragment ) {
+      <div class="card" style=" background: linear-gradient(225deg, blue, black);">
+        <h1>lost in time, but not in heart</h1>
+        <h2>the 14/14 shard gave up to call for help, and yet Byul didn't give up to reach her hand rescuing it</h2>
+      </div>
+
+    } @else {
+
+      <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 0px 50px; gap: 0; height: 325px; ">
+        <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+        <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+        <h1 style="font-size: 100px; color: white; margin: 0;">????</h1>
+      </div>
+    }
 
     <div class="card" style="background-color: black; color: white; font-size: 50px; padding: 0px 50px; gap: 0; height: 325px;">
       <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
@@ -86,7 +95,6 @@
       <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
       <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
       <h1 style="font-size: 100px; color: white; margin: 0; rotate: 45deg;">??????????????</h1>
-
     </div>
 
   </div>

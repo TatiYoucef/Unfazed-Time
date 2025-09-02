@@ -85,6 +85,18 @@ export class FetchModulesService {
     );
   }
 
+  setSecretDay(status: boolean){
+    const url = `https://temple-of-time-vault.onrender.com/api/achievements/lostFragment/${status}`;
+
+
+    return this.http.get(url).pipe( //pipe to catch any error
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    );
+  }
+
   fetchAllEnigmas(){
     
     const url = "https://temple-of-time-vault.onrender.com/api/quiz";

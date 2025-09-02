@@ -180,8 +180,9 @@ export class DailyQuizComponent implements OnInit {
       let liste = await lastValueFrom(this.fetchServices.fetchlistMonth(this.month));
       this.monthPack = liste;
       this.enigma = this.monthPack.days[this.date - 1];
-
-      if(this.month === 14 && this.date === 14){} 
+      if(this.month === 14 && this.date === 14){
+        this.enigma = this.monthPack.days[0];
+      } 
       else if(!this.enigma.solved && (this.month != this.d.getMonth() + 1 || this.date != this.d.getDate()) ){ 
         alert("You can't visit an Enigma that wasn't solved yet, nice try tho :3");
         this.router.navigate(['/home/dailyQuiz']);

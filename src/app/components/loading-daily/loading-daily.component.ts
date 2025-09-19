@@ -17,7 +17,7 @@ export class LoadingDailyComponent implements OnInit {
     "the moon quest was actually an idea came from you",
     "which would come first, you finishing moon quest, or me propo-",
     "Sun just woke up, where she will glowing on moon again today",
-    "secrets everywhere...",
+    "if I was in Enkanomiya, you would be my Dainichi Mikoshi",
     "Loading might take long cause Backend server needs about a minute to fetch the daily quest",
     "Some shards might hold special memories rather than challenges...",
     "Lower and upper cases are not sensitive in your answers, also same for external spaces",

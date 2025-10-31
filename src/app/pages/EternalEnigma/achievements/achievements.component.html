@@ -1,6 +1,22 @@
 @if(isStarted){
 
-  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; background: linear-gradient(-45deg, #03024b, blueviolet);">
+  <div class="center-div" style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px;">
+    
+    <div class="sky">
+      <!-- Regular stars -->
+      <div *ngFor="let star of stars"
+        class="star"
+        [style.top.%]="star.y"
+        [style.left.%]="star.x"
+        [style.width.px]="star.size"
+        [style.height.px]="star.size"
+        [style.background]="star.color"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration"
+        [ngClass]="'layer-' + star.layer">
+      </div>
+    </div>
+
     @if (achievements.EarlyBird) {
       <div class="card">
         <h1>Early Bird</h1>

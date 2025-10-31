@@ -44,4 +44,17 @@ export class HintsComponent {
 
   }
 
+  colors = ['#ffffff', '#a0c4ff', '#bdb2ff', '#ffd6a5', '#ffc6ff'];
+  totalStars = 120;
+
+  stars = Array.from({ length: this.totalStars }, () => ({
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 2 + 1,                // random pixel size
+    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+    delay: Math.random() * 5,                   // flicker delay
+    duration: Math.random() * 3 + 2,            // flicker speed
+    layer: Math.floor(Math.random() * 3) + 1    // 1, 2, or 3 depth
+  }));
+
 }

@@ -8,6 +8,22 @@
   [style.background]="isDarkMode ? 'black' : 'linear-gradient(45deg, #03024b, blueviolet)'"
   style="height: auto; justify-content: start; gap: 20px;padding: 20px 0px; z-index: 2;">
 
+    <div class="sky">
+      <!-- Regular stars -->
+      <div *ngFor="let star of stars"
+        class="star"
+        [style.top.%]="star.y"
+        [style.left.%]="star.x"
+        [style.width.px]="star.size"
+        [style.height.px]="star.size"
+        [style.background]="star.color"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration"
+        [ngClass]="'layer-' + star.layer">
+      </div>
+    </div>
+
+
     <h1>Welcome to Moon Quest !!</h1>
     <h1 style="font-size: 40px;">Month Theme: {{monthPack.Theme}}</h1>
     <h1 style="font-size: 30px; color: rgb(218, 0, 218);

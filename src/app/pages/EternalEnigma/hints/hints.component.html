@@ -15,6 +15,12 @@
         [style.animation-duration.s]="star.duration"
         [ngClass]="'layer-' + star.layer">
       </div>
+      
+      <!-- Shooting stars -->
+      <div *ngFor="let shootingStar of shootingStars"
+        class="shooting-star"
+        [attr.data-shooting-star-id]="shootingStar.id">
+      </div>
     </div>
 
     <ng-container *ngFor="let hint of hints; let i = index">

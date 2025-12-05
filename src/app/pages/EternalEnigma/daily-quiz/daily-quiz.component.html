@@ -115,8 +115,7 @@
     }
 
     @if (percentage >= 25) {
-      <img [src] = "isNeonSun? '../../../assets/Images/SunNeon.png':'../../../assets/Images/sun.png'" 
-      (click)="isNeonSun = !isNeonSun; toggleSwitch(isNeonSun)"
+      <img src = "../../../assets/Images/SunNeon.png" 
       [style.width]="isNeonSun ? '35%' : '23%'" 
       [style.top]="isNeonSun ? '33%' : '40%'" 
       [style.left]="isNeonSun ? '-5%' : '1%'" 

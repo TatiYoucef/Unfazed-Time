@@ -235,7 +235,7 @@ export class DailyQuizComponent implements OnInit {
   isNeonFlower = false;
   isNeonByul = false;
   isNeonBG = false;
-  isNeonSun = false;
+  isNeonSun = true;
   isNeonNiwa = false;
   isNeonPico = false;
   isDarkMode = false;

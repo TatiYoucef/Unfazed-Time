@@ -141,12 +141,12 @@
     >
 
     @if (percentage >= 25) {
-      <img [src] = "isNeonSun? '../../../assets/Images/SunNeon.png':'../../../assets/Images/sun.png'" 
-      (click)="isNeonSun = !isNeonSun; toggleSwitch(isNeonSun)"
-      [style.width]="isNeonSun ? '30%' : '20%'" 
-      [style.top]="isNeonSun ? '-4%' : '1%'" 
-      [style.left]="isNeonSun ? '-4%' : '1%'" 
-      style="animation: none; z-index: 1; cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;"
+      <img src = "../../../assets/Images/SunNeon.png" 
+      style="animation: none; z-index: 1; 
+      cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
+      width: 30%;
+      top: -4%;
+      left: -4%;"
       >
     }
     

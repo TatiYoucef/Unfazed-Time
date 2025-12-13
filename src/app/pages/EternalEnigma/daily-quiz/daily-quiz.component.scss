@@ -28,6 +28,26 @@ h1{
   -webkit-text-stroke: 3px white; /* Border width and color */
 }
 
+.main-title {
+  font-size: 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.theme-title {
+  font-size: 40px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.quiz-title {
+  font-size: 30px;
+  color: rgb(218, 0, 218);
+  -webkit-text-stroke: 2px white;
+  text-align: center;
+  padding: 0 20px;
+}
+
 .small-message{
 
   font-size: 60px;
@@ -77,6 +97,57 @@ h3{
   
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
 
+}
+
+.special-message {
+  h3 {
+    text-align: center;
+  }
+}
+
+.main-card {
+  .card-title {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .card-info {
+    margin-right: auto;
+    margin-top: 5px;
+    font-size: 25px;
+    color: white;
+    -webkit-text-stroke: 1px #5a7afa;
+
+    &:first-of-type {
+      margin-top: 30px;
+    }
+  }
+
+  .description-title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: -5px;
+    margin-right: auto;
+  }
+
+  .description-text {
+    margin-right: auto;
+  }
+
+  .no-hints-text {
+    font-size: 20px;
+    color: rgb(108, 108, 108);
+  }
+
+  .created-at-text {
+    margin-left: auto;
+    font-size: 15px;
+    color: rgb(189, 189, 189);
+  }
+}
+
+.centered-text {
+  text-align: center;
 }
 
 .personal-button{
@@ -132,10 +203,130 @@ h3{
   animation: float 5s infinite linear ;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timer {
+  font-size: 50px;
+  color: rgb(218, 0, 218);
+  -webkit-text-stroke: 2px white;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
 img{
   position: absolute;
   cursor: url('../../../../assets/Images/mouse/pointer.png'), pointer;
   z-index: 1;
+}
+
+.decorative-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  img {
+    pointer-events: auto;
+  }
+}
+
+.deco-cina {
+  width: 30%;
+  top: 11%;
+  left: 1.75%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 35%;
+    top: 7.5%;
+    left: -1%;
+  }
+}
+
+.deco-flower {
+  width: 20%;
+  bottom: 11%;
+  right: 1%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 30%;
+    bottom: 5%;
+    right: -4%;
+  }
+}
+
+.deco-niwa {
+  width: 15%;
+  top: 11%;
+  right: 5%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 20%;
+    top: 7.5%;
+    right: 2.25%;
+  }
+}
+
+.deco-sun {
+  width: 23%;
+  top: 40%;
+  left: 1%;
+  pointer-events: none !important;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 35%;
+    top: 33%;
+    left: -5%;
+  }
+}
+
+.deco-pico {
+  width: 6%;
+  bottom: 0%;
+  left: 2%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 12%;
+    bottom: -3.5%;
+    left: -1%;
+  }
+}
+
+.deco-byul {
+  width: 8%;
+  bottom: 0%;
+  left: 16%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 10%;
+    bottom: -1%;
+    left: 15%;
+  }
+}
+
+.deco-bg {
+  width: 15%;
+  bottom: 1%;
+  right: 20%;
+  transition: all 0.3s ease;
+
+  &.neon {
+    width: 17%;
+    bottom: -1%;
+    right: 20%;
+  }
 }
 
 
@@ -395,4 +586,569 @@ $notification-height: 100px;
   from { transform: translate(0, 0); }
   to { transform: translate(-2px, -4px); }
 }
+
+/*===================== RESPONSIVE MEDIA QUERIES =====================*/
+
+/* Tablets and smaller desktops (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 70%;
+    padding: 20px 30px;
+  }
+
+  .main-title {
+    font-size: 50px;
+  }
+
+  .theme-title {
+    font-size: 35px;
+  }
+
+  .quiz-title {
+    font-size: 26px;
+  }
+
+  .timer {
+    font-size: 40px;
+    margin: 20px auto;
+  }
+
+  // Adjust decorative images for tablets
+  .deco-cina {
+    width: 25%;
+    top: 8%;
+    left: 1%;
+    &.neon {
+      width: 30%;
+      top: 5%;
+      left: -1%;
+    }
+  }
+
+  .deco-flower {
+    width: 18%;
+    bottom: 8%;
+    right: 1%;
+    &.neon {
+      width: 25%;
+      bottom: 4%;
+      right: -2%;
+    }
+  }
+
+  .deco-niwa {
+    width: 12%;
+    top: 8%;
+    right: 3%;
+    &.neon {
+      width: 16%;
+      top: 5%;
+      right: 1%;
+    }
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .center-div {
+    padding: 15px 0px;
+    gap: 15px;
+  }
+
+  .card {
+    width: 85%;
+    padding: 15px 20px;
+    margin: 15px 0px;
+  }
+
+  .main-title {
+    font-size: 36px;
+    -webkit-text-stroke: 2px white;
+  }
+
+  .theme-title {
+    font-size: 28px;
+    -webkit-text-stroke: 2px white;
+  }
+
+  .quiz-title {
+    font-size: 22px;
+    -webkit-text-stroke: 1.5px white;
+  }
+
+  h2 {
+    font-size: 28px;
+    -webkit-text-stroke: 1.5px #e97ff7;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .main-card {
+    .card-info {
+      font-size: 20px;
+      -webkit-text-stroke: 0.5px #5a7afa;
+    }
+
+    .description-title {
+      font-size: 24px;
+    }
+
+    .description-text {
+      font-size: 18px;
+    }
+
+    .no-hints-text {
+      font-size: 18px;
+    }
+
+    .created-at-text {
+      font-size: 13px;
+    }
+  }
+
+  .personal-button {
+    padding: 10px 40px;
+    font-size: 0.9em;
+
+    &:hover {
+      font-size: 1.2em;
+    }
+  }
+
+  .main-button {
+    padding: 10px 35px;
+    font-size: 24px;
+    -webkit-text-stroke: 1.5px rgb(218, 0, 218);
+
+    &:hover {
+      font-size: 28px;
+      -webkit-text-stroke: 3px white;
+    }
+  }
+
+  .button-group {
+    gap: 15px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .timer {
+    font-size: 32px;
+    margin: 15px auto;
+    -webkit-text-stroke: 1.5px white;
+  }
+
+  // Form container adjustments
+  .c-formContainer,
+  .c-form,
+  .c-form__toggle {
+    width: 12em;
+    height: 45px;
+  }
+
+  .c-checkbox:checked + .c-formContainer .c-form {
+    width: 28em;
+  }
+
+  .c-form__toggle::before {
+    font-size: 1em;
+  }
+
+  .c-form__input,
+  .c-form__buttonLabel {
+    font-size: 0.9em;
+  }
+
+  .c-form__button {
+    width: 4.5em;
+  }
+
+  // Notification bar adjustments
+  .notification-bar {
+    font-size: 18px;
+    height: 80px;
+    line-height: 80px;
+  }
+
+  // Hide or minimize decorative images on mobile
+  .decorative-images img {
+    opacity: 0.6;
+  }
+
+  .deco-cina {
+    width: 20%;
+    top: 5%;
+    left: 0%;
+    &.neon {
+      width: 25%;
+      top: 3%;
+      left: -2%;
+    }
+  }
+
+  .deco-flower {
+    width: 15%;
+    bottom: 5%;
+    right: 0%;
+    &.neon {
+      width: 20%;
+      bottom: 2%;
+      right: -3%;
+    }
+  }
+
+  .deco-niwa {
+    width: 10%;
+    top: 5%;
+    right: 2%;
+    &.neon {
+      width: 13%;
+      top: 3%;
+      right: 0%;
+    }
+  }
+
+  .deco-sun {
+    width: 18%;
+    top: 35%;
+    left: 0%;
+    &.neon {
+      width: 25%;
+      top: 30%;
+      left: -3%;
+    }
+  }
+
+  .deco-pico {
+    width: 8%;
+    bottom: 2%;
+    left: 1%;
+    &.neon {
+      width: 12%;
+      bottom: 0%;
+      left: -1%;
+    }
+  }
+
+  .deco-byul {
+    width: 10%;
+    bottom: 2%;
+    left: 12%;
+    &.neon {
+      width: 13%;
+      bottom: 0%;
+      left: 10%;
+    }
+  }
+
+  .deco-bg {
+    width: 12%;
+    bottom: 2%;
+    right: 15%;
+    &.neon {
+      width: 15%;
+      bottom: 0%;
+      right: 15%;
+    }
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .center-div {
+    padding: 10px 0px;
+    gap: 10px;
+  }
+
+  .card {
+    width: 92%;
+    padding: 12px 15px;
+    margin: 10px 0px;
+    border-radius: 15px;
+  }
+
+  .main-title {
+    font-size: 28px;
+    -webkit-text-stroke: 1.5px white;
+    padding: 0 10px;
+  }
+
+  .theme-title {
+    font-size: 22px;
+    -webkit-text-stroke: 1.5px white;
+    padding: 0 10px;
+  }
+
+  .quiz-title {
+    font-size: 18px;
+    -webkit-text-stroke: 1px white;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 22px;
+    -webkit-text-stroke: 1px #e97ff7;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .main-card {
+    .card-title {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+
+    .card-info {
+      font-size: 16px;
+      -webkit-text-stroke: 0.5px #5a7afa;
+      margin-top: 3px !important;
+
+      &:first-of-type {
+        margin-top: 15px !important;
+      }
+    }
+
+    .description-title {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .description-text {
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .no-hints-text {
+      font-size: 16px;
+    }
+
+    .created-at-text {
+      font-size: 12px;
+    }
+  }
+
+  .personal-button {
+    padding: 8px 30px;
+    font-size: 0.85em;
+    margin: 20px 0px;
+
+    &:hover {
+      font-size: 1em;
+    }
+  }
+
+  .main-button {
+    padding: 8px 25px;
+    font-size: 20px;
+    -webkit-text-stroke: 1px rgb(218, 0, 218);
+
+    &:hover {
+      font-size: 22px;
+      -webkit-text-stroke: 2px white;
+    }
+  }
+
+  .button-group {
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    
+    .main-button {
+      width: 80%;
+    }
+  }
+
+  .timer {
+    font-size: 26px;
+    margin: 10px auto;
+    -webkit-text-stroke: 1px white;
+  }
+
+  // Form adjustments for very small screens
+  .c-formContainer,
+  .c-form,
+  .c-form__toggle {
+    width: 10em;
+    height: 40px;
+  }
+
+  .c-checkbox:checked + .c-formContainer .c-form {
+    width: 90vw;
+    max-width: 22em;
+  }
+
+  .c-form__toggle::before {
+    font-size: 0.9em;
+  }
+
+  .c-form__input,
+  .c-form__buttonLabel {
+    font-size: 0.8em;
+  }
+
+  .c-form__button {
+    width: 4em;
+    font-size: 0.9em;
+  }
+
+  // Notification bar for small screens
+  .notification-bar {
+    font-size: 16px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 10px;
+  }
+
+  // Further minimize decorative images on small screens
+  .decorative-images img {
+    opacity: 0.4;
+  }
+
+  .deco-cina {
+    width: 22%;
+    top: 3%;
+    left: -2%;
+    &.neon {
+      width: 28%;
+      top: 1%;
+      left: -4%;
+    }
+  }
+
+  .deco-flower {
+    width: 18%;
+    bottom: 3%;
+    right: -2%;
+    &.neon {
+      width: 24%;
+      bottom: 1%;
+      right: -5%;
+    }
+  }
+
+  .deco-niwa {
+    width: 12%;
+    top: 3%;
+    right: 0%;
+    &.neon {
+      width: 16%;
+      top: 1%;
+      right: -2%;
+    }
+  }
+
+  .deco-sun {
+    width: 20%;
+    top: 30%;
+    left: -2%;
+    &.neon {
+      width: 28%;
+      top: 25%;
+      left: -5%;
+    }
+  }
+
+  .deco-pico {
+    width: 10%;
+    bottom: 1%;
+    left: 0%;
+    &.neon {
+      width: 15%;
+      bottom: -1%;
+      left: -2%;
+    }
+  }
+
+  .deco-byul {
+    width: 12%;
+    bottom: 1%;
+    left: 10%;
+    &.neon {
+      width: 16%;
+      bottom: -1%;
+      left: 8%;
+    }
+  }
+
+  .deco-bg {
+    width: 14%;
+    bottom: 1%;
+    right: 12%;
+    &.neon {
+      width: 18%;
+      bottom: -1%;
+      right: 10%;
+    }
+  }
+}
+
+/* Extra small devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .main-title {
+    font-size: 24px;
+  }
+
+  .theme-title {
+    font-size: 20px;
+  }
+
+  .quiz-title {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 95%;
+    padding: 10px 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .main-card {
+    .card-title {
+      font-size: 20px;
+    }
+
+    .card-info {
+      font-size: 14px;
+    }
+
+    .description-title {
+      font-size: 18px;
+    }
+
+    .description-text {
+      font-size: 14px;
+    }
+  }
+
+  .timer {
+    font-size: 22px;
+  }
+
+  .personal-button {
+    padding: 6px 20px;
+    font-size: 0.8em;
+  }
+
+  .main-button {
+    padding: 6px 20px;
+    font-size: 18px;
+  }
+
+  // Hide decorative images on extra small screens to improve performance
+  .decorative-images img {
+    opacity: 0.3;
+  }
+}
+
 

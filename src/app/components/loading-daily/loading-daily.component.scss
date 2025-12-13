@@ -37,10 +37,38 @@
 .animated-text span:nth-child(3) { animation-delay: 0.4s; }
 .animated-text span:nth-child(4) { animation-delay: 0.6s; }
 .animated-text span:nth-child(5) { animation-delay: 0.8s; }
+
+h1 {
+  font-size: 40px;
+  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: center;
+  padding: 0 20px;
+}
 /*---------------------------------------------------------------*/
+
+.moon-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  max-width: 90vw;
+  max-height: 50vh;
+}
 
 .resizing-div1 {
   position: absolute;
+  width: 42.86%; /* 300px / 700px */
+  left: 22.86%; /* 160px / 700px */
   top: 1%;
   padding: 0;
   animation: jump 12s infinite alternate ease-in-out;
@@ -48,7 +76,9 @@
 
 .resizing-div2 {
   position: absolute;
-  top: -25px;
+  width: 35.71%; /* 250px / 700px */
+  left: 40.71%; /* 285px / 700px */
+  top: -5%;
   padding: 0;
   animation: jump 10s infinite alternate ease-in-out;
   animation-delay: 2s;
@@ -56,6 +86,8 @@
 
 .resizing-div3 {
   position: absolute;
+  width: 28.57%; /* 200px / 700px */
+  left: 34.29%; /* 240px / 700px */
   top: 0;
   padding: 0;
   animation: jump 8s infinite alternate ease-in-out;
@@ -63,22 +95,18 @@
 
 .resizing-div4 {
   position: absolute;
-  top: 10%;
+  width: 31.43%; /* 220px / 700px */
+  left: 36%; /* 270px / 700px */
+  top: 15%;
   padding: 0;
   animation: jump 16s infinite alternate ease-in-out;
 }
 
 .resizing-div5 {
   position: absolute;
-  top: 27%;
-  padding: 0;
-  animation: jump 8s infinite alternate ease-in-out;
-  animation-delay: 1s;
-}
-
-.resizing-div5 {
-  position: absolute;
-  top: 25%;
+  width: 35.71%; /* 250px / 700px */
+  left: 24.29%; /* 170px / 700px */
+  top: 50%;
   padding: 0;
   animation: jump 14s infinite alternate ease-in-out;
   animation-delay: 4s;
@@ -86,7 +114,9 @@
 
 .resizing-div6 {
   position: absolute;
-  top: 20%;
+  width: 35.71%; /* 250px / 700px */
+  left: 40%; /* 280px / 700px */
+  top: 40%;
   padding: 0;
   animation: jump 9s infinite alternate ease-in-out;
 }
@@ -100,7 +130,7 @@
   padding: 0 5px;
   display: flex;
   height: 30px;
-  width: 700px;
+  width: min(700px, 90vw);
   margin-bottom: 50px;
   text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white;
 
@@ -138,7 +168,7 @@ h2{
   color: white;
   font-weight:bolder;
   text-align: center;
-  width: 700px;
+  width: min(700px, 90vw);
   text-shadow: 0 0 5px #fff,0 0 10px #fff, 0 0 20px white,0 0 30px white,0 0 40px white;
 
   animation: fadeIn 14s infinite;
@@ -158,4 +188,118 @@ h2{
     transform: translateY(0);
   }
 
+}
+/*===================== RESPONSIVE MEDIA QUERIES FOR LOADING SCREEN =====================*/
+
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .animated-text {
+    font-size: 32px;
+    -webkit-text-stroke: 1.5px white;
+    margin-top: 45vh;
+  }
+
+  .moon-container {
+    width: 500px;
+    height: 380px;
+  }
+
+  .resizing-div1,
+  .resizing-div2,
+  .resizing-div3,
+  .resizing-div4,
+  .resizing-div5,
+  .resizing-div6 {
+    opacity: 1;
+  }
+
+  h1 {
+    font-size: 32px;
+    padding: 0 15px;
+  }
+
+  h2 {
+    font-size: 18px;
+    padding: 0 15px;
+  }
+
+  .progress {
+    height: 25px;
+    width: min(500px, 85vw);
+    margin-bottom: 40px;
+  }
+
+  .progress-value {
+    height: 15px;
+  }
+}
+
+/* Mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .animated-text {
+    font-size: 26px;
+    -webkit-text-stroke: 1px white;
+    margin-top: 40vh;
+    text-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 15px white, 0 0 20px white;
+  }
+
+  .moon-container {
+    width: 350px;
+    height: 280px;
+  }
+
+  .resizing-div1,
+  .resizing-div2,
+  .resizing-div3,
+  .resizing-div4,
+  .resizing-div5,
+  .resizing-div6 {
+    opacity: 1;
+  }
+
+  h1 {
+    font-size: 24px;
+    padding: 0 10px;
+    text-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 15px white, 0 0 20px white;
+  }
+
+  h2 {
+    font-size: 16px;
+    padding: 0 10px;
+    margin-top: -15px;
+    text-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 15px white, 0 0 20px white;
+  }
+
+  .progress {
+    height: 22px;
+    width: min(350px, 85vw);
+    margin-bottom: 30px;
+    padding: 0 3px;
+  }
+
+  .progress-value { height: 14px; }
+}
+
+/* Extra small devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .animated-text {
+    font-size: 22px;
+    margin-top: 35vh;
+  }
+
+  .moon-container {
+    width: 280px;
+    height: 220px;
+  }
+
+  h1 { font-size: 20px; }
+  h2 { font-size: 14px; }
+
+  .progress {
+    height: 20px;
+    width: 90vw;
+    margin-bottom: 25px;
+  }
+
+  .progress-value { height: 12px; }
 }

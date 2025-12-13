@@ -10,31 +10,31 @@ import { Component, OnInit } from '@angular/core';
 export class LoadingDailyComponent implements OnInit {
 
   listTips = [
-    "don't forget to use hints if you get stuck!!!",
+    "Finally, responsivity has been added on phone",
     "366 days, (366?) shards, (366?) challenges... can you collect them all?",
     "30/04...",
     "you have infinite tries, no worry for failing and trying!!!",
-    "the moon quest was actually an idea came from you",
+    "TADC episode 7 is still haunting me...",
     "which would come first, you finishing moon quest, or me propo-",
-    "Sun just woke up, where she will glowing on moon again today",
-    "if I was in Enkanomiya, you would be my Dainichi Mikoshi",
-    "Loading might take long cause Backend server needs about a minute to fetch the daily quest",
-    "Some shards might hold special memories rather than challenges...",
+    "is it new year already ?",
+    "let's sit on that bench again, I may need it every day...",
+    "How many stars are there I wonder...",
+    "In real story, Byul's real riddles are challenges to how to reach these scatered shards",
     "Lower and upper cases are not sensitive in your answers, also same for external spaces",
-    "hope the kitten found her mom...",
-    "Just daydreamed how I can see that smile again...",
-    ".. / .... . .- .-. -.. / - .... . / -- --- --- -. / .... .. -.. . -.. / .- / ...- .- ..- .-.. - / ... --- -- .-- .... . .-. . / .. -. / - .... .. ... / --. .-.. --- -... . .-.-.- .-.-.- .-.-.-",
+    "I may have expressed way so much on 19/12...",
+    "The walk of 1927 should be our side-joke",
+    "wasn't there a weird crypted mail somewhere?",
     "태양이 그렇게 진실하고 순수하게 웃는 것을 보니 더 행복할 수가 없습니다.",
     "Around a time before the past and present, the Sun ceased to exist too...",
     "All of above, so all of below, Sun and Moon shall meet yet again",
     "wait, if the year has 366 days = 366 shards, whare's the last one...",
-    "if you have patience, I hope you will witness all my expresions implemented in this agenda",
-    "Byul felt lonely, so she made a neon Cina as company",
-    "feeling tired of everything ? Open a balcony, gaze the night sky, breath, the hardships are not worth to feel broken",
-    "I wonder if you already got bored, this was my anxiety when you try these small riddles",
+    "Gooseworkx I swear if I find you I WILL TEAR YOU TO PIE-",
+    "Neons are pure and innocent in nature, they are magneted to positivity just like how they love Byul",
+    "Omg, my unique VIP guest just came in, EVERYONE STAY CALM",
+    "I will abstract with you, yes, that's my answer",
     "Background random icon images in achievements page might hint you the content",
     "Collect Neons, they will make your progress page look more and more appealing!!",
-    "you might have lost your time travel powers in this journey, but it was maybe replaced by something else..."
+    "a sneaky fragment might have lost in timespace, maybe Byul can found out where he got hidden ?"
   ]
 
   currentTip: string = '';

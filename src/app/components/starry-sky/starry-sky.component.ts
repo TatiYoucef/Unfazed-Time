@@ -11,6 +11,15 @@ export interface Star {
   layer: number;
 }
 
+export interface Asteroid {
+  x: number;       // % from moon center
+  y: number;       // % from moon center
+  size: number;    // px
+  rotation: number;
+  borderRadius: string;
+  delay: number;
+}
+
 @Component({
   selector: 'app-starry-sky',
   standalone: true,
@@ -22,9 +31,11 @@ export class StarrySkyComponent implements OnInit {
   @Input() totalStars = 120;
   @Input() colors: string[] = ['#ffffff', '#a0c4ff', '#bdb2ff', '#ffd6a5', '#ffc6ff'];
   @Input() showMilkyWay = true;
+  @Input() showMoon = true;
 
   stars: Star[] = [];
   clusterStars: Star[] = [];
+  asteroids: Asteroid[] = [];
 
   ngOnInit(): void {
     this.stars = Array.from({ length: this.totalStars }, () => ({
@@ -39,6 +50,10 @@ export class StarrySkyComponent implements OnInit {
 
     if (this.showMilkyWay) {
       this.clusterStars = this.generateMilkyWayStars();
+    }
+
+    if (this.showMoon) {
+      this.asteroids = this.generateAsteroids();
     }
   }
 
@@ -83,5 +98,31 @@ export class StarrySkyComponent implements OnInit {
     }
 
     return result;
+  }
+
+  /** Generate irregular asteroid shapes scattered around the moon region. */
+  private generateAsteroids(): Asteroid[] {
+    const configs = [
+      { x: -90,  y: -50,  size: 12 },
+      { x: 110,  y: -80,  size: 8  },
+      { x: -70,  y: 90,   size: 6  },
+      { x: 130,  y: 40,   size: 10 },
+      { x: -110, y: 20,   size: 5  },
+      { x: 80,   y: 110,  size: 7  },
+      { x: -50,  y: -100, size: 4  },
+      { x: 150,  y: -30,  size: 9  },
+    ];
+
+    return configs.map(c => {
+      const r = () => Math.floor(Math.random() * 30 + 30);
+      return {
+        x: c.x + (Math.random() - 0.5) * 20,
+        y: c.y + (Math.random() - 0.5) * 20,
+        size: c.size,
+        rotation: Math.random() * 360,
+        borderRadius: `${r()}% ${r()}% ${r()}% ${r()}% / ${r()}% ${r()}% ${r()}% ${r()}%`,
+        delay: Math.random() * 8,
+      };
+    });
   }
 }

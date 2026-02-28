@@ -33,4 +33,33 @@
     [ngClass]="'layer-' + star.layer">
   </div>
 
+  <!-- ===== Moon with craters, maria & terminator ===== -->
+  <div class="moon-system" *ngIf="showMoon">
+
+    <!-- Outer atmospheric glow -->
+    <div class="moon-halo"></div>
+
+    <!-- Main moon sphere -->
+    <div class="moon">
+      <!-- Surface detail: maria (dark seas) + craters -->
+      <div class="moon-maria"></div>
+      <div class="moon-craters"></div>
+      <div class="moon-craters-secondary"></div>
+      <!-- Terminator shadow (day/night boundary) -->
+      <div class="moon-terminator"></div>
+      <!-- Limb darkening on the lit edge -->
+      <div class="moon-limb"></div>
+    </div>
+
+    <!-- Asteroids orbiting nearby -->
+    <div *ngFor="let ast of asteroids"
+      class="asteroid"
+      [style.transform]="'translate(' + ast.x + 'px, ' + ast.y + 'px) rotate(' + ast.rotation + 'deg)'"
+      [style.width.px]="ast.size"
+      [style.height.px]="ast.size"
+      [style.border-radius]="ast.borderRadius"
+      [style.animation-delay.s]="ast.delay">
+    </div>
+  </div>
+
 </div>

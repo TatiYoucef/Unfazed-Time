@@ -87,3 +87,116 @@ img{
   position: absolute;
 }
 
+/*===================== RESPONSIVE MEDIA QUERIES =====================*/
+
+/* Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 70%;
+    padding: 40px 30px;
+    gap: 35px;
+  }
+
+  h1 {
+    font-size: 34px;
+    -webkit-text-stroke: 2px #e97ff7;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .center-div {
+    gap: 15px;
+  }
+
+  .card {
+    width: 85%;
+    padding: 30px 20px;
+    gap: 25px;
+    margin: 15px 0px;
+    border-radius: 15px;
+  }
+
+  h1 {
+    font-size: 26px;
+    -webkit-text-stroke: 2px #e97ff7;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .personal-button {
+    padding: 10px 40px;
+    font-size: 0.9em;
+
+    &:hover {
+      font-size: 1.2em;
+    }
+  }
+
+  // Scale down mystery card text & images
+  .card img {
+    max-width: 40%;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .center-div {
+    gap: 10px;
+  }
+
+  .card {
+    width: 92%;
+    padding: 20px 15px;
+    gap: 15px;
+    margin: 10px 0px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+    -webkit-text-stroke: 1.5px #e97ff7;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  .personal-button {
+    padding: 8px 30px;
+    font-size: 0.85em;
+
+    &:hover {
+      font-size: 1em;
+    }
+  }
+
+  .card img {
+    max-width: 30%;
+  }
+}
+
+/* Extra small (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .card {
+    width: 95%;
+    padding: 15px 10px;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+    -webkit-text-stroke: 1px #e97ff7;
+  }
+
+  h2 {
+    font-size: 13px;
+  }
+}
+

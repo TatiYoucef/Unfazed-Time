@@ -96,3 +96,105 @@
     filter: blur(2px);
   }
 }
+
+
+/*===================== RESPONSIVE MEDIA QUERIES =====================*/
+
+/* Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .hints-container {
+    padding: 40px 6%;
+  }
+
+  .hint-button {
+    margin: 0 6%;
+    font-size: 18px;
+  }
+
+  .hint-text {
+    font-size: 18px;
+    padding: 18px;
+    gap: 24px;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .hints-container {
+    padding: 30px 4%;
+  }
+
+  .hint-button {
+    margin: 0 3%;
+    font-size: 16px;
+    padding: 10px 8px;
+  }
+
+  .hint-text {
+    font-size: 16px;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .shooting-star {
+    &::before {
+      width: 100px;
+      height: 2px;
+    }
+
+    &::after {
+      width: 70px;
+    }
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .hints-container {
+    padding: 25px 3%;
+    gap: 8px;
+  }
+
+  .hint-button {
+    margin: 0 2%;
+    font-size: 14px;
+    padding: 8px 6px;
+  }
+
+  .hint-text {
+    font-size: 14px;
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .shooting-star {
+    &::before {
+      width: 70px;
+      height: 2px;
+    }
+
+    &::after {
+      width: 50px;
+    }
+  }
+}
+
+/* Extra small (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .hints-container {
+    padding: 20px 2%;
+    gap: 6px;
+  }
+
+  .hint-button {
+    margin: 0 1%;
+    font-size: 13px;
+    padding: 7px 5px;
+  }
+
+  .hint-text {
+    font-size: 13px;
+    padding: 12px;
+    gap: 12px;
+  }
+}

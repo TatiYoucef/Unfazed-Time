@@ -48,3 +48,85 @@ h1{
   margin: 0;
   color: white;
 }
+
+img {
+  position: static;
+  max-width: 100%;
+}
+
+/*===================== RESPONSIVE MEDIA QUERIES =====================*/
+
+/* Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 88%;
+    padding: 30px 50px;
+    gap: 30px;
+  }
+
+  img {
+    max-width: 60% !important;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .center-div {
+    padding: 60px 0px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 25px 25px;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+
+  h1 {
+    font-size: 17px;
+  }
+
+  img {
+    max-width: 70% !important;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .center-div {
+    padding: 40px 0px;
+  }
+
+  .card {
+    width: 92%;
+    padding: 20px 15px;
+    gap: 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  img {
+    max-width: 80% !important;
+  }
+}
+
+/* Extra small (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .card {
+    width: 95%;
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 12px;
+  }
+
+  img {
+    max-width: 90% !important;
+  }
+}

@@ -4,11 +4,12 @@ import { Achievements, MonthPacket, QuizDay } from '../../../models/types';
 import { LoadingDailyComponent } from "../../../components/loading-daily/loading-daily.component";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { StarrySkyComponent } from '../../../components/starry-sky/starry-sky.component';
 
 @Component({
   selector: 'app-progress',
   standalone: true,
-  imports: [LoadingDailyComponent, CommonModule],
+  imports: [LoadingDailyComponent, CommonModule, StarrySkyComponent],
   templateUrl: './progress.component.html',
   styleUrl: './progress.component.scss'
 })
@@ -127,18 +128,5 @@ export class ProgressComponent implements OnInit {
     if(event.key === ' ') event.preventDefault(); // Prevent scrolling when pressing space
 
   }
-
-  colors = ['#ffffff', '#a0c4ff', '#bdb2ff', '#ffd6a5', '#ffc6ff'];
-  totalStars = 120;
-
-  stars = Array.from({ length: this.totalStars }, () => ({
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,                // random pixel size
-    color: this.colors[Math.floor(Math.random() * this.colors.length)],
-    delay: Math.random() * 5,                   // flicker delay
-    duration: Math.random() * 3 + 2,            // flicker speed
-    layer: Math.floor(Math.random() * 3) + 1    // 1, 2, or 3 depth
-  }));
 
 }

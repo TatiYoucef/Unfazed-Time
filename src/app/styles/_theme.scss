@@ -1,0 +1,126 @@
+// ========================
+// COLOR PALETTE
+// ========================
+$color-primary: #4cb4f0;
+$color-accent: #ea50d3;
+$color-accent-dark: rgb(218, 0, 218);
+$color-white: #ffffff;
+$color-black: #000000;
+$color-sky-blue: #77cdf2;
+$color-sky-gradient-1: #0082cd;
+$color-sky-gradient-2: #b0daec;
+$color-sky-gradient-3: #d1ebf6;
+$color-sky-gradient-4: #f6d4e3;
+$color-dark-purple: #160143;
+$color-card-bg: rgba(255, 255, 255, 1);
+$color-card-shadow: rgba(0, 0, 0, 0.3);
+$color-text-stroke: $color-white;
+
+// ========================
+// TYPOGRAPHY
+// ========================
+$font-family-base: 'Quicksand', sans-serif;
+$font-size-title: 40px;
+$font-size-title-lg: 60px;
+$font-size-title-xl: 80px;
+$font-size-subtitle: 25px;
+$font-size-body: 20px;
+$font-size-button: 30px;
+
+// ========================
+// SPACING
+// ========================
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-lg: 40px;
+$spacing-xl: 50px;
+
+// ========================
+// BORDER RADIUS
+// ========================
+$radius-sm: 12px;
+$radius-md: 20px;
+$radius-circle: 50%;
+$radius-pill: 100%;
+
+// ========================
+// BREAKPOINTS
+// ========================
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// ========================
+// MIXINS
+// ========================
+@mixin flex-center($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-stroke($width: 3px, $color: $color-text-stroke) {
+  font-weight: bolder;
+  -webkit-text-stroke: $width $color;
+}
+
+@mixin button-base {
+  padding: $spacing-sm $spacing-xl;
+  border-radius: $radius-sm;
+  border: none;
+  font-family: $font-family-base;
+  cursor: url('/assets/Images/mouse/pointer.png'), pointer;
+  transition: background-color 0.5s, color 0.5s, font-size 0.6s, -webkit-text-stroke 0.6s;
+}
+
+@mixin gradient-move($duration: 3s) {
+  background-size: 300% 300%;
+  animation: gradientMove $duration ease-in-out infinite;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// ========================
+// SHARED KEYFRAMES
+// ========================
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+  75% { transform: translateY(-10px); }
+}
+
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes effect {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(30deg); }
+  75% { transform: rotate(-30deg); }
+}

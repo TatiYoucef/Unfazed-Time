@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [LoadingScreenComponent],
   templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.css'
+  styleUrl: './log-in.component.scss'
 })
 export class LogInComponent implements OnInit{
 

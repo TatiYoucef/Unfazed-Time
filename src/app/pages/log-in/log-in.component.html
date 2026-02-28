@@ -1,11 +1,11 @@
 
-@defer { <!--Defer is when component needs to load so we show something while loading-->
+@defer {
 
-  <div class="center-div" style="background: #77cdf2; height: auto; justify-content: start; gap: 50px;padding: 20px 0px;">
+  <div class="page-container">
 
-    @if (isLoggedIn){
+    @if (isLoggedIn) {
 
-      <h1 style="font-size: 80px; -webkit-text-stroke: 6px white; margin-bottom: -50px;">
+      <h1 class="title-animated">
         <span>W</span>
         <span>a</span>
         <span>i</span>
@@ -22,77 +22,74 @@
 
       @if (!isClose) {
 
-        <h1 style="font-size: 70px; -webkit-text-stroke: 5px white;"> 
-          <span style="animation: none;" [style.color]="j === 14 ? '#ea50d3':'#4cb4f0'">{{j}}J</span>&nbsp;
-          <span style="animation: none;" [style.color]="h === 14 ? '#ea50d3':'#4cb4f0'">{{h}}H</span>&nbsp;
-          <span style="animation: none;" [style.color]="m === 14 ? '#ea50d3':'#4cb4f0'">{{m}}M</span>&nbsp;
-          <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
+        <h1 class="countdown">
+          <span [class.highlight]="j === 14">{{j}}J</span>&nbsp;
+          <span [class.highlight]="h === 14">{{h}}H</span>&nbsp;
+          <span [class.highlight]="m === 14">{{m}}M</span>&nbsp;
+          <span [class.highlight]="s === 14">{{s}}S</span>&nbsp;
         </h1>
 
-        <h1 style="margin-right: auto; margin-left: 50px;">Some osts to pass time:</h1>
+        <h1 class="section-title">Some osts to pass time:</h1>
 
-        <div class="horiz">
-  
+        <div class="ost-grid">
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle1" class="toggle-input" [checked]="!listMusics[0].paused" (click)="toggleOst(0)">
             <label for="toggle1" class="toggle-label"></label>
           </div>
-  
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle2" class="toggle-input" [checked]="!listMusics[1].paused" (click)="toggleOst(1)">
             <label for="toggle2" class="toggle-label"></label>
           </div>
-  
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle3" class="toggle-input" [checked]="!listMusics[2].paused" (click)="toggleOst(2)">
             <label for="toggle3" class="toggle-label"></label>
           </div>
-  
-        </div>
-  
-        <div class="horiz">
-  
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle4" class="toggle-input" [checked]="!listMusics[3].paused" (click)="toggleOst(3)">
             <label for="toggle4" class="toggle-label"></label>
           </div>
-  
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle5" class="toggle-input" [checked]="!listMusics[4].paused" (click)="toggleOst(4)">
             <label for="toggle5" class="toggle-label"></label>
           </div>
-  
+
           <div class="toggle-container">
             <input type="checkbox" id="toggle6" class="toggle-input" [checked]="!listMusics[5].paused" (click)="toggleOst(5)">
             <label for="toggle6" class="toggle-label"></label>
           </div>
-  
+
         </div>
-      
-        <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
 
-      }@else {
+        <img class="mascot" [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
 
-        <h1 class="animated-text">
-          <span style="animation: none;" [style.color]="j === 14 ? '#ea50d3':'#4cb4f0'">{{j}}J</span>&nbsp;
-          <span style="animation: none;" [style.color]="h === 14 ? '#ea50d3':'#4cb4f0'">{{h}}H</span>&nbsp;
-          <span style="animation: none;" [style.color]="m === 14 ? '#ea50d3':'#4cb4f0'">{{m}}M</span>&nbsp;
-          <span style="animation: none;" [style.color]="s === 14 ? '#ea50d3':'#4cb4f0'">{{s}}S</span>&nbsp;
+      } @else {
+
+        <h1 class="countdown-animated">
+          <span [class.highlight]="j === 14">{{j}}J</span>&nbsp;
+          <span [class.highlight]="h === 14">{{h}}H</span>&nbsp;
+          <span [class.highlight]="m === 14">{{m}}M</span>&nbsp;
+          <span [class.highlight]="s === 14">{{s}}S</span>&nbsp;
         </h1>
 
-        <h1 class="small-message">{{text}}</h1>
+        <h1 class="closing-message">{{text}}</h1>
 
-        <div style="height: 200px"></div>
+        <div class="spacer"></div>
 
       }
 
-    }@else {
-      <h1>Welcome to Cinammon's House !</h1>
+    } @else {
 
-      <div class="card">
+      <h1 class="welcome-title">Welcome to Cinammon's House !</h1>
+
+      <div class="info-card">
         <h2>Info of unknow machine</h2>
         <h3>
-          
+
           * Name of the project: ????<br/>
           * the Project was launched at: 12/03/2025.<br/>
           * the Project was ended at: 24/08/2025.<br/>
@@ -105,26 +102,24 @@
           BONUS STATUS :3 :<br/>
           * number of lines of a mysterious file: 6009 <br/>
           * number of hours developping: 210h <br/><br/>
-                    
-        </h3>
 
+        </h3>
       </div>
 
-      <button (click)="goToWaitRoom()">main Room</button>
+      <button class="primary-button" (click)="goToWaitRoom()">main Room</button>
 
-      <button class="special-button" (click)="router.navigate(['home/dailyQuiz'])">
-        <img src="../../../assets/Images/Moon.png" style="position: static; width: 200px; animation: none;">
+      <button class="moon-button" (click)="router.navigate(['home/dailyQuiz'])">
+        <img src="../../../assets/Images/Moon.png" alt="Moon">
       </button>
 
-      <img [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
+      <img class="mascot" [src]="url" (mouseover)="url='../../../assets/Images/CinaHovered.png'" (mouseleave)="url='../../../assets/Images/Cina.png'">
 
     }
-    
-    
+
   </div>
-  
+
 } @loading (minimum 2s) {
-  <div class="center-div">
+  <div class="loading-container">
     <app-loading-screen />
   </div>
 }

@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
+import { StarrySkyComponent } from '../../components/starry-sky/starry-sky.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [LoadingScreenComponent],
+  imports: [LoadingScreenComponent, StarrySkyComponent],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss'
 })

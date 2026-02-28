@@ -11,8 +11,7 @@
   justify-content: start;
   gap: t.$spacing-xl;
   padding: t.$spacing-md 0;
-  background: t.$color-sky-blue;
-  @include t.gradient-move(3s);
+  background: transparent;
 }
 
 .loading-container {
@@ -206,9 +205,14 @@ span:nth-child(12) { animation-delay: 2.2s; }
   justify-content: flex-start;
   padding: t.$spacing-lg;
   border-radius: t.$radius-md;
-  background-color: t.$color-card-bg;
+  background: rgba(16, 6, 40, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(180, 160, 240, 0.15);
   width: 50%;
-  box-shadow: 0 4px 8px t.$color-card-shadow;
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(100, 80, 160, 0.06);
 
   h2 {
     font-size: t.$font-size-subtitle;
@@ -246,18 +250,23 @@ span:nth-child(12) { animation-delay: 2.2s; }
 // ========================
 .primary-button {
   @include t.button-base;
-  background-color: t.$color-white;
-  box-shadow: 0 4px 8px t.$color-card-shadow;
+  background: rgba(16, 6, 40, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(180, 160, 240, 0.2);
+  box-shadow: 0 0 20px rgba(76, 180, 240, 0.15);
   font-size: t.$font-size-button;
   color: t.$color-white;
   @include t.text-stroke(2px, t.$color-accent-dark);
 
   &:hover {
-    background-color: t.$color-accent-dark;
+    background: rgba(218, 0, 218, 0.3);
+    border-color: rgba(234, 80, 211, 0.4);
     font-size: t.$font-size-title;
     color: t.$color-accent-dark;
     -webkit-text-stroke: 4px t.$color-white;
     animation: float 5s infinite linear;
+    box-shadow: 0 0 30px rgba(234, 80, 211, 0.25);
   }
 
   @include t.respond-to(md) {
